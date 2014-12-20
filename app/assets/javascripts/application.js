@@ -12,5 +12,34 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery
+//= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+
+  function sendFile(file, editor,welEditable) {
+    data = new FormData();
+    data.append("article_image[image]", file);
+    $.ajax({
+      url: '/admin/article_images',
+      data: data,
+      cache: false,
+      contentType: false,
+      processData: false,
+      type: 'POST',
+      success: function(data){
+        editor.insertImage(welEditable, data.url);
+      }
+    });
+  }
+
+  $('#summernote').summernote({
+    height: 300, /*高さを指定*/
+    lang: 'ja-JP', /*日本語対応*/
+
+    onImageUpload: function(files, editor, welEditable) {
+        sendFile(files[0], editor,welEditable);
+    }
+  });
+});

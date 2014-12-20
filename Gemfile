@@ -6,23 +6,30 @@ gem 'rails', '4.1.1'
 gem 'mysql2'
 
 # Uploader
-gem 'carrierwave'              # 画像アップローダ
+#gem 'carrierwave'              # 画像アップローダ
+gem "paperclip"
 gem 'mini_magick'              # CarrierWaveでリサイズなどができるようになる
 
-gem "twitter-bootstrap-rails", "~> 2.2.8"
-gem 'bootstrap-sass', '2.3.2.0'
-gem "font-awesome-rails"
 gem 'jquery-rails'
-gem 'summernote-rails'
 
-group :assets do
-  gem 'sass-rails', '~> 4.0.0'
-  # Use Uglifier as compressor for JavaScript assets
-  gem 'uglifier', '>= 1.3.0'
-  # Use CoffeeScript for .js.coffee assets and views
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'haml-rails'
-end
+gem 'therubyracer'
+gem 'sass-rails', '~> 4.0.0'
+
+# 管理画面
+gem "devise"
+gem "bcrypt"
+
+# Bootstrap
+gem 'bootstrap-sass'#, '3.2.0.2'
+gem 'font-awesome-sass'
+
+# gem 'autoprefixer-rails'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+# gem 'haml-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+$screen-lg: 9999px;
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "summernote";
+
+body{
+  padding-top: 65px;
+  font-family: 'PT Sans Caption',"Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+//ナビゲーションバーのカスタマイズ
+.navbar-default{
+  background-color: #FFF;
+  border-color: #FFF;
+  .navbar-nav{
+    li{
+      border-right: 1px silver solid;
+      a{
+        color: #000;
+      }
+    }
+  }
+}
+
+.navbar-brand{
+  padding: 10px 15px;
+}
+.navbar-brand-sub{
+  font-size: 10pt;
+}
+
+.sidebar-item{
+  padding-top: 10px;
+}
+
+.catch-copy{
+  h1{
+    font-size: 24px;
+  }
+}
+
+
+// 記事
+.article{
+  font-size: 15px;
+
+  h1{
+    font-size: 210%;
+    font-weight: bold;
+    font-weight: bold;
+
+    display: block;
+    float: left;
+    clear: both;
+
+    width: 100%;
+    margin-top: 4px;
+    padding-bottom: 15px;
+  }
+  h2{
+    font-size: 150%;
+    font-weight: bold;
+
+    margin-top: 30px;
+    padding-left: 6px;
+
+    color: #000;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-left-color: #000;
+  }
+}

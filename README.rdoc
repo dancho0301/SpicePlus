@@ -1,28 +1,41 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 機能
 
-Things you may want to cover:
+## トップページ
 
-* Ruby version
+### メニュー
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- トップページへ
+- Spice+とは？
+- メンバー紹介
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## 記事の内容
+- タイトル
+- 本文
+  - 団体概要
+    - 団体名
+    - どんな団体のどんな活動に参加したのか？
+  - 体験活動の流れ
+    - 体験の描写（実況）
+    - 発見（イメージとのギャップ、やりがい、ぶっちゃけ感想）
+  - おすすめのポイント
+    - リスト型２〜４つくらい
+  - 活動レビュー
+    - 体験を通じて感じた当該団体の活動意義、感想。
+    - 一人一つ
+- Action
+  - 活動への参加方法
+  - 団体概要
+  - どうやったら参加できるか？
+
+
+## 欲しい機能
+
+- ブログ型、活動報告
+- レポート型、パッケージ紹介
+- イベント参加者募集
+- イベント、
+
+

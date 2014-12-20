@@ -1,0 +1,12 @@
+<div class="row article">
+  <div class="col-md-12">
+    <h1>記事を編集する</h1>
+    <%= render 'form' %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= link_to 'Show', [:admin, @article], :class => "btn btn-default" %>
+        <%= link_to 'Back', admin_articles_path, :class => "btn btn-default"  %>
+      </div>
+    </div>
+  </div>
+</div>

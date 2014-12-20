@@ -1,0 +1,13 @@
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  devise :database_authenticatable, 
+         :registerable,
+         :recoverable, 
+         :rememberable, 
+         :trackable, 
+         :validatable
+        # :confirmable, 
+        # :lockable, 
+        # :timeoutable,
+        # :omniauthable   # Twitter連携などやるときには必須（今は外しておこう）
+end

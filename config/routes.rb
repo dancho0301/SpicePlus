@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'main/index'
+
+  root "main#index"
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +61,12 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  get :admin, to: "admin#index"
+  namespace :admin do 
+    resources :articles
+    resources :article_images
+    resources :groups
+  end
+
 end
