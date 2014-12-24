@@ -13,7 +13,7 @@
  */
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-$screen-lg: 9999px;
+//$screen-lg: 9999px;
 
 
 @import "bootstrap-sprockets";
@@ -25,6 +25,11 @@ $screen-lg: 9999px;
 body{
   padding-top: 65px;
   font-family: 'PT Sans Caption',"Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+  a{
+    color: #6E6E6E;
+  }
+
 }
 
 //ナビゲーションバーのカスタマイズ
@@ -62,19 +67,29 @@ body{
 // 記事
 .article{
   font-size: 15px;
+  line-height: 170%;
 
   h1{
-    font-size: 210%;
+    font-size: 27px;
     font-weight: bold;
-    font-weight: bold;
-
     display: block;
     float: left;
     clear: both;
 
     width: 100%;
     margin-top: 4px;
-    padding-bottom: 15px;
+
+    .infomation{
+      margin-bottom: 12px;
+      font-size: 12px;
+      .date{
+        font-weight: normal;
+        font-family: 'PT Sans Caption', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      }
+      .label{
+        font-size: 11px;
+      }
+    }
   }
   h2{
     font-size: 150%;
@@ -87,5 +102,147 @@ body{
     border-left-width: 5px;
     border-left-style: solid;
     border-left-color: #000;
+  }
+
+  // 画像の回り込み
+  img{
+    float: right;
+    margin: 5px;
+  }
+  img.img-not-float{
+    float: none;
+  }
+
+  // 特殊なパーツ
+  table{
+    &.schedule{
+      td.time{
+        background-color: #ffac68;
+      }
+    }
+  }
+
+  // 冒頭の紹介
+  .discription{
+    background-image: url("/images/notebook.png");
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  // おすすめポイント
+  .suggestion{
+    margin-top: 30px;
+    padding: 10px 5px 5px;
+    //border: 1px dotted #656565;
+    border-width: 1px;
+    border-style: solid;
+
+    h2{
+      padding-top: 5px;
+      margin-top: 0px;
+      border-left: none;
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+
+  table.schedule{
+    th{
+
+    }
+  }
+
+  .tour{
+    .suggestion{
+      background-image: url("/images/bg_orange.gif");
+      border-color: rgb(251, 180, 70);
+    }
+    table.schedule{
+      th{
+        background-image: url("/images/bg_orange.gif");
+      }
+    }
+  }
+  .report{
+    .suggestion{
+      background-image: url("/images/bg_red.gif");
+      border-color: rgb(251, 180, 70);
+    }
+    table.schedule{
+      th{
+        background-image: url("/images/bg_red.gif");
+      }
+    }
+  }
+  .event{
+    .suggestion{
+      background-image: url("/images/bg_green.gif");
+      border-color: rgb(251, 180, 70);
+    }
+    table.schedule{
+      th{
+        background-image: url("/images/bg_green.gif");
+      }
+    }
+  }
+
+}
+
+// トップページのサムネイル一覧
+div.thumb-list{
+  padding-bottom: 10px;
+  .image{
+    width: 100%;
+    .tags{
+      z-index: 100;
+      position: relative;
+      width: 98%;
+      margin-top: -30px;
+      text-align: right;
+    }
+    .new_icon{
+      background-image: url('/images/new.png');
+      background-repeat: no-repeat;
+      z-index: 100;
+      position: relative;
+      left: 0px;
+      width: 55px;
+      height: 55px;
+      margin-bottom: -55px;
+    }
+  }
+
+  .caption{
+    padding-top: 10px;
+    .area{
+      font-size: 12px;
+    }
+    h4{
+      font-size: 13px;
+      font-weight: bold;
+    }
+  }
+}
+
+/* ラベルのカスタマイズ */
+.label-tour{
+  background-color: #f28c1e;
+  font-size: 11pt;
+}
+.label-report{
+  background-color: #c35252;
+  font-size: 90%;
+}
+.label-event{
+  background-color: #11b769;
+  font-size: 90%;
+}
+
+
+.sidebar{
+  h1{
+    font-size: 100%;
+    font-weight: bold;
   }
 }

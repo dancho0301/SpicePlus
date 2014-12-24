@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="article">
+      <h1>
+        <div class="infomation">
+          <span class="label label-<%= @article.genre.css_class %>"><%= @article.genre.name %></span>
+          <span class="date"><%= @article.created_at.strftime('%Y.%m.%d') %></span>
+          <span class="glyphicon glyphicon-map-marker"></span>
+          <%= @article.area.name %>
+          </th>
+        </div>
+        <%= @article.title %>
+      </h1>
+      <%= image_tag @article.photo(:top), :class => 'img-responsive img-not-float' %>
+      <div class="discription">
+        <%= @article.discription %>
+      </div>
+      <div class="<%= @article.genre.css_class %>">
+        <%= raw @article.article %>
+      </div>
+    </div>
+  </div>
+
+  <%# サイドバー＠落ち着いたらパーシャルに移す %>
+  <div class="hidden-xs col-md-3 sidebar">
+    <div class="row">
+      <div class="col-md-12">
+          <h1>最新の記事</h1>
+      </div>
+      <% @all_articles.each do |article| %>
+        <div class="col-md-12">
+          <div class="title">
+            <%= article.title %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div> <!-- .row -->

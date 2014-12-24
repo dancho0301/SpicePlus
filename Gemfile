@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem 'rails', '4.1.1'
 
 gem 'mysql2'
+gem 'active_hash'
 
 # Uploader
 #gem 'carrierwave'              # 画像アップローダ
@@ -39,6 +40,7 @@ end
 group :development do
   gem 'erb2haml'
   gem 'annotate', '2.5.0'
+  gem 'rails-erd'
 end
 
 group :development, :test do
