@@ -1,0 +1,36 @@
+article_images:
+  -
+    id: 7
+    title: "びーのびーの 記事内画像１"
+    discription: ""
+    image: "bino2.png"
+
+  -
+    id: 8
+    title: "びーのびーの 記事内画像２"
+    discription: ""
+    image: "bino3.png"
+
+  -
+    id: 1
+    title: "竹ファン１"
+    discription: ""
+    image: "take1.jpg"
+
+  -
+    id: 2
+    title: "竹ファン２"
+    discription: ""
+    image: "take2.jpg"
+
+  -
+    id: 3
+    title: "教育支援協会１"
+    discription: ""
+    image: "kyoiku1.jpg"
+
+  -
+    id: 4
+    title: "教育支援協会２"
+    discription: ""
+    image: "kyoiku2.jpg"

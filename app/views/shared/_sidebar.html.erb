@@ -1,0 +1,90 @@
+<%# 検索条件 %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="sns_buttons">
+      <!-- facebook-->
+      <div class="sns_button">
+        <div class="fb-like" data-href="<%= request.url %>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+      </div>
+      <!-- twitter -->
+      <div class="sns_button">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja" data-dnt="true">ツイート</a>
+      </div>
+      <!-- +1 ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+      <div class="sns_button">
+        <div class="g-plusone" data-size="medium"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-12">
+    <div class="search">
+    <%= search_form_for @search do |f| %>
+      <div class="form-group">
+        <%= f.label :title_cont, 'キーワード' %>
+        <%= f.text_field :title_cont, :class => "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :area_id_eq, '地域' %>
+        <%= f.select :area_id_eq, options_from_collection_for_select(@used_areas, "id", "name", @search.area_id_eq), {:include_blank => true}, :class => "form-control" %><br>
+
+      </div>
+      <div class="form-group">
+        <%= f.submit '検索する', :class => "btn btn-primary"  %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>最新の記事</h1>
+  </div>
+  <% @all_articles.each do |article| %>
+  <div class="col-md-12 thumb-list">
+    <div class="image">
+      <% if article.created_at >= Date.today-30 %>
+      <div class="new_icon"></div>
+      <% end %>
+      <%= link_to image_tag(article.photo(:thumb), :class => "img-responsive"), article %>
+    </div>
+    <div class="caption">
+      <div>
+        <span class="label label-<%= article.genre.css_class %>"><%= article.genre.name %></span>
+        <span class="area"><%= article.area.name %></span>
+        <span class="pepper">
+          <% article.spiciness.times do |n| %>
+          <%= image_tag 'pepper.png' %>
+          <% end %>
+        </span>
+      </div>
+      <h4><%= article.title %></h4>
+      <%#             <div class="tags">
+      <span class="label label-default">子ども</span>
+      <span class="label label-default">わくわく</span>
+    </div>
+    %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<!-- facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_KS/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- google -->
+<!-- head 内か、body 終了タグの直前に次のタグを貼り付けてください。 -->
+<script src="https://apis.google.com/js/platform.js" async defer>
+{lang: 'ja'}
+</script>

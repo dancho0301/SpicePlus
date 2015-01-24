@@ -1,38 +1,61 @@
 <!-- トップ画像 -->
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12">
-    <img src="http://placeimg.com/970/480/any" alt="ダミー" class="img-responsive">
+  <div class="hidden-xs col-md-12">
+    <%= image_tag "top.png", :class => "img-responsive" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="col-md-12">
     <div class="catch-copy">
       <h1>あなたの人生のちょっとしたスパイスになる、そんな情報を発信していくサイトです</h1>
     </div>
   </div>
 </div>
-
 <!-- コンテンツ -->
 <div class="row ">
   <div class="col-md-9">
     <!-- 記事一覧 -->
-    <div class="row">
-      <% 5.times do %>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <div class="thumbnail">
-          <img src="http://placeimg.com/360/240/any" alt="">
-          <div class="caption">
-            <span class="label label-default">子ども</span>
-            <span class="label label-default">わくわく</span>
-            <h4>タイトル</h4>
-            <p>本文</p>
+      <% row_count = 0 %>
+      <% @articles.each_with_index do |article, index| %>
+        <% if row_count % 2 == 0 %>
+          <div class="row">
+        <% end %>
+        <% row_count = row_count + 1 %>
+          <div class="col-xs-12 col-sm-6 col-md-6 thumb-list">
+            <div class="image">
+              <% if article.created_at >= Date.today-30 %>
+                <div class="new_icon"></div>
+              <% end %>
+              <%= link_to image_tag(article.photo, :class => "img-responsive"), article %>
+            </div>
+            <div class="caption">
+              <div>
+                <span class="label label-<%= article.genre.css_class %>"><%= article.genre.name %></span>
+                <span class="area"><%= article.area.name %></span>
+                <span class="pepper">
+                <% article.spiciness.times do |n| %>
+                  <%= image_tag 'pepper.png' %>
+                <% end %>
+                </span>
+              </div>
+              <h4><%= article.title %></h4>
+<%#               <div class="tags">
+                <span class="label label-default">子ども</span>
+                <span class="label label-default">わくわく</span>
+              </div> %>
+            </div>
           </div>
+        <% if row_count == 2 %>
+          </div>
+        <% end %>
+      <% end %>
+      <% if row_count == 1 %>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
+
   <!-- サイドバー -->
   <div class="hidden-xs hidden-sm col-md-3">
     <div id="twitter" class="sidebar-item">

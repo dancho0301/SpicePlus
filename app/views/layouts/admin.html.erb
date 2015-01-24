@@ -31,14 +31,15 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-          <% if user_signed_in? %> 
+          <% if user_signed_in? %>
             <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
             <!-- *_path はUserモデルを作成したときに、
               deviseにより自動で作成されてますので、rake routesで確認できます -->
             <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             <li><%= link_to "記事一覧", admin_articles_path  %></li>
-          <% else %>
+            <li><%= link_to "画像一覧", admin_article_images_path  %></li>
+            <% else %>
             <li><%= link_to "サインイン", new_user_registration_path %></li>
             <li><%= link_to "ログイン", new_user_session_path %></li>
           <% end %>

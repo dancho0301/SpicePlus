@@ -1,0 +1,13 @@
+genres:
+  -
+    id: 1
+    name: '体験ツアー'
+    css_class: 'tour'
+  -
+    id: 2
+    name: 'レポート'
+    css_class: 'report'
+  -
+    id: 3
+    name: 'イベント'
+    css_class: 'event'

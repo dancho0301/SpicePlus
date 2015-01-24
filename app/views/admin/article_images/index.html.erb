@@ -1,0 +1,42 @@
+<% if notice.present? %>
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= notice %>
+</div>
+<% end %>
+<div class="row">
+  <div class="col-md-12">
+    <h1>画像一覧</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th>説明</th>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @article_images.each do |article_image| %>
+        <tr>
+          <td><%= article_image.title %></td>
+          <td><%= article_image.discription %></td>
+          <td><%= image_tag article_image.image.url("medium") %></td>
+          <td>
+            <%= link_to '編集', edit_admin_article_image_path(article_image), :class => "btn btn-primary" %>
+            <%= link_to '削除', [:admin, article_image], method: :delete, data: { confirm: '本当に削除してもいいですか？' }, :class => "btn btn-danger" %></td>
+          </tr>
+          <tr>
+            <td><%= article_image.image.url("medium") %></td>
+          </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to '新規投稿', new_admin_article_image_path, :class => "btn btn-primary" %>
+    </div>
+  </div>

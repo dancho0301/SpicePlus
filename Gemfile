@@ -1,9 +1,10 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'rails', '4.1.1'
 
+gem 'rails', '4.1.1'
 gem 'mysql2'
+gem 'active_hash'
 
 # Uploader
 #gem 'carrierwave'              # 画像アップローダ
@@ -14,6 +15,10 @@ gem 'jquery-rails'
 
 gem 'therubyracer'
 gem 'sass-rails', '~> 4.0.0'
+
+# 検索機能
+gem 'rails-i18n' # ransackには関係ないけどdate_select用
+gem 'ransack'
 
 # 管理画面
 gem "devise"
@@ -29,7 +34,7 @@ gem 'font-awesome-sass'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-# gem 'haml-rails'
+#gem 'haml-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -39,6 +44,7 @@ end
 group :development do
   gem 'erb2haml'
   gem 'annotate', '2.5.0'
+  gem 'rails-erd'
 end
 
 group :development, :test do

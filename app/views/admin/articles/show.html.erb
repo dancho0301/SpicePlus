@@ -3,6 +3,7 @@
     <p id="notice"><%= notice %></p>
     <div class="article">
       <h1><%= @article.title %></h1>
+      <%= image_tag @article.photo, :class => 'img-responsive' %>
       <div>
       <%= raw @article.article %>
       </div>

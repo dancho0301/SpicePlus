@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'static_pages/about'
+
+  get 'static_pages/recruitment'
+
   devise_for :users
-  get 'main/index'
 
   root "main#index"
 
+  get 'articles', :to => 'articles#index'
+  get 'articles(/:id)', :to => 'articles#show', :as => 'article'
 
 
 
@@ -63,7 +68,7 @@ Rails.application.routes.draw do
   #   end
 
   get :admin, to: "admin#index"
-  namespace :admin do 
+  namespace :admin do
     resources :articles
     resources :article_images
     resources :groups
