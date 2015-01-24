@@ -5,7 +5,7 @@ class Admin::ArticlesController < ApplicationController
 
   before_action :set_genre, only: [:new, :edit]
   before_action :set_area, only: [:new, :edit]
-
+  before_action :set_spiciness, only: [:new, :edit]
 
   def index
     @articles = Article.all
@@ -27,6 +27,7 @@ class Admin::ArticlesController < ApplicationController
       render :new
     end
   end
+
   def update
     if @article.update(article_params)
       redirect_to admin_articles_path, notice: '記事が更新されました'
@@ -52,6 +53,9 @@ class Admin::ArticlesController < ApplicationController
     end
     def set_area
       @areas = Area.all
+    end
+    def set_spiciness
+      @spiciness = Spiciness.all
     end
 
     # Only allow a trusted parameter "white list" through.

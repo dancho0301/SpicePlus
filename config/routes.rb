@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/about'
+
+  get 'static_pages/recruitment'
+
   devise_for :users
 
   root "main#index"

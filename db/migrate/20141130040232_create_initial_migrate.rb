@@ -44,6 +44,10 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.string :name
       t.string :master_name
       t.string :address
+      t.string :tel
+      t.string :url
+      t.string :mail
+      t.string :activity
       t.timestamps
     end
 
@@ -63,16 +67,27 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.integer :member_id
       t.integer :genre_id
       t.integer :area_id
-      t.integer :spicy
+      t.integer :group_id
+      t.integer :spiciness
+      t.timestamps
+    end
+
+    # 体験レポート
+    create_table :reports do |t|
+      t.string     :name
+      t.string     :title
+      t.text       :article
+      t.attachment :photo
+      t.integer    :article_id
       t.timestamps
     end
 
     # 記事の画像
     create_table :article_images do |t|
-      t.integer :article_id
-      t.string :image
-      t.timestamps
+      t.string :title
+      t.string :discription
       t.attachment :image
+      t.timestamps
     end
 
     # ジャンル
@@ -97,6 +112,16 @@ class CreateInitialMigrate < ActiveRecord::Migration
     create_table :article_lines do |t|
       t.integer :article_id
       t.integer :line_id
+      t.timestamps
+    end
+
+    # 参加エントリー
+    create_table :entry do |t|
+      t.string :name
+      t.string :mail
+      t.string :tel
+      t.text   :comment
+      t.integer :article_id
       t.timestamps
     end
   end

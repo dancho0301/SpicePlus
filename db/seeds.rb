@@ -6,13 +6,50 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-[Genre, Line, Area, Article].each do |c|
+[Genre, Line, Area, Group].each do |c|
   yml = File.read("#{Rails.root}/db/seeds/#{c.to_s.tableize}.yml")
   list = YAML.load(yml).symbolize_keys
+  c.destroy_all
   list[c.to_s.tableize.to_sym].each do |r|
     c.create do |t|
       r.each do |i, v|
         t.send "#{i}=", v
+      end
+    end
+  end
+end
+
+# 記事だけは画像があるので外出し
+[Article, Report].each do |c|
+  yml = File.read("#{Rails.root}/db/seeds/#{c.to_s.tableize}.yml")
+  list = YAML.load(yml).symbolize_keys
+  c.destroy_all
+  list[c.to_s.tableize.to_sym].each do |r|
+    c.create do |t|
+      r.each do |i, v|
+        if i == "photo"
+          t.photo = File.new("#{Rails.root}/db/data/#{v}")
+        else
+          t.send "#{i}=", v
+        end
+      end
+    end
+  end
+end
+
+# 記事だけは画像があるので外出し
+[ArticleImage].each do |c|
+  yml = File.read("#{Rails.root}/db/seeds/#{c.to_s.tableize}.yml")
+  list = YAML.load(yml).symbolize_keys
+  c.destroy_all
+  list[c.to_s.tableize.to_sym].each do |r|
+    c.create do |t|
+      r.each do |i, v|
+        if i == "image"
+          t.image = File.new("#{Rails.root}/db/data/#{v}")
+        else
+          t.send "#{i}=", v
+        end
       end
     end
   end

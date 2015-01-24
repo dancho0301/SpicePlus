@@ -18,14 +18,14 @@ ActiveRecord::Schema.define(version: 20141130040232) do
   end
 
   create_table "article_images", force: true do |t|
-    t.integer  "article_id"
-    t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "discription"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "article_lines", force: true do |t|
@@ -46,12 +46,15 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.integer  "member_id"
     t.integer  "genre_id"
     t.integer  "area_id"
+    t.integer  "group_id"
+    t.integer  "spiciness"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "genres", force: true do |t|
     t.string   "name"
+    t.string   "css_class"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,6 +63,10 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.string   "name"
     t.string   "master_name"
     t.string   "address"
+    t.string   "tel"
+    t.string   "url"
+    t.string   "mail"
+    t.string   "activity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,6 +80,19 @@ ActiveRecord::Schema.define(version: 20141130040232) do
   create_table "members", force: true do |t|
     t.string   "name"
     t.string   "mail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reports", force: true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "article"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

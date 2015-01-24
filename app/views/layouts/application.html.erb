@@ -34,24 +34,55 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "トップページ", :root %></li>
           <li>
-            <a href="#"><span class="glyphicon glyphicon-question-sign"></span> Spice+とは</a>
+            <%= link_to static_pages_about_path do %>
+            <span class="glyphicon glyphicon-question-sign"></span> Spice+とは
+            <% end %>
           </li>
           <li>
-            <a href="#"><span class="glyphicon glyphicon-file"></span> 記事一覧</a>
+            <%= link_to articles_path do %>
+            <span class="glyphicon glyphicon-file"></span> 記事一覧
+            <% end %>
           </li>
           <li>
-            <a href="#"><span class="glyphicon glyphicon-user"></span> メンバー紹介</a>
+            <%= link_to static_pages_recruitment_path do %>
+              <span class="glyphicon glyphicon-user"></span> レポーター募集
+            <% end %>
           </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://yokohama-ap.jp/">by Yokohama Action Planner </a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>
 
-
     <div class="container">
-        <%= yield %>
+      <%= yield %>
     </div> <!-- /container -->
+
+    <div id="footer">
+      <!-- /footer-logo -->
+      <ul class="footer-nav list-inline">
+        <li class="first">
+          <%= link_to "トップページ", :root %>
+        </li>
+        <li>
+          <a href="#">Spice+とは</a>
+        </li>
+        <li>
+          <%= link_to "記事一覧", articles_path %>
+        </li>
+        <li>
+          <a href="#">メンバー紹介</a>
+        </li>
+        <li>
+          <a href="#">プライバシーポリシー</a>
+        </li>
+      </ul>
+      <!-- /nav -->
+      <div class="clearfix"></div>
+      <div class="copy">
+        <span>Copyright &#169; 2014 Yokohama Action Planner All Rights Reserved.</span>
+      </div>
+      <!-- /copy -->
+    </div>
+    <!-- /footer -->
+
   </body>
 </html>
