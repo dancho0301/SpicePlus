@@ -1,5 +1,5 @@
 class MainController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.first(5)
   end
 end

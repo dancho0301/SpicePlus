@@ -22,8 +22,14 @@
 @import "font-awesome";
 @import "summernote";
 
+html{
+  height: 100%;
+}
+
 body{
-  padding-top: 65px;
+  background-color: #FEF8ED;
+  height:100%;
+  padding-top: 0px;
   font-family: 'PT Sans Caption',"Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 
   a{
@@ -32,50 +38,58 @@ body{
 
 }
 
-/* h1{
-  font-size: 27px;
-  font-weight: bold;
-  display: block;
-  float: left;
-  clear: both;
-
-  width: 100%;
-  margin-top: 4px;
+////////////////////////////////////////////////////////////////////////
+// 共通
+.height-100{
+  min-height: 100%;
+  height: 100%;
 }
 
-h2{
-  font-size: 150%;
-  font-weight: bold;
-
-  margin-top: 30px;
-  padding-left: 6px;
-
-  color: #000;
-  border-left-width: 5px;
-  border-left-style: solid;
-  border-left-color: #000;
-}
- */
-
-//ナビゲーションバーのカスタマイズ
-.navbar-default{
-  background-color: #FFF;
-  border-color: #FFF;
-  .navbar-nav{
-    li{
-      border-right: 1px silver solid;
-      a{
-        color: #000;
+////////////////////////////////////////////////////////////////////////
+// サイドバー
+.container{
+  min-height: 100%;
+  height: 100%;
+  .sidebar{
+    background-color: #30A0B4;
+    color: #fdfdfd;
+    min-height: 100%;
+    height: 100%;
+    margin: 0 auto -60px;
+    // ロゴ
+    .logo{
+      margin: 35px auto;
+      max-width: 100%;
+    }
+    .catchcopy{
+      margin: 100px 15px 0px;
+      font-size: 14px;
+      text-align: center;
+    }
+    //ナビゲーションバーのカスタマイズ
+    .links{
+      padding-top: 60px;
+      width: 100%;
+      margin: 0 auto;
+      li{
+        width: 100%;
+        list-style-type: none;
+        margin-top: 15px;
+        a{
+          margin: 3px 10px;
+          padding-top: 3px;
+          padding-bottom: 3px;
+          color: #fdfdfd;
+        }
+      }
+    }
+    .footer{
+      margin-bottom: -10px;
+      .copyright{
+        font-size: 9px;
       }
     }
   }
-}
-
-.navbar-brand{
-  padding: 10px 15px;
-}
-.navbar-brand-sub{
-  font-size: 10pt;
 }
 
 .sidebar-item{
@@ -87,6 +101,82 @@ h2{
     font-size: 24px;
   }
 }
+
+////////////////////////////////////////////////////////////////////////
+// トップページ
+#carousel-generic{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .item{
+    width: 698px;
+    height: 165px;
+    border-radius: 30px;
+    /* background-color: black; */
+    overflow: hidden;
+  }
+  img{
+    border-radius: 30px;
+    top: -80px;
+    position:absolute;
+  }
+  .carousel-control{
+      background-image: none;
+      opacity: 0.0;
+      text-shadow: none;
+  }
+  .carousel-indicators{
+    bottom: -40px;
+    li{
+      background-color: #CFE2E8;
+      border: none;
+      &.active{
+        background-color: #E43468;
+      }
+    }
+
+  }
+}
+
+.square-container{
+  margin-top: 15px;
+  margin-left: 5px;
+  .square_top{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: dashed 1px gray;
+  }
+  .square_middle{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: dashed 1px gray;
+  }
+  .square_bottom{}
+
+  .col_left{}
+  .col_center{
+    border-left: dashed 1px gray;
+    border-right: dashed 1px gray;
+  }
+  .col_right{}
+
+}
+
+
+////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // 記事
@@ -273,6 +363,7 @@ div.thumb-list{
 
 
 .sidebar{
+  backgbackground-color: #49F;
   h1{
     font-size: 100%;
     font-weight: bold;
@@ -298,50 +389,14 @@ div.thumb-list{
   }
 }
 
-//フッター
-/* ------------------------------------- /
-/    Footer
-/* ------------------------------------- */
-#footer{
-  text-align: center;
-  padding: 40px 0;
-  background-color: #7E7E7E;
-
-  .footer-nav>li {
-    border-right: 1px solid #000;
-    &.first{
-      border-left: 1px solid #000;
-    }
-    a{
-      color: #fff;
-    }
-  }
-
-
-
-
-}
-
-
-
 /*  sns-icon
 /*--------------------------------- */
 .sns-icon{
   margin-top: 30px;
 }
-
 .sns-icon li{
   padding-left: 20px;
 }
 .sns-icon li:hover{
   color: #fff;
-}
-
-/*  copy
-/*--------------------------------- */
-.copy{
-  margin-top: 20px;
-  span{
-    color: #333;
-  }
 }

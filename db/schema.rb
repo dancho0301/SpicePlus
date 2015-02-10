@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.datetime "updated_at"
   end
 
+  create_table "entry", force: true do |t|
+    t.string   "name"
+    t.string   "mail"
+    t.string   "tel"
+    t.text     "comment"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "genres", force: true do |t|
     t.string   "name"
     t.string   "css_class"
@@ -66,7 +76,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.string   "tel"
     t.string   "url"
     t.string   "mail"
-    t.string   "activity"
+    t.text     "activity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
