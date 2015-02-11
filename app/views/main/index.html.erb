@@ -40,19 +40,54 @@
 </div>
 
 <!-- 記事一覧 -->
-
-
-
 <div class="square-container">
   <div class="row menu-square square_top">
     <!-- 本体 -->
     <div class="col-sm-4 col_left">
-      <% if @articles[0] %>
-        <%= link_to image_tag(@articles[0].photo, :class => "img-responsive"), @articles[0] %>
-      <% else %>
-        <%= image_tag "dummy.png", :class => "img-responsive"%>
-      <% end %>
+      <div class="article-list">
+        <div class="article_image">
+          <%= image_tag "demo/bino.top.jpg", :height => "100" %>
+        </div>
+        <div class="article_title">
+          <p class="title">こどもと食につながる体験</p>
+          <p class="spicy">
+            <%= image_tag "spicy.png" %>
+            <%= image_tag "spicy.png" %>
+            <%= image_tag "not-spicy.png" %>
+            <%= image_tag "not-spicy.png" %>
+            <%= image_tag "not-spicy.png" %>
+            <span class="spiceness">2</span>spicy
+          </p>
+        </div>
+        <div class="author">
+          <div class="author-left">
+            <div class="fukidashi"></div>
+            <%= image_tag "demo/ume.jpg", :size => "40x40" %>
+          </div>
+          <div class="author-right">
+            <div class="label">
+              イベント
+            </div>
+            <div class="date">
+              15.02.08 [sun]
+            </div>
+            <div class="author-name">
+              Reported by うめさん
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
+
+
+
+
+
+
+
     <div class="col-sm-4 col_center">
       <% if @articles[1] %>
       <%= link_to image_tag(@articles[1].photo, :class => "img-responsive"), @articles[1] %>
