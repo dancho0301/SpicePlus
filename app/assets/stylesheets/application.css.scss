@@ -18,6 +18,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "non-responsive";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "summernote";
@@ -62,7 +63,7 @@ body{
       max-width: 100%;
     }
     .catchcopy{
-      margin: 100px 15px 0px;
+      margin: 100px 10px 0px;
       font-size: 14px;
       text-align: center;
     }
@@ -133,7 +134,42 @@ body{
         background-color: #E43468;
       }
     }
+  }
+  .carousel-inner{
+    .carousel-caption{
+      left: 5%;
+      width: 90%;
+      text-align: left;
+      padding-bottom: 5px;
+      .title{
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 2px 2px 1px #222222;
+        margin-bottom: 0px;
+        margin-top: 5px;
+      }
+      span.label{
+        border-radius: 5px;
+      }
+      .tour{
+        .label{
+          background-color: #D56565;
+        }
+      }
+      .report{
+        .label{
+          background-color: #30A0B4;
+        }
+      }
+      .event{
+        .label{
+          background-color: #E09200;
+        }
+      }
+      .name{
 
+      }
+    }
   }
 }
 
@@ -150,35 +186,39 @@ body{
     padding-bottom: 10px;
     //border-bottom: dashed 1px gray;
   }
-  .square_bottom{}
-
-  .col_left{}
-  .col_center{
-    //border-left: dashed 1px gray;
-    //border-right: dashed 1px gray;
+  .col_left{
+    padding-right: 10px;
+    padding-left: 10px;
   }
-  .col_right{}
+
+  // 記事一覧リンク
+  a.to_article_list{
+    color: #30A0B4;
+    font-size: 12px;
+  }
+
 
   .article-list{
     border-radius: 15px;
-      overflow: hidden;
+    overflow: hidden;
+    height: 240px;
     .article_image{
-      height: 100px;
+      height: 120px;
+      margin: 0 auto;
       img{}
     }
     .article_title{
       height: 60px;
-      background-color: white;
+      background-color: #FFFFFF;
       p.title{
         text-align: center;
         font-weight: bold;
-        margin-top: 10px;
-        margin-bottom: 5px;
+        padding-top: 10px;
+        margin-bottom: 0px;
       }
       p.spicy{
         text-align: center;
         color: #EFB32F;
-
         img{
           width: 15px;
           height: 15px;
@@ -186,12 +226,13 @@ body{
           vertical-align: baseline;
         }
         span.spiceness{
+          margin-left: 3px;
           font-size: 20px;
+          font-weight: bold;
         }
       }
     }
     .author{
-      background-color: #30A0B4;
       color: white;
       font-size: 12px;
       height: 60px;
@@ -204,8 +245,6 @@ body{
         margin-left: 5px;
         width: 70%;
       }
-
-
       img{
         margin-left: 15px;
         margin-top: 0px;
@@ -221,7 +260,8 @@ body{
         border-top: 10px solid white;
       }
       .date{
-
+        font-size: 10px;
+        font-weight: normal;
       }
       .author-name{
         margin-top: 8px;
@@ -229,12 +269,33 @@ body{
       .label{
         float: right;
         margin-right: 5px;
-        color: #30A0B4;
         background-color: #FFFFFF;
       }
     }
+    .tour{
+      background-color: #D56565;
+      .label{
+        color: #D56565;
+      }
+    }
+    .report{
+      background-color: #30A0B4;
+      .label{
+        color: #30A0B4;
+      }
+    }
+    .event{
+      background-color: #E09200;
+      .label{
+        color: #E09200;
+      }
+    }
   }
-
+  .article-list-dummy{
+    background-color: #DDD ;
+    background-image: url("/images/dummy.png");
+    height: 230px;
+  }
 }
 
 

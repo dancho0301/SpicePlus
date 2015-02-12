@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.integer  "area_id"
     t.integer  "group_id"
     t.integer  "spiciness"
+    t.string   "author_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

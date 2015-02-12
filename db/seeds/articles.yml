@@ -93,6 +93,7 @@ articles:
     group_id: 1
     spiciness: 1
     photo: 'bino.top.jpg'
+    author_name: 'うめさん'
 
   -
     id: 2
@@ -149,6 +150,7 @@ articles:
     group_id: 2
     spiciness: 4
     photo: 'take.top.jpg'
+    author_name: 'たかじょ'
 
   -
     id: 3
@@ -266,6 +268,7 @@ articles:
     group_id: 3
     spiciness: 2
     photo: 'kyo.top.jpg'
+    author_name: 'だんちょ'
 
   -
     id: 4
@@ -316,3 +319,4 @@ articles:
     group_id: 3
     spiciness: 2
     photo: 'guri.top.jpg'
+    author_name: 'だんちょ'

@@ -69,6 +69,8 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.integer :area_id
       t.integer :group_id
       t.integer :spiciness
+
+      t.string  :author_name
       t.timestamps
     end
 

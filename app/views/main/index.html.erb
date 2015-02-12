@@ -4,29 +4,34 @@
     <div id="carousel-generic" class="carousel slide" data-ride="carousel">
       <!-- 標識の設定 -->
       <ol class="carousel-indicators">
-        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-generic" data-slide-to="2"></li>
+        <% @articles.count.times do |idx| %>
+          <% if idx == 0 %>
+          <li data-target="#carousel-generic" data-slide-to="<%= idx+1 %>" class="active"></li>
+          <% else %>
+          <li data-target="#carousel-generic" data-slide-to="<%= idx+1 %>"></li>
+          <% end %>
+        <% end %>
       </ol>
       <!-- スライドさせる画像の設定 -->
       <div class="carousel-inner">
-        <div class="item active">
-          <%= image_tag "demo/bino.top.jpg"%>
-          <div class="carousel-caption">
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag "demo/guri.top.jpg" %>
-          <div class="carousel-caption">
-          </div>
-        </div>
-        <div class="item">
-          <%= image_tag "demo/take.top.jpg" %>
-          <div class="carousel-caption">
-          </div>
-        </div>
-      </div>
+        <% @articles.each_with_index do |article, idx| %>
+          <% if idx == 0 %>
+          <div class="item active">
+          <% else %>
+          <div class="item ">
+          <% end %>
+            <%= image_tag  article.photo %>
+            <div class="carousel-caption">
+              <div class="<%= article.genre.css_class %>">
+                <span class="label"><%= article.genre.name %></span>
+              </div>
+              <p class="title"><%= article.title %></p>
+              <p class="name"><%= article.group.name %></p>
 
+            </div>
+          </div>
+        <% end %>
+      </div>
       <!-- Controls -->
       <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -36,103 +41,76 @@
       </a>
     </div>
   </div>
-
 </div>
 
 <!-- 記事一覧 -->
 <div class="square-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <a href="#" class="to_article_list">▶記事一覧へ</a>
+    </div>
+  </div>
+
   <div class="row menu-square square_top">
     <!-- 本体 -->
-    <div class="col-sm-4 col_left">
-      <div class="article-list">
-        <div class="article_image">
-          <%= image_tag "demo/bino.top.jpg", :height => "100" %>
+    <% 5.times do |idx| %>
+      <% article = @articles[idx] %>
+
+      <%# 4つめの記事は行を変える %>
+      <% if idx == 3 %>
         </div>
-        <div class="article_title">
-          <p class="title">こどもと食につながる体験</p>
-          <p class="spicy">
-            <%= image_tag "spicy.png" %>
-            <%= image_tag "spicy.png" %>
-            <%= image_tag "not-spicy.png" %>
-            <%= image_tag "not-spicy.png" %>
-            <%= image_tag "not-spicy.png" %>
-            <span class="spiceness">2</span>spicy
-          </p>
+        <div class="row menu-square square_middle">
+      <% end %>
+
+      <%# 記事が存在しない時はダミー画像 %>
+      <% if article == nil %>
+        <div class="col-sm-4 col_left">
+          <div class="article-list article-list-dummy"></div>
         </div>
-        <div class="author">
-          <div class="author-left">
-            <div class="fukidashi"></div>
-            <%= image_tag "demo/ume.jpg", :size => "40x40" %>
+      <% else %>
+        <%# 記事本体 %>
+        <div class="col-sm-4 col_left">
+          <div class="article-list">
+            <div class="article_image">
+              <%# image_tag "demo/bino.top.jpg", :height => "100" %>
+              <%= image_tag article.photo, :height => "120"  %>
+            </div>
+            <div class="article_title">
+              <p class="title"><%= article.title %></p>
+              <p class="spicy">
+                <% article.spiciness.times do %>
+                  <%= image_tag "spicy.png" %>
+                <% end %>
+                <% (5 - article.spiciness).times do %>
+                  <%= image_tag "not-spicy.png" %>
+                <% end %>
+                <span class="spiceness"><%= article.spiciness %></span> spicy
+              </p>
+            </div>
+            <div class="author <%= article.genre.css_class %>">
+              <div class="author-left">
+                <div class="fukidashi"></div>
+                <%= image_tag "demo/ume.jpg", :size => "40x40" %>
+              </div>
+              <div class="author-right">
+                <div class="label"><%= article.genre.name %></div>
+                <div class="date">
+                  15.02.08 [sun]
+                </div>
+                <div class="author-name">
+                  Reported by <%= article.author_name %>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="author-right">
-            <div class="label">
-              イベント
-            </div>
-            <div class="date">
-              15.02.08 [sun]
-            </div>
-            <div class="author-name">
-              Reported by うめさん
-            </div>
-          </div>
         </div>
-      </div>
-
-
-
-    </div>
-
-
-
-
-
-
-
-    <div class="col-sm-4 col_center">
-      <% if @articles[1] %>
-      <%= link_to image_tag(@articles[1].photo, :class => "img-responsive"), @articles[1] %>
-      <% else %>
-      <%= image_tag "dummy.png", :class => "img-responsive" %>
       <% end %>
-    </div>
-    <div class="col-sm-4 col_right">
-      <% if @articles[2] %>
-      <%= link_to image_tag(@articles[2].photo, :class => "img-responsive"), @articles[2] %>
-      <% else %>
-      <%= image_tag "dummy.png", :class => "img-responsive" %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
-  <div class="row menu-square square_middle">
-    <!-- 本体 -->
-    <div class="col-sm-4 col_left">
-      <% if @articles[3] %>
-      <%= link_to image_tag(@articles[3].photo, :class => "img-responsive"), @articles[3] %>
-      <% else %>
-      <%= image_tag "dummy.png", :class => "img-responsive" %>
-      <% end %>
-    </div>
-    <div class="col-sm-4 col_center">
-      <% if @articles[4] %>
-      <%= link_to image_tag(@articles[4].photo, :class => "img-responsive"), @articles[4] %>
-      <% else %>
-      <%= image_tag "dummy.png", :class => "img-responsive" %>
-      <% end %>
-    </div>
-    <div class="col-sm-4 col_right">
-      <%= image_tag "icon_to_list.png", :class => "img-responsive" %>
-    </div>
-  </div>
-  <div class="row menu-square square-square_bottom">
-    <!-- 本体 -->
-    <div class="col-sm-4 col_left">
-      <%= image_tag "icon_search.png", :class => "img-responsive" %>
-    </div>
-    <div class="col-sm-4 col_center">
-      <%= image_tag "icon_question.png", :class => "img-responsive" %>
-    </div>
-    <div class="col-sm-4 col_right">
-      <%= image_tag "icon_staff.png", :class => "img-responsive" %>
+
+  <div class="row">
+    <div class="col-sm-12" style="text-align: right;">
+      <a href="#" class="to_article_list">▶記事一覧へ</a>
     </div>
   </div>
 </div>
