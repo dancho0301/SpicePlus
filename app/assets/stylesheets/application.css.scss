@@ -290,11 +290,17 @@ body{
         color: #E09200;
       }
     }
+    .notice{
+      background-color: #797979;
+      .label{
+        color: #797979;
+      }
+    }
   }
   .article-list-dummy{
     background-color: #DDD ;
     background-image: url("/images/dummy.png");
-    height: 230px;
+    height: 240px;
   }
 }
 
