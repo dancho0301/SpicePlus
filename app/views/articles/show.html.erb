@@ -1,59 +1,182 @@
 <div class="row">
-  <div class="col-md-9">
-    <div class="article">
-      <h1>
-        <div class="infomation">
-          <span class="label label-<%= @article.genre.css_class %>"><%= @article.genre.name %></span>
-          <span class="date"><%= @article.created_at.strftime('%Y.%m.%d') %></span>
-          <span class="glyphicon glyphicon-map-marker"></span>
-          <%= @article.area.name %>
-          </th>
-        </div>
-        <%= @article.title %>
-      </h1>
-      <%= image_tag @article.photo(:top), :class => 'img-responsive img-not-float' %>
-      <div class="discription">
-        <%= @article.discription %>
+  <div class="col-md-12">
+    <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+          <div class="item active">
+            <%= link_to image_tag(@article.photo), @article %>
+            <%= link_to(@article) do %>
+              <div class="carousel-caption">
+                <div class="<%= @article.genre.css_class %>">
+                  <span class="label"><%= @article.genre.name %></span>
+                </div>
+                <p class="title"><%= @article.title %></p>
+                <p class="name"><%= @article.group.name %></p>
+              </div>
+            <% end %>
+          </div>
       </div>
+    </div>
+
+    <!-- 今回のレポーター -->
+    <div class="reporters">
+      <div class="reporter_header">
+        <%= image_tag "reporter.png", :class => "img-responsive" %>
+      </div>
+      <div class="reporters_inner">
+        <% @article.reports.each_with_index do |report, idx| %>
+        <div class="reporter">
+          <p class="icon<%= idx %>"><%= report.name %></p>
+          <%= image_tag report.photo, :class => "icon icon#{idx}" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- おすすめポイント -->
+    <div class="reccomend">
+      <% @article.article_recommends.each_with_index do |recommend, idx| %>
+        <div class="fukidashi fukidashi<%= idx %>">
+          <p><%= recommend.discription %></p>
+        </div>
+      <% end %>
+    </div>
+    <!-- 記事 -->
+    <div class="article">
+      <h3>「<%= @article.group.name %>」さんのスパイスを体験しに行ってきました！</h3>
       <div class="<%= @article.genre.css_class %>">
         <%= raw @article.article %>
       </div>
 
-      <% @article.reports.each do |report| %>
-        <div class="report">
-          <h2>【体験レポート】<%= report.name %> さんより</h2>
-          <h3><%= report.title %></h3>
-          <p><%= raw report.article %></p>
-        </div>
-      <% end %>
+      <div class="panel-group" id="accordion reports">
+        <div class="panel panel-article">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <!--
+                data-toggle : Collapseを起動させる
+                data-parent : アコーディオン風に閉じたり開いたりするためのもの
+                href : 指定した場所のパネルを開く
+              -->
+              <a data-toggle="collapse" data-parent="#accordion" href="#reportersVoice">レポーターの声</a>
+            </h4>
+          </div>
+          <div id="reportersVoice" class="panel-collapse collapse">
+            <div class="panel-body">
+              <% @article.reports.each_with_index do |report, idx| %>
+                <div class="row report">
+                  <div class="col-md-3">
+                    <%= image_tag report.photo, :class => "icon icon#{idx}" %>
+                    <p class="reporter_name reporter_name<%= idx %>"><%= report.name %></p>
+                  </div>
+                  <div class="col-md-9 report_inner report_inner<%= idx %>">
+                    <h3><%= report.title %></h3>
+                    <p><%= raw report.article %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
 
-      <%# 団体情報 %>
+          <!-- 一日の流れ -->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <!--
+                data-toggle : Collapseを起動させる
+                data-parent : アコーディオン風に閉じたり開いたりするためのもの
+                href : 指定した場所のパネルを開く
+              -->
+              <a data-toggle="collapse" data-parent="#accordion" href="#dairySchedule">一日の流れ</a>
+            </h4>
+          </div>
+          <div id="dairySchedule" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="row schedule">
+                <div class="col-md-2">
+                  <%= image_tag "clock.png" %>
+                </div>
+                <div class="col-md-10 schedule_inner">
+                  <table class="dairySchedule">
+                    <% @article.article_schedules.each_with_index do |schedule, idx| %>
+                      <tr>
+                        <th><%= schedule.time %></th>
+                        <td>
+                          <h3><%= schedule.title %></h3>
+                          <p><%= raw schedule.description %></p>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </table>
+                  <div class="allow">
+                    <%= image_tag "schedule_allow.png" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 参加可能プラン -->
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <!--
+                data-toggle : Collapseを起動させる
+                data-parent : アコーディオン風に閉じたり開いたりするためのもの
+                href : 指定した場所のパネルを開く
+              -->
+              <a data-toggle="collapse" data-parent="#accordion" href="#activityPlans">参加可能プラン</a>
+            </h4>
+          </div>
+          <div id="activityPlans" class="panel-collapse collapse">
+            <div class="panel-body">
+              <% @article.article_plans.each_with_index do |plan, idx| %>
+                <div class="row plan">
+                  <div class="col-md-12 activityPlans_inner activityPlans_inner<%= idx %>">
+                    <h3 class="<%= plan.color_theme %>"><%= plan.title %></h3>
+                    <p><%= raw plan.description %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 団体情報 -->
       <% if @article.group %>
-      <div class="group_info <%= @article.genre.css_class %>">
-        <h3><%= link_to @article.group.name, @article.group.url %></h3>
+      <div class="group_info">
         <table class="table group_info">
+          <% if @article.group.name %>
+          <tr>
+            <th>団体名：</th>
+            <td><%= @article.group.name %></td>
+          </tr>
+          <% end %>
           <% if @article.group.master_name %>
           <tr>
-            <th>理事長</th>
+            <th>理事長：</th>
             <td><%= @article.group.master_name %></td>
           </tr>
           <% end %>
           <% if @article.group.address %>
           <tr>
-            <th>所在地</th>
+            <th>所在地：</th>
             <td><%= @article.group.address %></td>
           </tr>
           <% end %>
           <% if @article.group.url %>
           <tr>
-            <th>ホームページ</th>
+            <th>ホームページ：</th>
             <td><%= link_to @article.group.url, @article.group.url %></td>
           </tr>
           <% end %>
           <% if @article.group.activity %>
           <tr>
-            <th>主な活動</th>
+            <th>主な活動：</th>
             <td><%= raw @article.group.activity %></td>
+          </tr>
+          <% end %>
+          <% if @article.group.detail %>
+          <tr>
+            <th>立ち上げ経緯：</th>
+            <td><%= raw @article.group.detail %></td>
           </tr>
           <% end %>
         </table>
@@ -61,10 +184,4 @@
       <% end %>
     </div>
   </div>
-
-  <div class="col-md-3 sidebar">
-    <%= render partial: "shared/sidebar" %>
-  </div>
-
-
 </div> <!-- .row -->

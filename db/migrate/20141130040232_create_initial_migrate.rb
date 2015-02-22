@@ -48,6 +48,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.string :url
       t.string :mail
       t.text :activity
+      t.text :detail
       t.timestamps
     end
 
@@ -68,9 +69,32 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.integer :genre_id
       t.integer :area_id
       t.integer :group_id
-      t.integer :spiciness
-
+      t.integer :spice_id
       t.string  :author_name
+      t.timestamps
+    end
+
+    # おすすめポイント
+    create_table :article_recommends do |t|
+      t.integer :article_id
+      t.string  :discription
+    end
+
+    # 参加プラン
+    create_table :article_plans do |t|
+      t.integer    :article_id
+      t.string     :title
+      t.text       :description
+      t.string     :color_theme
+      t.timestamps
+    end
+
+    # スケジュール
+    create_table :article_schedules do |t|
+      t.integer    :article_id
+      t.string     :time
+      t.string     :title
+      t.string     :description
       t.timestamps
     end
 
@@ -80,6 +104,8 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.string     :title
       t.text       :article
       t.attachment :photo
+      t.string     :point
+      t.integer    :main_reporter
       t.integer    :article_id
       t.timestamps
     end
@@ -94,6 +120,13 @@ class CreateInitialMigrate < ActiveRecord::Migration
 
     # ジャンル
     create_table :genres do |t|
+      t.string :name
+      t.string :css_class
+      t.timestamps
+    end
+
+    # スパイス
+    create_table :spices do |t|
       t.string :name
       t.string :css_class
       t.timestamps

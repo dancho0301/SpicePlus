@@ -23,6 +23,8 @@
 @import "font-awesome";
 @import "summernote";
 
+@import "article.css.scss";
+
 html{
   height: 100%;
 }
@@ -106,17 +108,18 @@ body{
 ////////////////////////////////////////////////////////////////////////
 // トップページ
 #carousel-generic{
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 20px;
+  margin-left: -15px;
   .item{
-    width: 698px;
+    width: 712px;
     height: 165px;
-    border-radius: 30px;
+    /* border-radius: 15px; */
     /* background-color: black; */
     overflow: hidden;
   }
   img{
-    border-radius: 30px;
+    border-radius: 15px;
     top: -80px;
     position:absolute;
   }
@@ -202,6 +205,7 @@ body{
     border-radius: 15px;
     overflow: hidden;
     height: 240px;
+    box-shadow: 3px 5px #cecece;
     .article_image{
       height: 120px;
       margin: 0 auto;
@@ -307,153 +311,6 @@ body{
 
 ////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 記事
-.article{
-  font-size: 15px;
-  line-height: 170%;
-
-  h1{
-    font-size: 27px;
-    font-weight: bold;
-    display: block;
-    float: left;
-    clear: both;
-
-    width: 100%;
-    margin-top: 4px;
-
-    .infomation{
-      margin-bottom: 12px;
-      font-size: 12px;
-      .date{
-        font-weight: normal;
-        font-family: 'PT Sans Caption', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-      }
-      .label{
-        font-size: 11px;
-      }
-    }
-  }
-  h2{
-    font-size: 150%;
-    font-weight: bold;
-
-    margin-top: 30px;
-    padding-left: 6px;
-
-    color: #000;
-    border-left-width: 5px;
-    border-left-style: solid;
-    border-left-color: #000;
-  }
-
-  h3{
-    font-size: 110%;
-    font-weight: bold;
-  }
-
-  // 画像の回り込み
-  img{
-    float: right;
-    margin: 5px;
-  }
-  img.img-not-float{
-    float: none;
-  }
-
-  // 特殊なパーツ
-  table{
-    &.schedule{
-      th{
-        width: 20%;
-      }
-      td.time{
-        background-color: #ffac68;
-      }
-    }
-  }
-
-  // 冒頭の紹介
-  .discription{
-    background-image: url("/images/notebook.png");
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  // おすすめポイント
-  .suggestion{
-    margin-top: 30px;
-    padding: 10px 5px 5px;
-    //border: 1px dotted #656565;
-    border-width: 1px;
-    border-style: solid;
-
-    h2{
-      padding-top: 5px;
-      margin-top: 0px;
-      border-left: none;
-      font-size: 16px;
-      font-weight: normal;
-    }
-  }
-
-  table.schedule, table.group_info{
-    th{
-      width: 20%;
-    }
-  }
-
-  .tour{
-    .suggestion{
-      background-image: url("/images/bg_orange.gif");
-      border-color: rgb(251, 180, 70);
-    }
-    table.schedule,table.group_info{
-      th{
-        background-image: url("/images/bg_orange.gif");
-      }
-    }
-  }
-  .report{
-    .suggestion{
-      background-image: url("/images/bg_red.gif");
-      border-color: rgb(255, 95, 95);
-    }
-    table.schedule,table.group_info{
-      th{
-        background-image: url("/images/bg_red.gif");
-      }
-    }
-  }
-  .event{
-    .suggestion{
-      background-image: url("/images/bg_green.gif");
-      border-color: rgb(34, 207, 0);
-    }
-    table.schedule,table.group_info{
-      th{
-        background-image: url("/images/bg_green.gif");
-      }
-    }
-  }
-}
-
 // トップページのサムネイル一覧
 div.thumb-list{
   padding-bottom: 10px;
@@ -511,8 +368,6 @@ div.thumb-list{
     font-size: 100%;
     font-weight: bold;
   }
-
-
 }
 .sns_buttons{
   div{

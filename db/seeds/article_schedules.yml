@@ -1,0 +1,168 @@
+article_schedules:
+  -
+    id: 1
+    article_id: 4
+    time: "14:00"
+    title: "現地集合"
+    description: "活動内容・注意事項などの説明"
+
+  -
+    id: 2
+    article_id: 4
+    time: "14:20"
+    title: "体験活動開始"
+    description: "子どもの様子を見ながら、一緒になって活動します"
+
+  -
+    id: 3
+    article_id: 4
+    time: "16:00"
+    title: "クッキング"
+    description: "子どもたちが中心となって料理を始めます"
+
+  -
+    id: 4
+    article_id: 4
+    time: "19:00"
+    title: "夕食"
+    description: "お迎えが遅い子どもたちは夕食を食べます"
+
+  -
+    id: 5
+    article_id: 4
+    time: "14:00"
+    title: "閉所・解散"
+    description: ""
+
+  -
+    id: 6
+    article_id: 1
+    time: "9:00"
+    title: "現地集合（活動拠点）"
+    description: ""
+
+  -
+    id: 7
+    article_id: 1
+    time: "9:15"
+    title: "朝のミーティングに参加"
+    description: ""
+
+  -
+    id: 8
+    article_id: 1
+    time: "9:30"
+    title: "活動開始"
+    description: "子どもと遊ぶことをメインに保護者や学生たちと話す"
+
+  -
+    id: 9
+    article_id: 1
+    time: "12:00"
+    title: "適時昼食"
+    description: "みんなで一緒に食べてもいいし、場所を変えてもOK"
+
+  -
+    id: 10
+    article_id: 1
+    time: "16:00"
+    title: "広場の活動が終了、片付け、振り返り&amp;反省会"
+    description: ""
+
+  -
+    id: 11
+    article_id: 1
+    time: "17:00"
+    title: "解散"
+    description: ""
+
+  -
+    id: 12
+    article_id: 2
+    time: "10:00"
+    title: "集合"
+    description: "活動拠点に参加者が集まり次第、道具を揃えて竹林へ"
+
+  -
+    id: 13
+    article_id: 2
+    time: "10:15"
+    title: ""
+    description: "まず、本日の活動内容・注意事項の説明があります。"
+
+  -
+    id: 14
+    article_id: 2
+    time: "10:20"
+    title: "竹林での伐採体験"
+    description: ""
+
+  -
+    id: 15
+    article_id: 2
+    time: "12:00"
+    title: "お昼"
+    description: "竹林に囲まれながら、持参したお弁当を広げます(売店も有り)。<br>会話が弾み和やかな雰囲気。"
+
+  -
+    id: 16
+    article_id: 2
+    time: "13:30"
+    title: "竹灯籠作り"
+    description: "竹をカットして灯籠にします。"
+
+  -
+    id: 17
+    article_id: 2
+    time: "14:15"
+    title: "作業終了・片付け"
+    description: "本日の振り返りと次回の活動説明があります。"
+
+  -
+    id: 18
+    article_id: 2
+    time: "14:30"
+    title: "解散"
+    description: "作業が順調で予定の15:00より早く終了しました！"
+
+  -
+    id: 22
+    article_id: 3
+    time: "09:00"
+    title: "現地集合"
+    description: ""
+
+  -
+    id: 23
+    article_id: 3
+    time: "09:05"
+    title: "ミーティングに参加"
+    description: ""
+
+  -
+    id: 24
+    article_id: 3
+    time: "09:30"
+    title: "活動準備"
+    description: ""
+
+  -
+    id: 25
+    article_id: 3
+    time: "10:00"
+    title: "活動開始"
+    description: "グループに分かれて以下の活動を分担して実施<br>受付：子どもたちにお仕事の紹介する。<br>引率：子どもたちに簡単な説明を行い、お仕事のブースまで引率する。<br>お迎え：お仕事が終わる頃にブースまで迎えに行って一緒にエコマネー交換所まで帰ってくる。<br>エコマネー引換：お仕事を終えた子どもたちにエコマネーを渡す。<br>駄菓子屋の運営：もらったエコマネーが買い物できる駄菓子屋の運営。"
+
+  -
+    id: 26
+    article_id: 3
+    time: "16:00"
+    title: "活動終了"
+    description: "片付け<br>振り返り&反省会"
+
+  -
+    id: 27
+    article_id: 3
+    time: "17:00"
+    title: "解散"
+    description: ""

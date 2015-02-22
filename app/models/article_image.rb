@@ -4,8 +4,8 @@ class ArticleImage < ActiveRecord::Base
   # imageをattachファイルとする。stylesで画像サイズを定義できる
   has_attached_file :image,
     styles: { medium: "300x300>", thumb: "100x100>" },
-    :path => ":rails_root/public/system/:attachment/:id/:style.:extension",
-    :url => "/system/:attachment/:id/:style.:extension"
+    :path => ":rails_root/public/system/:class/:attachment/:id/:style.:extension",
+    :url => "/system/:class/:attachment/:id/:style.:extension"
 
   # ファイルの拡張子を指定（これがないとエラーが発生する）
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }

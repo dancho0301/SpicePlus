@@ -1,0 +1,316 @@
+.reporters{
+  border: 1px solid blue;
+
+  .reporter_header{
+    float: left;
+    width: 100px;
+    margin-top: 40px;
+    margin-left: 35px;
+    margin-right: 5px;
+    img{
+
+    }
+  }
+
+
+  .reporters_inner{
+    border: 1px solid red;
+
+    float: left;
+    text-align: center;
+    width: 60%;
+    margin: 20px auto;
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-box;
+    box-pack: justify;
+    -moz-box-pack: justify;
+    -webkit-box-pack: justify;
+    -o-box-pack: justify;
+    -ms-box-pack: justify;
+
+    .reporter{
+      p{
+        text-align: center;
+        margin-bottom: 0px;
+      }
+
+      p.icon0{
+        color: #30A0B5;
+      }
+      p.icon1{
+        color: #E09200;
+      }
+      p.icon2{
+        color: #E53468;
+      }
+
+      img.icon{
+        width: 80px;
+        height: 80px;
+        border-radius: 50px;
+        border-width: 4px;
+        border-style: solid;
+        display: block;
+
+      }
+      img.icon0{
+        border-color: #30A0B5;
+      }
+      img.icon1{
+        border-color: #E09200;
+      }
+      img.icon2{
+        border-color: #E53468;
+      }
+    }
+  }
+
+
+}
+.reccomend{
+  width: 90%;
+  min-width: 640px;
+  margin: 0 auto;
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -o-box;
+  display: -ms-box;
+  box-pack: justify;
+  -moz-box-pack: justify;
+  -webkit-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-box-pack: justify;
+  .fukidashi{
+    width: 176px;
+    height: 111px;
+    display:table;
+    padding: 30px 15px 5px 15px;
+    p{
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .fukidashi0{
+    background-image: url("/images/fukidashi0.png");
+  }
+  .fukidashi1{
+    background-image: url("/images/fukidashi1.png");
+  }
+  .fukidashi2{
+    background-image: url("/images/fukidashi2.png");
+  }
+}
+
+
+/////////////////////////////////////////////
+// 本文
+/////////////////////////////////////////////
+
+.article{
+  font-size: 14px;
+  line-height: 170%;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: #4B4848;
+
+  // アコーディオン[レポーターの声]
+  .panel-article{
+    background-color: transparent;
+    .panel-heading{
+      background-color: #30A0B5;
+      border-radius: 15px;
+      border: none;
+      margin-top: 15px;
+    }
+    h2{
+      font-size: 100%;
+      color: #FFF;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    a{
+      font-size: 14px;
+      font-weight: normal;
+      color: #FFF;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+  }
+
+  // 個別タイトル
+  h3{
+    font-size: 100%;
+    font-weight: bold;
+    color: #30A0B5;
+    padding-bottom: 3px;
+    border-bottom: 2px #30a0b5 dotted;
+  }
+
+  // 画像の回り込み
+  img{
+  }
+  img.img-not-float{
+    float: none;
+  }
+
+  // 特殊なパーツ
+  table{
+    &.schedule{
+      th{
+        width: 20%;
+      }
+      td.time{
+        background-color: #ffac68;
+      }
+    }
+  }
+
+  // レポーターの声
+  .report{
+    margin-bottom: 10px;
+    // レポーター名
+    p.reporter_name{
+      text-align: center;
+      font-size: 13px;
+    }
+    p.reporter_name0{
+      color: #30A0B5;
+    }
+    p.reporter_name1{
+      color: #E09200;
+    }
+    p.reporter_name2{
+      color: #E53468;
+    }
+    // レポーターのアイコン
+    img.icon{
+      width: 70px; height: 70px;
+      border-radius: 50px;
+      border-width: 3px;
+      border-style: solid;
+      display: block;
+      margin: 0 auto;
+    }
+    img.icon0{
+      border-color: #30A0B5;
+    }
+    img.icon1{
+      border-color: #E09200;
+    }
+    img.icon2{
+      border-color: #E53468;
+    }
+
+    // レポート欄
+    .report_inner{
+      background-color: #FFF;
+      border-width: 2px;
+      border-style: solid;
+      h3{
+        color: #4B4848
+      }
+      p{
+        font-size: 12px;
+        /* text-decoration: underline; */
+      }
+    }
+    .report_inner0{
+      border-color: #30A0B5;
+    }
+    .report_inner1{
+      border-color: #E09200;
+
+    }
+    .report_inner2{
+      border-color: #E53468;
+
+    }
+  }
+
+  // 一日の流れ
+  #dairySchedule{
+    .allow{
+      margin-top: -8px;
+    }
+    table.dairySchedule{
+      tr{
+        th{
+          width: 84px;
+          background-color: #82C6D2;
+          color: #03495D;
+          text-align: center;
+          font-weight: normal;
+          font-size: 16px;
+          border-bottom: white 2px dotted;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        td{
+          padding: 5px;
+          border-bottom: #30A0B4 2px dotted;
+
+          h3{
+            margin: 0px;
+            border-bottom-style: none;
+            color: #4B4848;
+          }
+          p{
+            margin-bottom: 0px;
+          }
+        }
+        td:nth-last-child(2) {
+          border-bottom-style: none;
+        }
+      }
+    }
+  }
+
+  // 参加可能プラン
+  #activityPlans{
+    font-size: 14px;
+
+    .green{
+      color: #30A0B5;
+      border-bottom-color: #30A0B5;
+      }
+    .orange{
+      color: #E09200;
+      border-bottom-color: #E09200;
+      }
+    .red{
+      color: #E53468;
+      border-bottom-color: #E53468;
+      }
+  }
+
+  // 団体情報
+  .group_info{
+    tr{
+      border-bottom: 2px dotted #30A0B5;
+      border-top: none;
+      th{
+        width: 25%;
+        text-align: right;
+        color: #30A0B5;
+        border-top: none;
+        margin-right: 2px;
+      }
+      td{
+        border-top: none;
+      }
+    }
+
+    ul{
+      padding-left: 20px;
+      margin-bottom: 0px;
+    }
+
+  }
+
+}

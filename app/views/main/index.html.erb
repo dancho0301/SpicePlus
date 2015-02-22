@@ -20,15 +20,16 @@
           <% else %>
           <div class="item ">
           <% end %>
-            <%= image_tag  article.photo %>
-            <div class="carousel-caption">
-              <div class="<%= article.genre.css_class %>">
-                <span class="label"><%= article.genre.name %></span>
+            <%= link_to image_tag(article.photo), article %>
+            <%= link_to(article) do %>
+              <div class="carousel-caption">
+                <div class="<%= article.genre.css_class %>">
+                  <span class="label"><%= article.genre.name %></span>
+                </div>
+                <p class="title"><%= article.title %></p>
+                <p class="name"><%= article.group.name %></p>
               </div>
-              <p class="title"><%= article.title %></p>
-              <p class="name"><%= article.group.name %></p>
-
-            </div>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -73,18 +74,18 @@
           <div class="article-list">
             <div class="article_image">
               <%# image_tag "demo/bino.top.jpg", :height => "100" %>
-              <%= image_tag article.photo, :height => "120"  %>
+              <%= link_to image_tag(article.photo, :height => "120"), article %>
             </div>
             <div class="article_title">
               <p class="title"><%= article.title %></p>
               <p class="spicy">
-                <% article.spiciness.times do %>
-                  <%= image_tag "spicy.png" %>
-                <% end %>
-                <% (5 - article.spiciness).times do %>
-                  <%= image_tag "not-spicy.png" %>
-                <% end %>
-                <span class="spiceness"><%= article.spiciness %></span> spicy
+                <%# article.spiciness.times do %>
+                  <%# image_tag "spicy.png" %>
+                <%# end %>
+                <%# (5 - article.spiciness).times do %>
+                  <%# image_tag "not-spicy.png" %>
+                <%# end %>
+                <span class="spiceness"><%# article.spiciness %></span> spicy
               </p>
             </div>
             <div class="author <%= article.genre.css_class %>">
@@ -115,7 +116,7 @@
         <div class="author notice">
           <div class="author-left">
             <div class="fukidashi"></div>
-            <%= image_tag "demo/ume.jpg", :size => "40x40" %>
+            <%= image_tag "unei.png", :size => "40x40" %>
           </div>
           <div class="author-right">
             <div class="label">お知らせ</div>

@@ -35,6 +35,29 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.datetime "updated_at"
   end
 
+  create_table "article_plans", force: true do |t|
+    t.integer  "article_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "color_theme"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "article_recommends", force: true do |t|
+    t.integer "article_id"
+    t.string  "discription"
+  end
+
+  create_table "article_schedules", force: true do |t|
+    t.integer  "article_id"
+    t.string   "time"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "articles", force: true do |t|
     t.string   "title"
     t.string   "discription"
@@ -47,7 +70,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.integer  "genre_id"
     t.integer  "area_id"
     t.integer  "group_id"
-    t.integer  "spiciness"
+    t.integer  "spice_id"
     t.string   "author_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -78,6 +101,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.string   "url"
     t.string   "mail"
     t.text     "activity"
+    t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -103,7 +127,16 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "point"
+    t.integer  "main_reporter"
     t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spices", force: true do |t|
+    t.string   "name"
+    t.string   "css_class"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

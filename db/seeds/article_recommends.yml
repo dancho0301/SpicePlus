@@ -1,0 +1,60 @@
+article_recommends:
+    -
+      id: 1
+      article_id: 1
+      discription: "乳幼児と接する機会が多い！"
+
+    -
+      id: 2
+      article_id: 1
+      discription: "人生の先輩である親・シニア世代との交流もある！"
+
+    -
+      id: 3
+      article_id: 1
+      discription: "乳幼児や親子と接する機会は将来必ず役に立つ！"
+
+    -
+      id: 4
+      article_id: 2
+      discription: "活動メンバーの熱意がステキ！"
+
+    -
+      id: 5
+      article_id: 2
+      discription: "初めてでも丁寧に教えてもらえる！"
+
+    -
+      id: 6
+      article_id: 2
+      discription: "竹林で本格的な伐採作業！"
+
+    -
+      id: 7
+      article_id: 3
+      discription: "子どもたちとの触れ合い、楽しい時間を過ごせる！"
+
+    -
+      id: 8
+      article_id: 3
+      discription: "初めてでも参加しやすく、仲間もできる！"
+
+    -
+      id: 9
+      article_id: 3
+      discription: "子どもたちから「学べる」！"
+
+    -
+      id: 10
+      article_id: 4
+      discription: "「食」についての知識が深まる！"
+
+    -
+      id: 11
+      article_id: 4
+      discription: "子どもの主体性を育てる関わり方を体感できる！"
+
+    -
+      id: 12
+      article_id: 4
+      discription: "家庭のような雰囲気の中で活動できる！"
