@@ -67,9 +67,12 @@
                     <%= image_tag report.photo, :class => "icon icon#{idx}" %>
                     <p class="reporter_name reporter_name<%= idx %>"><%= report.name %></p>
                   </div>
-                  <div class="col-xs-9 report_inner report_inner<%= idx %>">
-                    <h3><%= report.title %></h3>
-                    <p><%= raw report.article %></p>
+                  <div class="col-xs-9 report_bg report_bg<%= idx %>">
+                    <div class="report_inner report_inner<%= idx %>">
+                      <div class="date"><%= report.report_date.strftime("%y.%m.%d [%a]") %></div>
+                      <h3><%= report.title %></h3>
+                      <p><%= raw report.article %></p>
+                    </div>
                   </div>
                 </div>
               <% end %>

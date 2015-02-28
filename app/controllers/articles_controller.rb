@@ -7,8 +7,7 @@ class ArticlesController < ApplicationController
 
   # 記事一覧
   def index
-    @all_articles = Article.all
-    @articles = @search.result
+    @articles = @search.result.order("publication_date DESC")
   end
 
   # 記事
@@ -36,9 +35,4 @@ class ArticlesController < ApplicationController
     def set_used_area
       @used_areas = Area.find_by_sql("select * from areas a where exists (select 1 from articles b where a.id = b.area_id)")
     end
-
-    def set_all_articles
-      @all_articles = Article.all
-    end
-
 end

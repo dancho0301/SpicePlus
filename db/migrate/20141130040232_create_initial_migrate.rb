@@ -61,16 +61,17 @@ class CreateInitialMigrate < ActiveRecord::Migration
 
     # 記事
     create_table :articles do |t|
-      t.string :title
-      t.string :discription
-      t.text :article
+      t.string     :title
+      t.date       :publication_date
+      t.string     :discription
+      t.text       :article
       t.attachment :photo
-      t.integer :member_id
-      t.integer :genre_id
-      t.integer :area_id
-      t.integer :group_id
-      t.integer :spice_id
-      t.string  :author_name
+      t.integer    :member_id
+      t.integer    :genre_id
+      t.integer    :area_id
+      t.integer    :group_id
+      t.integer    :spice_id
+      t.string     :author_name
       t.timestamps
     end
 
@@ -102,6 +103,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
     create_table :reports do |t|
       t.string     :name
       t.string     :title
+      t.date       :report_date
       t.text       :article
       t.attachment :photo
       t.string     :point

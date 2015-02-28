@@ -1,3 +1,39 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.about_spiceplus{
+  #title{
+    background-color: #30A0B5;
+    box-shadow: 0px 4px #2991A4;
+    border-radius: 15px;
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 7px 0 7px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #FEF8ED;
+  }
+
+  .contains{
+    h1{
+      text-align: center;
+      font-size: 19px;
+      margin-top: 30px;
+    }
+    .about01{
+      width: 100%;
+      margin-top: 40px;
+      img{
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  .about02{
+    h2{
+      font-size: 20px;
+    }
+    margin-bottom: 35px;
+  }
+}

@@ -74,32 +74,32 @@
           <div class="article-list">
             <div class="article_image">
               <%# image_tag "demo/bino.top.jpg", :height => "100" %>
-              <%= link_to image_tag(article.photo, :height => "120"), article %>
+              <%# link_to image_tag(article.photo, :height => "120"), article %>
+              <%= link_to article do %>
+                <%= image_tag article.photo, :height => "120" %>
+                <div class="spice_icon spice_icon<%= article.spice_id %>"></div>
+              <% end %>
+
             </div>
             <div class="article_title">
+              <% if article.publication_date >= (Date.today << 2) %>
+
+              <div class="new">NEW!</div>
+              <% end %>
               <p class="title"><%= article.title %></p>
-              <p class="spicy">
-                <%# article.spiciness.times do %>
-                  <%# image_tag "spicy.png" %>
-                <%# end %>
-                <%# (5 - article.spiciness).times do %>
-                  <%# image_tag "not-spicy.png" %>
-                <%# end %>
-                <!-- <span class="spiceness"><%# article.spiciness %></span> spicy -->
-              </p>
             </div>
             <div class="author <%= article.genre.css_class %>">
               <div class="author-left">
                 <div class="fukidashi"></div>
-                <%= image_tag "demo/ume.jpg", :size => "40x40" %>
+                <%= image_tag article.main_reporter.photo, :size => "40x40" %>
               </div>
               <div class="author-right">
                 <div class="label"><%= article.genre.name %></div>
                 <div class="date">
-                  15.02.08 [sun]
+                  <%= article.publication_date.strftime("%y.%m.%d") %>
                 </div>
                 <div class="author-name">
-                  Reported by <%= article.author_name %>
+                  Reported by <%= article.main_reporter.name %>
                 </div>
               </div>
             </div>

@@ -34,3 +34,8 @@ article_images:
     title: "教育支援協会２"
     discription: ""
     image: "kyoiku2.jpg"
+
+  -
+    id: 5
+    title: "びーのびーの１"
+    image: "bino/bino01.png"

@@ -1,0 +1,33 @@
+.row
+  .col-xs-12
+    .article-list-all
+      #title 記事一覧
+      .row.main_list
+        .col-xs-1
+        .col-xs-10
+          - @articles.each do |article|
+            %article
+              .article_image
+                = link_to article do
+                  = image_tag(article.photo(:medium))
+                  .spice_icon{:class => "spice_icon#{article.spice_id}"}
+
+              .article_title
+                - if article.publication_date >= (Date.today << 2)
+                  .new NEW!
+                .title
+                  = link_to article.title, article
+                  %p.group_name
+                    = article.group.name
+                .description
+                  = article_description(article)
+              .author{:class => "#{article.genre.css_class}"}
+                .label #{article.genre.name}
+                .date  #{article.publication_date.strftime("%y.%m.%d")}
+                .author-name
+                  Reported by
+                  %br/
+                  %span.name #{article.main_reporter.name}
+                  = image_tag article.main_reporter.photo, :size => "40x40"
+                .fukidashi
+        .col-xs-1

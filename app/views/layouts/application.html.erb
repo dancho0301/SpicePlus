@@ -4,6 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=980">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60225107-1', 'auto');
+      ga('send', 'pageview');
+      
+    </script>
     <title><%= content_for?(:title) ? yield(:title) : "SpicePlus" %></title>
     <%= csrf_meta_tags %>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -24,19 +34,13 @@
           <p class="catchcopy">SPICE+は、体験レポート型のNPO総合情報サイトです。</p>
           <ul class="links">
             <li>
-              <%= link_to articles_path do %>
-                <%= image_tag "icon-red.png" %> スパイス検索
-              <% end %>
+              <%= link_to "", articles_path, :class => "search" %>
             </li>
             <li>
-              <%= link_to static_pages_about_path do %>
-                <%= image_tag "icon-orange.png" %> Spice+とは
-              <% end %>
+              <%= link_to "", static_pages_about_path, :class => "about" %>
             </li>
             <li>
-              <%= link_to static_pages_contact_path do %>
-              <%= image_tag "icon-gray.png" %> お問い合わせ
-              <% end %>
+              <%= link_to "", static_pages_contact_path, :class => "contact" %>
             </li>
           </ul>
 <!--           <div class="footer">

@@ -2,8 +2,10 @@ reports:
   -
     id: 1
     article_id: 1
-    name: "M.Y"
+    main_reporter: 1
+    name: "やすもとさん"
     title: "よく動き、よく楽しむ！"
+    report_date: "2015/01/03"
     photo: "user.uchi.jpg"
     article: |
       <p>午前中は親子連れがぱらぱらと集まり、洋服を選んだり談笑したりしていた。</p>
@@ -16,8 +18,9 @@ reports:
   -
     id: 2
     article_id: 1
-    name: "K.U"
+    name: "うちださん"
     title: "人生の先輩たちからの学ぶ場"
+    report_date: "2015/01/03"
     photo: "user.seri.jpg"
     article: |
       <p>港北高校での活動体験を行いました。</p>
@@ -27,7 +30,9 @@ reports:
   -
     id: 3
     article_id: 2
+    main_reporter: 1
     name: "A.K"
+    report_date: "2015/01/03"
     title: "～よく働き、よく遊ぶ！～"
     photo: "user.kuma.jpg"
     article: |
@@ -40,7 +45,9 @@ reports:
   -
     id: 4
     article_id: 3
+    main_reporter: 1
     name: "E.N"
+    report_date: "2015/01/03"
     photo: "user.machi.jpg"
     title: "～小さなほっこりがたくさん詰まったイベント！！～"
     article: |
@@ -51,8 +58,10 @@ reports:
 
   -
     id: 5
+    article_id: 4
     name: "うめさん"
     main_reporter: 1
+    report_date: "2015/01/01"
     point: "「食」についての知識が深まる！"
     title: "みんなと「好き」を分かち合う"
     article: |
@@ -60,12 +69,11 @@ reports:
       <p>子ども達が何気なく自分のやりたい事をやっている様な自然な感じを、普段なかなかお目にする事が出来ないので、新鮮な感じがしました！自分も、小学生低学年の時に学童の様な施設に通っていたので、その時自分は何をしていたのだろうかと、ふと思いました。宿題が終わった子から自由時間に入ります。途中から来た子は、周りが宿題を終わらせて自由時間に入っているのでついつい遊びを始めようとしていました。しかし、遊んでいる子、宿題をしている子両者とも注意をうけると、それぞれの事を考え邪魔のないように対応していました。</p>
       <p>宿題をしている子が終わった後は、みんなでクッキングを始めました！</p>
     photo: "user.ume.jpg"
-    article_id: 4
 
   -
     id: 6
     name: "たかじょー"
-    main_reporter: 1
+    report_date: "2015/01/02"
     point: "子どもの主体性を育てる関わり方が体感できる！"
     title: "楽しいクッキングが「学び」の場にも！"
     article: |
@@ -78,7 +86,7 @@ reports:
   -
     id: 7
     name: "だんちょ"
-    main_reporter: 1
+    report_date: "2015/01/03"
     point: "家庭のような雰囲気の中で活動できる！"
     title: "子どもたちの学びをサポートできる！"
     article: |

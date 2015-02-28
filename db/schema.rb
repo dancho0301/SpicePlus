@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
+    t.date     "publication_date"
     t.string   "discription"
     t.text     "article"
     t.string   "photo_file_name"
@@ -122,6 +123,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
   create_table "reports", force: true do |t|
     t.string   "name"
     t.string   "title"
+    t.date     "report_date"
     t.text     "article"
     t.string   "photo_file_name"
     t.string   "photo_content_type"

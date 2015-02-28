@@ -21,4 +21,8 @@ class Article < ActiveRecord::Base
   # ファイルの拡張子を指定（これがないとエラーが発生する）
   validates_attachment :photo,
     content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+
+  def main_reporter
+    self.reports.where("main_reporter = 1").first
+  end
 end
