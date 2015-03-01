@@ -16,9 +16,10 @@
     margin: 5px auto;
 
     .reporter{
-      float: left;
+      /* float: left; */
       width: 70px;
       margin-right: 85px;
+      display: inline-block;
 
       p{
         text-align: center;
@@ -201,9 +202,11 @@
       background-color: #FFF;
       /* background: url("/images/report_background.png") no-repeat top right; */
       box-shadow: 5px 5px #DDD;
+      border-radius: 2px;
     }
     .report_inner{
       border-width: 2px;
+      margin: 27px;
       /* border-style: solid; */
       &.search{background-position: 0 0;}
       &.about{background-position: 0 -38px;}
@@ -297,7 +300,8 @@
   // 団体情報
   .group_info{
     tr{
-      border-bottom: 2px dotted #30A0B5;
+      /* border-bottom: 2px dotted #30A0B5; */
+      border-bottom: 1px dashed #30A0B5;
       border-top: none;
       th{
         width: 25%;
@@ -346,7 +350,7 @@
       margin-top: 28px;
       border-radius: 15px;
       overflow: hidden;
-      height: 140px;
+      height: 145px;
       box-shadow: 3px 5px #cecece;
       background-color: #FEFEFE;
       .article_image{
@@ -354,7 +358,7 @@
         overflow: hidden;
         width: 28%;
         img{
-          height: 140px;
+          height: 145px;
           margin-left: -80px;
         }
       }
@@ -409,7 +413,7 @@
           background-color: #FFFFFF;
           font-size: 10px;
           display: block;
-          width: 85%;
+          width: 68%;
         }
         .date{
           font-size: 9px;
