@@ -59,7 +59,7 @@
               <a data-toggle="collapse" data-parent="#accordion" href="#reportersVoice">レポーターの声</a>
             </h4>
           </div>
-          <div id="reportersVoice" class="collapse">
+          <div id="reportersVoice" class="colla pse">
             <div class="panel-body">
               <% @article.reports.each_with_index do |report, idx| %>
                 <div class="row report">
@@ -72,6 +72,11 @@
                       <div class="date"><%= report.report_date.strftime("%y.%m.%d [%a]") %></div>
                       <h3><%= report.title %></h3>
                       <p><%= raw report.article %></p>
+                      <div class="spice">
+                        <span class="signature"><%= report.signature %></span>的には
+                        <span class="spice_icon spice_icon<%= report.spice_id %>"></span>
+                        系でした
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
   end
 
   create_table "reports", force: true do |t|
+    t.integer  "article_id"
     t.string   "name"
     t.string   "title"
     t.date     "report_date"
@@ -131,7 +132,8 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.datetime "photo_updated_at"
     t.string   "point"
     t.integer  "main_reporter"
-    t.integer  "article_id"
+    t.string   "signature"
+    t.integer  "spice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

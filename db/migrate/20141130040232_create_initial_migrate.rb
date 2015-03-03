@@ -101,6 +101,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
 
     # 体験レポート
     create_table :reports do |t|
+      t.integer    :article_id
       t.string     :name
       t.string     :title
       t.date       :report_date
@@ -108,7 +109,8 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.attachment :photo
       t.string     :point
       t.integer    :main_reporter
-      t.integer    :article_id
+      t.string     :signature
+      t.integer    :spice_id
       t.timestamps
     end
 
