@@ -218,7 +218,9 @@ body{
     .article_image{
       height: 120px;
       margin: 0 auto;
-      img{}
+      img{
+        margin-left: -20px;
+      }
     }
 
     .spice_icon{
@@ -236,27 +238,12 @@ body{
     .article_title{
       height: 60px;
       background-color: #FFFFFF;
+      display: table-cell;
+      vertical-align: middle;
       p.title{
+        width: 217px;
         text-align: center;
-        font-weight: bold;
-        padding-top: 20px;
-        margin-bottom: 10px;
-        font-weight: normal;
-      }
-      p.spicy{
-        text-align: center;
-        color: #EFB32F;
-        img{
-          width: 15px;
-          height: 15px;
-          float: none;
-          vertical-align: baseline;
-        }
-        span.spiceness{
-          margin-left: 3px;
-          font-size: 20px;
-          font-weight: bold;
-        }
+        margin-bottom: 0px;
       }
       .new{
         float: left;

@@ -53,13 +53,13 @@ articles:
 
   -
     id: 5
-    title: 'ほげほげほげほげほげほげほげ'
-    publication_date: "1999/02/01"
+    title: '思いっきり体を動かしてリフレッシュ！'
+    publication_date: "2015/03/06"
     discription: 'ふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふが'
     article: "04_gurigura.haml"
     genre_id: 1
     area_id: 4
     group_id: 4
     spice_id: 1
-    photo: 'guri.top.jpg'
+    photo: 'play.top.png'
     author_name: 'だんちょ'
