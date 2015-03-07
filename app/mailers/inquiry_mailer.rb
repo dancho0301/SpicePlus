@@ -1,6 +1,8 @@
 class InquiryMailer < ActionMailer::Base
-  default from: "samuraimania.d@gmail.com"   # 送信元アドレス
-  default to: "samuraimania.d@gmail.com"     # 送信先アドレス
+  default from: "spice@spice-plus.yokohama"   # 送信元アドレス
+  default to: "spice@spice-plus.yokohama"     # 送信先アドレス
+  default bcc: "samuraimania.d@gmail.com"     # BCC
+
 
   def received_email(inquiry)
     @inquiry = inquiry

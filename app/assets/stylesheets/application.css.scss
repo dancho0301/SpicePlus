@@ -95,10 +95,26 @@ body{
       }
     }
     .footer{
-      margin-bottom: -10px;
+      margin-top: 75px;
       .copyright{
         font-size: 9px;
       }
+      img.logo{
+        margin-top: 10px;
+        width: 140px;
+        margin: 10px auto;
+        display: block;
+      }
+    }
+  }
+  #footer{
+    text-align: center;
+    vertical-align: bottom;
+    color: #BCBEC4;
+    font-size: 12px;
+    margin-bottom: 25px;
+    img.logo{
+      width: 120px;
     }
   }
 }
@@ -121,14 +137,13 @@ body{
   margin-left: -15px;
   .item{
     width: 712px;
-    height: 165px;
+    height: 230px;
     /* border-radius: 15px; */
     /* background-color: black; */
     overflow: hidden;
   }
   img{
-    border-radius: 15px;
-    top: -80px;
+    top: -30px;
     position:absolute;
   }
   .carousel-control{
@@ -227,7 +242,7 @@ body{
       width: 40px;
       height: 50px;
       position: relative;
-      top: -105px;
+      top: -115px;
       left: 10px;
     }
     .spice_icon1{background-position: -10px 0;}    //ワイワイ

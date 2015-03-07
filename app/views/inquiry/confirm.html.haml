@@ -31,5 +31,5 @@
         %td
           = simple_format(@inquiry.message)
           = f.hidden_field :message, :size => 500, :maxlength => 500, :value => @inquiry.message
-
-    = f.submit "送信", class: "btn btn-primary"
+    .submit
+      = f.submit "送信", class: "btn btn-primary"

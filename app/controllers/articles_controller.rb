@@ -11,7 +11,6 @@ class ArticlesController < ApplicationController
   end
 
   # 記事
-  # @param :id 表示する記事のid
   # サイドバーには表示中の記事以外を表示する
   def show
     @all_articles = Article.where.not(id: params[:id])
