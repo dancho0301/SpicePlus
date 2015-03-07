@@ -2,5 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .container_inquiry{
-  
+  h1{}
+  table{
+    th{
+      width: 200px;
+    }
+    td{
+      .field_with_errors{
+        display: inline;
+      }
+      input{
+        /* border-radius: 2px; */
+      }
+
+      textarea{
+        border-radius: 2px;
+        width: 400px;
+        height: 200px;
+      }
+    }
+  }
 }

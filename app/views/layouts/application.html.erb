@@ -12,7 +12,7 @@
 
       ga('create', 'UA-60225107-1', 'auto');
       ga('send', 'pageview');
-      
+
     </script>
     <title><%= content_for?(:title) ? yield(:title) : "SpicePlus" %></title>
     <%= csrf_meta_tags %>
@@ -40,7 +40,7 @@
               <%= link_to "", static_pages_about_path, :class => "about" %>
             </li>
             <li>
-              <%= link_to "", static_pages_contact_path, :class => "contact" %>
+              <%= link_to "", inquiry_path, :class => "contact" %>
             </li>
           </ul>
 <!--           <div class="footer">

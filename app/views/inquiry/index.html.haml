@@ -15,28 +15,24 @@
           名前
           %span.text-danger （必須）
         %td
-          姓
-          = f.text_field :family_name
-          名
-          = f.text_field :first_name
+          = f.text_field :family_name, :placeholder => "姓", :size => 10, :value => @inquiry.family_name
+          = f.text_field :first_name, :placeholder => "名", :size => 10, :value => @inquiry.first_name
       %tr
         %th
           フリガナ
           %span.text-danger （必須）
         %td
-          セイ
-          = f.text_field :family_name_kana
-          メイ
-          = f.text_field :first_name_kana
+          = f.text_field :family_name_kana, :placeholder => "セイ", :size => 10, :value => @inquiry.family_name_kana
+          = f.text_field :first_name_kana, :placeholder => "メイ", :size => 10, :value => @inquiry.first_name_kana
       %tr
         %th
           メールアドレス
           %span.text-danger （必須）
         %td
-          = f.text_field :email
+          = f.text_field :email, :size => 40, :value => @inquiry.email
       %tr
         %th お問い合わせ内容
         %td
-          = f.text_area :message
+          = f.text_area :message, :value => @inquiry.message
 
     = f.submit "確認", class: "btn btn-primary"

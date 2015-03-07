@@ -9,27 +9,27 @@
           名前
         %td
           = @inquiry.family_name
-          = f.hidden_field :family_name
+          = f.hidden_field :family_name, :value => @inquiry.family_name
           = @inquiry.first_name
-          = f.hidden_field :first_name
+          = f.hidden_field :first_name, :value => @inquiry.first_name
       %tr
         %th
           フリガナ
         %td
           = @inquiry.family_name_kana
-          = f.hidden_field :family_name_kana
+          = f.hidden_field :family_name_kana, :value => @inquiry.family_name_kana
           = @inquiry.first_name_kana
-          = f.hidden_field :first_name_kana
+          = f.hidden_field :first_name_kana, :value => @inquiry.first_name_kana
       %tr
         %th
           メールアドレス
         %td
           = @inquiry.email
-          = f.hidden_field :email
+          = f.hidden_field :email, :value => @inquiry.email
       %tr
         %th お問い合わせ内容
         %td
           = simple_format(@inquiry.message)
-          = f.hidden_field :message
+          = f.hidden_field :message, :size => 500, :maxlength => 500, :value => @inquiry.message
 
     = f.submit "送信", class: "btn btn-primary"
