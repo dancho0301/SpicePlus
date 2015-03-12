@@ -2,7 +2,7 @@ articles:
   -
     id: 1
     title: '先輩パパママと子育てゆる体験'
-    publication_date: "2014/12/01"
+    publication_date: "2014/10/24"
     discription: 'NPO法人「びーのびーの」は、親子のひろば事業として、菊名・大倉山に「親子のひろば びーのびーの」と「港北区子育て拠点 どろっぷ」の運営をしています。「地域で子育て」というミッションに基づいて、地域交流活動も行っています。今回は、その一環として、神奈川県立港北高等学校で行われた「思港祭」でのブース出展「changeし隊 at 港北高校」を体験しました。'
     article: "01_bino.haml"
     genre_id: 1
@@ -10,12 +10,11 @@ articles:
     group_id: 1
     spice_id: 3
     photo: 'bino.top.jpg'
-    author_name: 'うめさん'
 
   -
     id: 2
     title: '竹林での伐採体験＆竹灯篭まつり'
-    publication_date: "2014/12/01"
+    publication_date: "2014/12/19"
     discription: 'NPO法人日本の竹ファンクラブは放置され荒廃した竹林や竹の文化を守っていきたい、そして守るだけではなく、楽しいことや人を感動させることをしていきたいという想いのもと活動しているNPOです。今回は、毎年秋に「竹灯篭まつり」という竹林を使った地域活性イベントに参加体験し、レポートを書きました。'
     article: "02_take.haml"
     genre_id: 2
@@ -23,12 +22,11 @@ articles:
     group_id: 2
     spice_id: 2
     photo: 'take.top.jpg'
-    author_name: 'たかじょ'
 
   -
     id: 3
     title: '子どものお仕事サポーター体験'
-    publication_date: "2014/11/01"
+    publication_date: "2014/11/23"
     discription: 'NPO法人教育支援協会では子どもたちが学校では学べない社会学（人との付き合い・創意工夫など）を学ぶ機会として「横浜だがしや楽校事業」を展開しています。今回は毎年１０月に開催されている「よこはま国際フェスタWith横浜だがしや楽校」に参加体験し、レポートを書きました。'
     article: "03_kyoiku.haml"
     genre_id: 3
@@ -36,12 +34,11 @@ articles:
     group_id: 3
     spice_id: 1
     photo: 'kyo.top.jpg'
-    author_name: 'だんちょ'
 
   -
     id: 4
     title: '子どもと食につながる体験'
-    publication_date: "2015/01/01"
+    publication_date: "2015/01/20"
     discription: '「NPO法人フーズマイルぐりぐら」（以下：ぐりぐら）は、小学生を対象とした放課後施設を運営しています。「食楽」として、日替わりでクッキングや運動・「食」を通したワークショップなどの楽しい活動を通して、子どもたちのコミュニケーション力や創造力を育みます。今回はそんな「ぐりぐら」の一日を体験してきました！'
     article: "04_gurigura.haml"
     genre_id: 2
@@ -49,17 +46,15 @@ articles:
     group_id: 4
     spice_id: 1
     photo: 'guri.top.jpg'
-    author_name: 'だんちょ'
 
   -
     id: 5
     title: '思いっきり体を動かしてリフレッシュ！'
-    publication_date: "2015/03/06"
-    discription: 'ふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふがふが'
-    article: "04_gurigura.haml"
+    publication_date: "2015/03/11"
+    discription: '「港南台生き生きプレイパーク」は、子ども達が自由にのびのびと遊べるように、地域住民が開催している遊び場です。ここでは『自分の責任で自由に遊ぶ』という考えを基本に、子ども達が自分の『思い』でいろいろなことにチャレンジして楽しく遊べるように工夫しています。今回はそんな「港南台生き生きプレイパーク」の一日体験をしてきました！'
+    article: "05_konan.haml"
     genre_id: 1
     area_id: 4
-    group_id: 4
+    group_id: 5
     spice_id: 1
     photo: 'play.top.png'
-    author_name: 'だんちょ'

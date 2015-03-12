@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   # 記事
   # サイドバーには表示中の記事以外を表示する
   def show
-    @all_articles = Article.where.not(id: params[:id])
+    @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC")
   end
 
   private

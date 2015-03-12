@@ -166,12 +166,13 @@ class CreateInitialMigrate < ActiveRecord::Migration
 
     # お問い合わせ
     create_table :inquiries do |t|
-      t.string :first_name
       t.string :family_name
-      t.string :first_name_kana
+      t.string :first_name
       t.string :family_name_kana
+      t.string :first_name_kana
       t.string :email
       t.string :message
+      t.integer :article_id
     end
   end
 end

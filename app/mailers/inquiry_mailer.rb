@@ -6,6 +6,7 @@ class InquiryMailer < ActionMailer::Base
 
   def received_email(inquiry)
     @inquiry = inquiry
+    @article = Article.find_by_id(inquiry.article_id)
     mail(:subject => 'お問い合わせを承りました')
   end
 

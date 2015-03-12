@@ -40,13 +40,14 @@
       </div>
 
       <!-- おすすめポイント -->
-      <div class="reccomend">
+      <div class="reccomends">
         <% @article.article_recommends.each_with_index do |recommend, idx| %>
           <div class="fukidashi fukidashi<%= idx %>">
             <p><%= recommend.discription %></p>
           </div>
         <% end %>
       </div>
+      <div class="clear"></div>
       <!-- 記事 -->
       <div class="article">
         <h3>「<%= @article.group.name %>」さんのスパイスを体験しに行ってきました！</h3>
@@ -206,24 +207,11 @@
       </div>
       <!-- 参加ボタン -->
       <div class="entry_btn">
-        <%= link_to image_tag("entry_off.png"), inquiry_path %>
+        <%= link_to image_tag("entry_off.png"), inquiry_path + "/article/" + @article.id.to_s %>
       </div>
     </div>
   </div> <!-- .row -->
 </div>
-
-<% content_for :header do %>
-  <%# Facebook %>
-  <% if @article.present? %>
-    <meta property="og:title" content="<%= @article.title %>" />
-  <% end %>
-  <meta property="og:type" content="article" />
-  <meta property="og:description" content="SpicePlus〜体験レポート型NPO総合情報サイト〜" />
-  <meta property="og:image" content="<%= URI.join(request.url, @article.photo.url) %>"/>
-  <meta property="og:url" content="<%= request.url %>" />
-  <meta property="og:site_name" content="SpicePlus〜体験レポート型NPO総合情報サイト〜" />
-  <meta property="og:locale" content="ja_JP" />
-<% end %>
 
 <% content_for :sidebar do %>
   <div class="other_reports">
@@ -231,7 +219,8 @@
     <% @all_articles.each do |article| %>
       <div class="other_report">
         <div class="report_image">
-          <%= image_tag article.photo, height: "120" %>
+          <%= link_to image_tag(article.photo, height: "120"), article %>
+          <%=  %>
         </div>
         <div class="label"><%= article.genre.name %></div>
         <div class="title">
@@ -243,5 +232,4 @@
 <% end %>
 
 <% content_for :header do %>
-  <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Expanded&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <% end %>

@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   get 'articles(/:id)', :to => 'articles#show', :as => 'article'
 
   # お問い合わせ
-  get  "inquiry" => "inquiry#index"              # 入力
-  post "inquiry/confirm" => "inquiry#confirm"    # 確認
-  post "inquiry/thanks" => "inquiry#thanks"      # 完了   いずれも、、、マッハ〜！
+  get  "inquiry" => "inquiry#index"               # 入力
+  get  "inquiry/article/:article_id" => "inquiry#article" # 記事からの問い合わせ
+  post "inquiry/confirm" => "inquiry#confirm"     # 確認
+  post "inquiry/thanks" => "inquiry#thanks"       # 完了
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

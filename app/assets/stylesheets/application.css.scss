@@ -29,8 +29,8 @@ html{
 }
 
 body{
+  height: 100%;
   background-color: #FEF8ED;
-  height:100%;
   padding-top: 0px;
   /* font-family: 'PT Sans Caption',"Hiragino Kaku Gothic ProN", Meiryo, sans-serif; */
   font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -45,26 +45,39 @@ body{
   min-height: 100%;
   height: 100%;
 }
+.clear{
+  clear: both;
+}
 
 ////////////////////////////////////////////////////////////////////////
 // サイドバー
 .container{
   min-height: 100%;
   height: 100%;
+
   .sidebar{
     background-color: #30A0B4;
     color: #fdfdfd;
     min-height: 100%;
     height: auto;
     margin: 0 auto -60px;
-    box-shadow: 5px 5px rgba(124, 124, 124, 0.6);
+    box-shadow: 3px 3px #E9DBC4;
+    border-radius: 0px 0px 15px 15px / 0px 0px 15px 15px;
+
+    h3{
+      font-size: 14px;
+      font-family: 'Stint Ultra Expanded', cursive;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     // ロゴ
     .logo{
       margin: 35px auto;
       max-width: 100%;
     }
     .catchcopy{
-      margin: 100px 10px 0px;
+      margin: 68px 10px 0px;
       font-size: 14px;
       text-align: center;
     }
@@ -106,6 +119,23 @@ body{
         display: block;
       }
     }
+    .sns_buttons{
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 30px;
+      h3{
+        margin-bottom: 5px;
+      }
+      a{
+        color: #FFFFFF;
+        font-size: 30px;
+        &:hover{
+          color: #94C1CF;
+          text-decoration: none;
+        }
+      }
+    }
+
   }
   #footer{
     text-align: center;
@@ -201,7 +231,8 @@ body{
 
 .square-container{
   margin-top: 15px;
-  margin-left: 17px;
+  margin-left: 25px;
+  margin-right: 25px;
 
   .square_top{
     margin-bottom: 10px;
@@ -226,14 +257,23 @@ body{
 
 
   .article-list{
-    border-radius: 15px;
+    /* border-radius: 15px; */
+    border-radius: 10px;
     overflow: hidden;
     height: 240px;
-    box-shadow: 3px 5px #cecece;
+    /* box-shadow: 3px 5px #cecece; */
+    box-shadow: 3px 3px #E9DBC4;
+
     .article_image{
       height: 120px;
       margin: 0 auto;
+      overflow:hidden;
+      position:relative;
       img{
+        float:left;
+        position:absolute;
+        display: black;
+        z-index: 1;
       }
     }
 
@@ -242,8 +282,9 @@ body{
       width: 40px;
       height: 50px;
       position: relative;
-      top: -115px;
+      top: 5px;
       left: 10px;
+      z-index: 2;
     }
     .spice_icon1{background-position: -10px 0;}    //ワイワイ
     .spice_icon2{background-position: -55px 0;}    //ガッツリ
@@ -255,7 +296,7 @@ body{
       display: table-cell;
       vertical-align: middle;
       p.title{
-        width: 217px;
+        width: 205px;
         text-align: center;
         margin-bottom: 0px;
       }
@@ -428,8 +469,15 @@ div.thumb-list{
 }
 .sns-icon li:hover{
   color: #fff;
-
 }
+
+// 共通部品
+.article_image{
+  img{
+
+  }
+}
+
 
 @import "article.css.scss";
 @import "static_pages.css.scss";

@@ -1,4 +1,5 @@
 article_recommends:
+# びーのびーの
     -
       id: 1
       article_id: 1
@@ -14,6 +15,7 @@ article_recommends:
       article_id: 1
       discription: "乳幼児や親子と接する機会は将来必ず役に立つ！"
 
+# 竹ファン
     -
       id: 4
       article_id: 2
@@ -29,6 +31,7 @@ article_recommends:
       article_id: 2
       discription: "竹林で本格的な伐採作業！"
 
+# 教育支援協会
     -
       id: 7
       article_id: 3
@@ -44,6 +47,7 @@ article_recommends:
       article_id: 3
       discription: "子どもたちから「学べる」！"
 
+# ぐりぐら
     -
       id: 10
       article_id: 4
@@ -58,3 +62,19 @@ article_recommends:
       id: 12
       article_id: 4
       discription: "家庭のような雰囲気の中で活動できる！"
+
+# 港南台プレイパーク
+    -
+      id: 13
+      article_id: 5
+      discription: "解放された自由な遊び場で子どもと一緒になって楽しむことが出来る！"
+
+    -
+      id: 14
+      article_id: 5
+      discription: "お母さんやお父さん、地域のボランティアさんともお話しが出来る！"
+
+    -
+      id: 15
+      article_id: 5
+      discription: "走り回って、泥んこになって、目一杯遊ぶことが出来る！"

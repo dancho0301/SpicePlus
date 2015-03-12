@@ -1,35 +1,62 @@
 .container_inquiry
   .page_header
     %h1 お問い合わせ
+  .description
+    以下の内容でお問い合わせを受け付けます。
+    %br
+    入力内容にお間違いがないか、ご確認ください。
 
   = form_for @inquiry, :url => inquiry_thanks_path do |f|
-    %table.table
+    %table
+      - if @article.present?
+        %tr
+          %th
+            %span.eng Report
+            %br/
+            %span.jpn レポート
+          %td
+            %p.report_name
+              = @article.title
+            = f.hidden_field :article_id, :value => @article.id
       %tr
         %th
-          名前
+          %span.eng Name
+          %br/
+          %span.jpn 名前
         %td
-          = @inquiry.family_name
-          = f.hidden_field :family_name, :value => @inquiry.family_name
-          = @inquiry.first_name
-          = f.hidden_field :first_name, :value => @inquiry.first_name
+          %p.report_name #{@inquiry.family_name} #{@inquiry.first_name}
+          = f.hidden_field :family_name, :placeholder => "姓", :maxlength => 10, :value => @inquiry.family_name
+          = f.hidden_field :first_name, :placeholder => "名", :maxlength => 10, :value => @inquiry.first_name
       %tr
         %th
-          フリガナ
+          %span.eng Reading
+          %br/
+          %span.jpn フリガナ
         %td
-          = @inquiry.family_name_kana
-          = f.hidden_field :family_name_kana, :value => @inquiry.family_name_kana
-          = @inquiry.first_name_kana
-          = f.hidden_field :first_name_kana, :value => @inquiry.first_name_kana
+          %p.report_name #{@inquiry.family_name_kana} #{@inquiry.first_name_kana}
+          = f.hidden_field :family_name_kana, :placeholder => "セイ", :maxlength => 10, :value => @inquiry.family_name_kana
+          = f.hidden_field :first_name_kana, :placeholder => "メイ", :maxlength => 10, :value => @inquiry.first_name_kana
       %tr
         %th
-          メールアドレス
+          %span.eng Mail Address
+          %br/
+          %span.jpn メールアドレス
+
         %td
-          = @inquiry.email
-          = f.hidden_field :email, :value => @inquiry.email
+          %p.report_name #{@inquiry.email}
+          = f.hidden_field :email, :size => 30, :placeholder => "@spice-plus.yokohama", :value => @inquiry.email
       %tr
-        %th お問い合わせ内容
+        %th
+          %span.eng Inquiry
+          %br/
+          %span.jpn お問い合わせ内容
+
         %td
           = simple_format(@inquiry.message)
-          = f.hidden_field :message, :size => 500, :maxlength => 500, :value => @inquiry.message
+          = f.hidden_field :message, :value => @inquiry.message
     .submit
       = f.submit "送信", class: "btn btn-primary"
+
+
+- content_for :header do
+  <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Expanded&subset=latin,latin-ext' rel='stylesheet' type='text/css'>

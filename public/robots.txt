@@ -3,3 +3,9 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-agent: *
 # Disallow: /
+
+# /robots.txt file for http://spice-plus.yokohama
+# mail spice@spice-plus.yokohama
+
+User-agent: *
+Disallow: /inquiry

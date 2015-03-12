@@ -111,7 +111,8 @@
       <div class="article-list">
         <div class="article_image" style="height: 180px; background-color: white;">
           <%# image_tag "demo/bino.top.jpg", :height => "100" %>
-          <%= image_tag "recruiting.png", :height => "180"  %>
+          <%= link_to image_tag("recruiting.png", :height => "180"), inquiry_path %>
+
         </div>
         <div class="author notice">
           <div class="author-left">
@@ -120,12 +121,8 @@
           </div>
           <div class="author-right">
             <div class="label">お知らせ</div>
-            <div class="date">
-              15.02.08 [sun]
-            </div>
-            <div class="author-name">
-              Reported by 運営事務局
-            </div>
+            <div class="date">15.03.14 [sat]</div>
+            <div class="author-name">Reported by 運営事務局</div>
           </div>
         </div>
       </div>
@@ -138,3 +135,9 @@
     </div>
   </div>
 </div>
+
+
+
+<% content_for :header do %>
+  <meta name="keywords" content="spice＋,スパイスプラス,spiceプラス,若者,NPO,アクションポート,ボランティア,yokohama ,横浜,スパイス">
+<% end %>

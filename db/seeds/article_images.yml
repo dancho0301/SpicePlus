@@ -61,3 +61,23 @@ article_images:
     title: "竹ファン２"
     discription: ""
     image: "take/take03.png"
+
+  -
+    id: 13
+    title: "プレイパーク１"
+    image: "konan/01.png"
+
+  -
+    id: 14
+    title: "プレイパーク１"
+    image: "konan/02.png"
+
+  -
+    id: 15
+    title: "プレイパーク１"
+    image: "konan/03.png"
+
+  -
+    id: 16
+    title: "プレイパーク１"
+    image: "konan/04.png"

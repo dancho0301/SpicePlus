@@ -12,6 +12,9 @@
 new function(){
 
 	var footerId = "footer";
+	var sidebarId = "sidebar";
+	var sidebarFooterId = "sidebar_footer";
+
 	//メイン
 	function footerFixed(){
 		//ドキュメントの高さ
@@ -27,9 +30,17 @@ new function(){
 		}else if(document.documentElement && document.documentElement.clientHeight != 0){
 			var wh = document.documentElement.clientHeight;
 		}
+		// サイドバーの高さ
+		var sh = document.getElementById(sidebarId).offsetHeight;
+		// snsiconの高さ
+		var snsh = document.getElementById(sidebarFooterId).offsetHeight;
+
 		if(ft+fh<wh){
 			document.getElementById(footerId).style.position = "relative";
-			document.getElementById(footerId).style.top = (wh-fh-ft-1)+"px";
+			document.getElementById(footerId).style.top = (wh-fh-ft-30)+"px";
+
+			document.getElementById(sidebarFooterId).style.position = "relative";
+			// document.getElementById(sidebarFooterId).style.top = (sh-snsh-ft-1)+"px";
 		}
 	}
 
