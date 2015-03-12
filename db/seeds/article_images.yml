@@ -1,36 +1,83 @@
 article_images:
+
+  -
+    id: 1
+    title: "竹ファン１"
+    image: "take/take01.png"
+
+  -
+    id: 2
+    title: "竹ファン２"
+    image: "take/take02.png"
+
+  -
+    id: 3
+    title: "教育支援協会１"
+    image: "kyoiku/kokusai1.png"
+
+  -
+    id: 4
+    title: "教育支援協会２"
+    image: "kyoiku/kokusai2.png"
+
+
+  -
+    id: 5
+    title: "びーのびーの１"
+    image: "bino/bino01.png"
+
+  -
+    id: 6
+    title: "びーのびーの１"
+    image: "bino/bino02.png"
+
   -
     id: 7
     title: "びーのびーの 記事内画像１"
-    discription: ""
     image: "bino2.png"
 
   -
     id: 8
     title: "びーのびーの 記事内画像２"
-    discription: ""
     image: "bino3.png"
 
   -
-    id: 1
-    title: "竹ファン１"
-    discription: ""
-    image: "take1.jpg"
+    id: 9
+    title: "ぐりぐら"
+    image: "guri/cookie.png"
 
   -
-    id: 2
+    id: 10
+    title: "ぐりぐら"
+    image: "guri/carry.png"
+
+  -
+    id: 11
+    title: "ぐりぐら"
+    image: "guri/benkyo.png"
+
+  -
+    id: 12
     title: "竹ファン２"
     discription: ""
-    image: "take2.jpg"
+    image: "take/take03.png"
 
   -
-    id: 3
-    title: "教育支援協会１"
-    discription: ""
-    image: "kyoiku1.jpg"
+    id: 13
+    title: "プレイパーク１"
+    image: "konan/01.png"
 
   -
-    id: 4
-    title: "教育支援協会２"
-    discription: ""
-    image: "kyoiku2.jpg"
+    id: 14
+    title: "プレイパーク１"
+    image: "konan/02.png"
+
+  -
+    id: 15
+    title: "プレイパーク１"
+    image: "konan/03.png"
+
+  -
+    id: 16
+    title: "プレイパーク１"
+    image: "konan/04.png"

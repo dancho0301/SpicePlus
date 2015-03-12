@@ -1,0 +1,12 @@
+Spice+にお問い合わせがありました。
+
+===============================================
+氏名： <%= @inquiry.family_name %> <%= @inquiry.first_name %>
+カナ： <%= @inquiry.family_name_kana %> <%= @inquiry.first_name_kana %>
+メールアドレス： <%= @inquiry.email %>
+<% if @inquiry.article_id.present? %>
+レポート： <%= @article.title %>
+<% end %>
+問い合わせ内容：
+<%= @inquiry.message %>
+===============================================

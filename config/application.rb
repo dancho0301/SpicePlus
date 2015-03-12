@@ -15,9 +15,9 @@ Bundler.require(*Rails.groups)
 
 module SpicePlus
   class Application < Rails::Application
-    # config.generators do |g|
-    #     g.template_engine :haml
-    # end
+    config.generators do |g|
+       g.template_engine :haml
+    end
     config.sass.preferrd_syntax = :sass
     config.sass.syntax = :sass
 

@@ -1,66 +1,143 @@
-<!-- トップ画像 -->
-<div class="row">
-  <div class="hidden-xs col-md-12">
-    <%= image_tag "top.png", :class => "img-responsive" %>
-  </div>
-</div>
-
+<!-- トップカルーセル -->
 <div class="row">
   <div class="col-md-12">
-    <div class="catch-copy">
-      <h1>あなたの人生のちょっとしたスパイスになる、そんな情報を発信していくサイトです</h1>
+    <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+      <!-- 標識の設定 -->
+      <ol class="carousel-indicators">
+        <% @articles.count.times do |idx| %>
+          <% if idx == 0 %>
+          <li data-target="#carousel-generic" data-slide-to="<%= idx+1 %>" class="active"></li>
+          <% else %>
+          <li data-target="#carousel-generic" data-slide-to="<%= idx+1 %>"></li>
+          <% end %>
+        <% end %>
+      </ol>
+      <!-- スライドさせる画像の設定 -->
+      <div class="carousel-inner">
+        <% @articles.each_with_index do |article, idx| %>
+          <% if idx == 0 %>
+          <div class="item active">
+          <% else %>
+          <div class="item ">
+          <% end %>
+            <%= link_to image_tag(article.photo), article %>
+            <%= link_to(article) do %>
+              <div class="carousel-caption">
+                <div class="<%= article.genre.css_class %>">
+                  <span class="label"><%= article.genre.name %></span>
+                </div>
+                <p class="title"><%= article.title %></p>
+                <p class="name"><%= article.group.name %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
     </div>
   </div>
 </div>
-<!-- コンテンツ -->
-<div class="row ">
-  <div class="col-md-9">
-    <!-- 記事一覧 -->
-      <% row_count = 0 %>
-      <% @articles.each_with_index do |article, index| %>
-        <% if row_count % 2 == 0 %>
-          <div class="row">
-        <% end %>
-        <% row_count = row_count + 1 %>
-          <div class="col-xs-12 col-sm-6 col-md-6 thumb-list">
-            <div class="image">
-              <% if article.created_at >= Date.today-30 %>
-                <div class="new_icon"></div>
-              <% end %>
-              <%= link_to image_tag(article.photo, :class => "img-responsive"), article %>
-            </div>
-            <div class="caption">
-              <div>
-                <span class="label label-<%= article.genre.css_class %>"><%= article.genre.name %></span>
-                <span class="area"><%= article.area.name %></span>
-                <span class="pepper">
-                <% article.spiciness.times do |n| %>
-                  <%= image_tag 'pepper.png' %>
-                <% end %>
-                </span>
-              </div>
-              <h4><%= article.title %></h4>
-<%#               <div class="tags">
-                <span class="label label-default">子ども</span>
-                <span class="label label-default">わくわく</span>
-              </div> %>
-            </div>
-          </div>
-        <% if row_count == 2 %>
-          </div>
-        <% end %>
-      <% end %>
-      <% if row_count == 1 %>
-        </div>
-      <% end %>
+
+<!-- 記事一覧 -->
+<div class="square-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "▶記事一覧へ", articles_path, class: "to_article_list" %>
     </div>
   </div>
 
-  <!-- サイドバー -->
-  <div class="hidden-xs hidden-sm col-md-3">
-    <div id="twitter" class="sidebar-item">
-      <a class="twitter-timeline"  href="https://twitter.com/yokohama_ap"  data-widget-id="472767602591166464">@yokohama_ap からのツイート</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <div class="row menu-square square_top">
+    <!-- 本体 -->
+    <% 5.times do |idx| %>
+      <% article = @articles[idx] %>
+
+      <%# 4つめの記事は行を変える %>
+      <% if idx == 3 %>
+        </div>
+        <div class="row menu-square square_middle">
+      <% end %>
+
+      <%# 記事が存在しない時はダミー画像 %>
+      <% if article == nil %>
+        <div class="col-sm-4 col_left">
+          <div class="article-list article-list-dummy"></div>
+        </div>
+      <% else %>
+        <%# 記事本体 %>
+        <div class="col-sm-4 col_left">
+          <div class="article-list">
+            <div class="article_image">
+              <%# image_tag "demo/bino.top.jpg", :height => "100" %>
+              <%# link_to image_tag(article.photo, :height => "120"), article %>
+              <%= link_to article do %>
+                <%= image_tag article.photo, :height => "120" %>
+                <div class="spice_icon spice_icon<%= article.spice_id %>"></div>
+              <% end %>
+
+            </div>
+            <div class="article_title">
+              <% if article.publication_date >= (Date.today << 2) %>
+
+              <div class="new">NEW!</div>
+              <% end %>
+              <p class="title"><%= article.title %></p>
+            </div>
+            <div class="author <%= article.genre.css_class %>">
+              <div class="author-left">
+                <div class="fukidashi"></div>
+                <%= image_tag article.main_reporter.photo, :size => "40x40" %>
+              </div>
+              <div class="author-right">
+                <div class="label"><%= article.genre.name %></div>
+                <div class="date">
+                  <%= article.publication_date.strftime("%y.%m.%d") %>
+                </div>
+                <div class="author-name">
+                  Reported by <%= article.main_reporter.name %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="col-sm-4 col_left">
+      <div class="article-list">
+        <div class="article_image" style="height: 180px; background-color: white;">
+          <%# image_tag "demo/bino.top.jpg", :height => "100" %>
+          <%= link_to image_tag("recruiting.png", :height => "180"), inquiry_path %>
+
+        </div>
+        <div class="author notice">
+          <div class="author-left">
+            <div class="fukidashi"></div>
+            <%= image_tag "unei.png", :size => "40x40" %>
+          </div>
+          <div class="author-right">
+            <div class="label">お知らせ</div>
+            <div class="date">15.03.14 [sat]</div>
+            <div class="author-name">Reported by 運営事務局</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12" style="text-align: right;">
+      <%= link_to "▶記事一覧へ", articles_path, class: "to_article_list" %>
     </div>
   </div>
 </div>
+
+
+
+<% content_for :header do %>
+  <meta name="keywords" content="spice＋,スパイスプラス,spiceプラス,若者,NPO,アクションポート,ボランティア,yokohama ,横浜,スパイス">
+<% end %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'static_pages/about'
-
   get 'static_pages/recruitment'
+  get 'static_pages/contact'
 
   devise_for :users
 
@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get 'articles', :to => 'articles#index'
   get 'articles(/:id)', :to => 'articles#show', :as => 'article'
 
-
+  # お問い合わせ
+  get  "inquiry" => "inquiry#index"               # 入力
+  get  "inquiry/article/:article_id" => "inquiry#article" # 記事からの問い合わせ
+  post "inquiry/confirm" => "inquiry#confirm"     # 確認
+  post "inquiry/thanks" => "inquiry#thanks"       # 完了
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

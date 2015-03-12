@@ -35,8 +35,32 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.datetime "updated_at"
   end
 
+  create_table "article_plans", force: true do |t|
+    t.integer  "article_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "color_theme"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "article_recommends", force: true do |t|
+    t.integer "article_id"
+    t.string  "discription"
+  end
+
+  create_table "article_schedules", force: true do |t|
+    t.integer  "article_id"
+    t.string   "time"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "articles", force: true do |t|
     t.string   "title"
+    t.date     "publication_date"
     t.string   "discription"
     t.text     "article"
     t.string   "photo_file_name"
@@ -47,7 +71,18 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.integer  "genre_id"
     t.integer  "area_id"
     t.integer  "group_id"
-    t.integer  "spiciness"
+    t.integer  "spice_id"
+    t.string   "author_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "entry", force: true do |t|
+    t.string   "name"
+    t.string   "mail"
+    t.string   "tel"
+    t.text     "comment"
+    t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,9 +101,20 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.string   "tel"
     t.string   "url"
     t.string   "mail"
-    t.string   "activity"
+    t.text     "activity"
+    t.text     "detail"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "inquiries", force: true do |t|
+    t.string  "family_name"
+    t.string  "first_name"
+    t.string  "family_name_kana"
+    t.string  "first_name_kana"
+    t.string  "email"
+    t.string  "message"
+    t.integer "article_id"
   end
 
   create_table "lines", force: true do |t|
@@ -85,14 +131,26 @@ ActiveRecord::Schema.define(version: 20141130040232) do
   end
 
   create_table "reports", force: true do |t|
+    t.integer  "article_id"
     t.string   "name"
     t.string   "title"
+    t.date     "report_date"
     t.text     "article"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "article_id"
+    t.string   "point"
+    t.integer  "main_reporter"
+    t.string   "signature"
+    t.integer  "spice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spices", force: true do |t|
+    t.string   "name"
+    t.string   "css_class"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

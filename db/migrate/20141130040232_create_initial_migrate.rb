@@ -20,7 +20,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       ## Confirmable
-      # t.string   :confirmation_token
+      # t.string   :confirmatioFn_token
       # t.datetime :confirmed_at
       # t.datetime :confirmation_sent_at
       # t.string   :unconfirmed_email # Only if using reconfirmable
@@ -47,7 +47,8 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.string :tel
       t.string :url
       t.string :mail
-      t.string :activity
+      t.text :activity
+      t.text :detail
       t.timestamps
     end
 
@@ -60,25 +61,56 @@ class CreateInitialMigrate < ActiveRecord::Migration
 
     # 記事
     create_table :articles do |t|
-      t.string :title
-      t.string :discription
-      t.text :article
+      t.string     :title
+      t.date       :publication_date
+      t.string     :discription
+      t.text       :article
       t.attachment :photo
-      t.integer :member_id
-      t.integer :genre_id
-      t.integer :area_id
-      t.integer :group_id
-      t.integer :spiciness
+      t.integer    :member_id
+      t.integer    :genre_id
+      t.integer    :area_id
+      t.integer    :group_id
+      t.integer    :spice_id
+      t.string     :author_name
+      t.timestamps
+    end
+
+    # おすすめポイント
+    create_table :article_recommends do |t|
+      t.integer :article_id
+      t.string  :discription
+    end
+
+    # 参加プラン
+    create_table :article_plans do |t|
+      t.integer    :article_id
+      t.string     :title
+      t.text       :description
+      t.string     :color_theme
+      t.timestamps
+    end
+
+    # スケジュール
+    create_table :article_schedules do |t|
+      t.integer    :article_id
+      t.string     :time
+      t.string     :title
+      t.string     :description
       t.timestamps
     end
 
     # 体験レポート
     create_table :reports do |t|
+      t.integer    :article_id
       t.string     :name
       t.string     :title
+      t.date       :report_date
       t.text       :article
       t.attachment :photo
-      t.integer    :article_id
+      t.string     :point
+      t.integer    :main_reporter
+      t.string     :signature
+      t.integer    :spice_id
       t.timestamps
     end
 
@@ -92,6 +124,13 @@ class CreateInitialMigrate < ActiveRecord::Migration
 
     # ジャンル
     create_table :genres do |t|
+      t.string :name
+      t.string :css_class
+      t.timestamps
+    end
+
+    # スパイス
+    create_table :spices do |t|
       t.string :name
       t.string :css_class
       t.timestamps
@@ -123,6 +162,17 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.text   :comment
       t.integer :article_id
       t.timestamps
+    end
+
+    # お問い合わせ
+    create_table :inquiries do |t|
+      t.string :family_name
+      t.string :first_name
+      t.string :family_name_kana
+      t.string :first_name_kana
+      t.string :email
+      t.string :message
+      t.integer :article_id
     end
   end
 end

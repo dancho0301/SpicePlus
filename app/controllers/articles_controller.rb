@@ -7,15 +7,13 @@ class ArticlesController < ApplicationController
 
   # 記事一覧
   def index
-    @all_articles = Article.all
-    @articles = @search.result
+    @articles = @search.result.order("publication_date DESC")
   end
 
   # 記事
-  # @param :id 表示する記事のid
   # サイドバーには表示中の記事以外を表示する
   def show
-    @all_articles = Article.where.not(id: params[:id])
+    @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC")
   end
 
   private
@@ -36,9 +34,4 @@ class ArticlesController < ApplicationController
     def set_used_area
       @used_areas = Area.find_by_sql("select * from areas a where exists (select 1 from articles b where a.id = b.area_id)")
     end
-
-    def set_all_articles
-      @all_articles = Article.all
-    end
-
 end

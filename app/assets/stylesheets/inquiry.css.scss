@@ -1,0 +1,88 @@
+// Place all the styles related to the inquiry controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.container_inquiry{
+  h1{
+    background-color: #03495D;
+    color: #FEF8ED;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px 0 10px 0;
+    border-radius: 10px;
+    box-shadow: 0px 5px #003040;
+  }
+  .description{
+    margin: 40px 0 40px 0;
+    text-align: center;
+    color: #30A0B4;
+    line-height: 1.8;
+  }
+  table{
+    margin-left: 7%;
+    margin-right: 15%;
+    tr{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    th{
+      width: 170px;
+      text-align: right;
+      padding-right: 15px;
+      padding-bottom: 20px;
+      vertical-align: top;
+      .eng{
+        font-weight: normal;
+        font-size: 16px;
+        font-family: 'Stint Ultra Expanded', cursive;
+      }
+      .jpn{
+        font-weight: normal;
+        font-size: 12px;
+      }
+
+    }
+    td{
+      vertical-align: top;
+      .field_with_errors{
+        display: inline;
+      }
+      p.report_name{
+        margin-top: 10px;
+      }
+      input{
+        border-radius: 2px;
+        border:solid 1px #b3b3b3;
+
+        -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+        -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+      }
+      input:focus {
+        border:solid 1px #EEA34A;
+      }
+
+
+      textarea{
+        border-radius: 2px;
+        width: 330px;
+        height: 200px;
+        border:solid 1px #b3b3b3;
+        -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+        -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+
+      }
+    }
+  }
+  .submit{
+    margin-top: 30px;
+    text-align: center;
+    .btn-primary{
+      border: none;
+      background-color: #30A0B4;
+      box-shadow: 0 2px #2891A3;
+      padding: 5px 20px 5px 20px;
+    }
+  }
+}

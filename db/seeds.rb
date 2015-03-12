@@ -6,7 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-[Genre, Line, Area, Group].each do |c|
+require 'haml'
+
+[Genre, Line, Area, Group, ArticlePlan, ArticleSchedule, ArticleRecommend].each do |c|
   yml = File.read("#{Rails.root}/db/seeds/#{c.to_s.tableize}.yml")
   list = YAML.load(yml).symbolize_keys
   c.destroy_all
@@ -29,6 +31,10 @@ end
       r.each do |i, v|
         if i == "photo"
           t.photo = File.new("#{Rails.root}/db/data/#{v}")
+        elsif i == "article" and c.to_s == "Article"
+          File.open("#{Rails.root}/db/seeds/articles/#{v}") do |f|
+            t.article = Haml::Engine.new(f.read,:format => :xhtml).render(Object.new)
+          end
         else
           t.send "#{i}=", v
         end
@@ -37,7 +43,6 @@ end
   end
 end
 
-# 記事だけは画像があるので外出し
 [ArticleImage].each do |c|
   yml = File.read("#{Rails.root}/db/seeds/#{c.to_s.tableize}.yml")
   list = YAML.load(yml).symbolize_keys
