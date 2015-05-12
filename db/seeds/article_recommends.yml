@@ -1,80 +1,108 @@
 article_recommends:
 # びーのびーの
-    -
-      id: 1
-      article_id: 1
-      discription: "乳幼児と接する機会が多い！"
+  -
+    id: 1
+    article_id: 1
+    discription: "乳幼児と接する機会が多い！"
 
-    -
-      id: 2
-      article_id: 1
-      discription: "人生の先輩である親・シニア世代との交流もある！"
+  -
+    id: 2
+    article_id: 1
+    discription: "人生の先輩である親・シニア世代との交流もある！"
 
-    -
-      id: 3
-      article_id: 1
-      discription: "乳幼児や親子と接する機会は将来必ず役に立つ！"
+  -
+    id: 3
+    article_id: 1
+    discription: "乳幼児や親子と接する機会は将来必ず役に立つ！"
 
 # 竹ファン
-    -
-      id: 4
-      article_id: 2
-      discription: "活動メンバーの熱意がステキ！"
+  -
+    id: 4
+    article_id: 2
+    discription: "活動メンバーの熱意がステキ！"
 
-    -
-      id: 5
-      article_id: 2
-      discription: "初めてでも丁寧に教えてもらえる！"
+  -
+    id: 5
+    article_id: 2
+    discription: "初めてでも丁寧に教えてもらえる！"
 
-    -
-      id: 6
-      article_id: 2
-      discription: "竹林で本格的な伐採作業！"
+  -
+    id: 6
+    article_id: 2
+    discription: "竹林で本格的な伐採作業！"
 
 # 教育支援協会
-    -
-      id: 7
-      article_id: 3
-      discription: "子どもたちとの触れ合い、楽しい時間を過ごせる！"
+  -
+    id: 7
+    article_id: 3
+    discription: "子どもたちとの触れ合い、楽しい時間を過ごせる！"
 
-    -
-      id: 8
-      article_id: 3
-      discription: "初めてでも参加しやすく、仲間もできる！"
+  -
+    id: 8
+    article_id: 3
+    discription: "初めてでも参加しやすく、仲間もできる！"
 
-    -
-      id: 9
-      article_id: 3
-      discription: "子どもたちから「学べる」！"
+  -
+    id: 9
+    article_id: 3
+    discription: "子どもたちから「学べる」！"
 
 # ぐりぐら
-    -
-      id: 10
-      article_id: 4
-      discription: "「食」についての知識が深まる！"
+  -
+    id: 10
+    article_id: 4
+    discription: "「食」についての知識が深まる！"
 
-    -
-      id: 11
-      article_id: 4
-      discription: "子どもの主体性を育てる関わり方を体感できる！"
+  -
+    id: 11
+    article_id: 4
+    discription: "子どもの主体性を育てる関わり方を体感できる！"
 
-    -
-      id: 12
-      article_id: 4
-      discription: "家庭のような雰囲気の中で活動できる！"
+  -
+    id: 12
+    article_id: 4
+    discription: "家庭のような雰囲気の中で活動できる！"
 
 # 港南台プレイパーク
-    -
-      id: 13
-      article_id: 5
-      discription: "解放された自由な遊び場で子どもと一緒になって楽しむことが出来る！"
+  -
+    id: 13
+    article_id: 5
+    discription: "解放された自由な遊び場で子どもと一緒になって楽しむことが出来る！"
 
-    -
-      id: 14
-      article_id: 5
-      discription: "お母さんやお父さん、地域のボランティアさんともお話しが出来る！"
+  -
+    id: 14
+    article_id: 5
+    discription: "お母さんやお父さん、地域のボランティアさんともお話しが出来る！"
 
-    -
-      id: 15
-      article_id: 5
-      discription: "走り回って、泥んこになって、目一杯遊ぶことが出来る！"
+  -
+    id: 15
+    article_id: 5
+    discription: "走り回って、泥んこになって、目一杯遊ぶことが出来る！"
+
+# ふくしまキッズ
+  -
+    id: 16
+    article_id: 6
+    discription: "子どもたちと生活をともにすることで、濃密な交流ができる"
+
+  -
+    id: 17
+    article_id: 6
+    discription: "ボランティアは200人以上！年齢や職業が異なる、たくさんの人たちと出会える！"
+
+  -
+    id: 18
+    article_id: 6
+    discription: "都合の良い時間で、自分の得意なことを活用して参加できる！"
+
+  -
+    article_id: 7
+    discription: "地域の幅広い世代の方々と交流ができる"
+
+  -
+    article_id: 7
+    discription: "地域にふらっと立ち寄れる居場所ができる"
+
+  -
+    article_id: 7
+    discription: "イベントで出会った人たちとのつながりができる"

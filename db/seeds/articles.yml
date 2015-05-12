@@ -58,3 +58,27 @@ articles:
     group_id: 5
     spice_id: 1
     photo: 'play.top.png'
+
+  -
+    id: 6
+    title: '横浜でできる、ふくしまっ子との交流'
+    publication_date: "2015/03/31"
+    discription: ''
+    article: "06_fukushima.haml"
+    genre_id: 3
+    area_id: 4
+    group_id: 3
+    spice_id: 1
+    photo: 'fuku.top.png'
+
+  -
+    id: 7
+    title: '戸塚の地域拠点で交流パーティー！！'
+    publication_date: "2015/05/09"
+    discription: '戸塚駅から徒歩３分ほど近くにあるコミュニティカフェ「ふらっとステーション・とつか」。ここはふらっと自由に立ち寄れ、さまざまな人が集い、たくさんの出会いがある『みんなの居場所』。世代を越えて地域の方々のホッとできる場所として、またいろいろな活動の場となっています。'
+    article: "07_totsuka.haml"
+    genre_id: 3
+    area_id: 10
+    group_id: 6
+    spice_id: 1
+    photo: 'totsuka.top.png'

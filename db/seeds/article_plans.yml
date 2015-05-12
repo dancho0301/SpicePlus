@@ -117,3 +117,36 @@ article_plans:
     title: "活動への参加の仕方"
     description: |
       <p>プレイパークの開催日はホームページに掲載されています。開催日に直接来て、雰囲気を感じてください。</p>
+
+
+  -
+    article_id: 6
+    title: "ボランティアとして参加する"
+    description: |
+      <p>ふくしまキッズは、ふくしまキッズ運営委員会が主催しており、その事務局をNPO法人教育支援協会が担っています。</p>
+      <p>ふくしまキッズ実行委員会HP　<a href="http://fukushima-kids.org/">http://fukushima-kids.org/</a></p>
+      <p>2011年から全国各地で実施された「ふくしまキッズ　横浜プログラム」は、開催当初の目的を果たし、今回が最後となります。運営を担ってきた教育支援協会は、今後も形を変えて、福島の子どもたちとの交流を続けていきたいということです。</p>
+      <p>今後の活動については、教育支援協会のホームページなどで発信します。</p>
+
+  -
+    article_id: 7
+    title: "定期的に開催されている様々なイベントへの参加"
+    description: |
+      <p>ワインセミナーなど、地域住民が参加しやすい企画が行われています。イベント企画の持ち込みも可能です。</p>
+    color_theme: "green"
+
+  -
+    article_id: 7
+    title: "カフェとしての利用"
+    description: |
+      <p>平日には数量限定の500円ランチを食べることができたり、ケーキと一緒にコーヒーや紅茶を楽しむこともできます。</p>
+    color_theme: "orange"
+
+  -
+    article_id: 7
+    title: "会議室としての利用"
+    description: |
+      <p>30人規模の会議が可能です。</p>
+      <p>そのほかにも様々な利用方法があります。<br>詳しくは団体ホームページ（
+      <a href="http://furatto-totsuka.com/wp/" target="brank">http://furatto-totsuka.com/wp/</a>）をご覧ください。ボランティアは常に募集しています。</p>
+    color_theme: "red"

@@ -66,12 +66,10 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.string     :discription
       t.text       :article
       t.attachment :photo
-      t.integer    :member_id
       t.integer    :genre_id
       t.integer    :area_id
       t.integer    :group_id
       t.integer    :spice_id
-      t.string     :author_name
       t.timestamps
     end
 

@@ -81,3 +81,59 @@ article_images:
     id: 16
     title: "プレイパーク１"
     image: "konan/04.png"
+
+# ふくしまキッズ
+  -
+    id: 61
+    title: "ふくしまキッズ"
+    image: "fuku/fuku.01.png"
+
+  -
+    id: 62
+    title: "ふくしまキッズ"
+    image: "fuku/fuku.02.png"
+
+  -
+    id: 63
+    title: "ふくしまキッズ"
+    image: "fuku/fuku.03.png"
+
+  -
+    id: 64
+    title: "ふくしまキッズ"
+    image: "fuku/fuku.04.png"
+
+  -
+    id: 71
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka01.png"
+
+  -
+    id: 72
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka02.png"
+
+  -
+    id: 73
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka03.png"
+
+  -
+    id: 74
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka04.png"
+
+  -
+    id: 75
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka05.png"
+
+  -
+    id: 76
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka06.png"
+
+  -
+    id: 77
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka07.png"

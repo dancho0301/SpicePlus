@@ -210,3 +210,66 @@ article_schedules:
     article_id: 5
     time: "17:30"
     title: "解散"
+
+
+  -
+    id: 35
+    article_id: 6
+    time: "12/23"
+    title: "子ども達が福島から移動、入所式"
+  -
+    id: 36
+    article_id: 6
+    time: "12/24"
+    title: "横浜・八景シーパラダイスへ"
+  -
+    id: 37
+    article_id: 6
+    time: "12/25"
+    title: "だがしや楽校ワークショップ、クリスマスパーティ"
+  -
+    id: 38
+    article_id: 6
+    time: "12/26"
+    title: "横浜の子どもたちとの交流会"
+  -
+    id: 39
+    article_id: 6
+    time: "12/27"
+    title: "だがしや楽校"
+  -
+    id: 40
+    article_id: 6
+    time: "12/29"
+    title: "横浜ウォークラリー"
+  -
+    id: 41
+    article_id: 6
+    time: "12/29"
+    title: "お別れ会、福島へ移動"
+
+# ふらっとステーションとつか
+  -
+    article_id: 7
+    time: "18:00"
+    title: "スタート"
+  -
+    article_id: 7
+    time: "18:20"
+    title: "参加者によるケーキ作り"
+  -
+    article_id: 7
+    time: "18:50"
+    title: "食事スタート"
+  -
+    article_id: 7
+    time: "19:30"
+    title: "スタッフによるショー"
+  -
+    article_id: 7
+    time: "20:00"
+    title: "終了、片付け"
+  -
+    article_id: 7
+    time: "20:30"
+    title: "解散"
