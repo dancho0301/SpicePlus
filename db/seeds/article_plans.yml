@@ -150,3 +150,17 @@ article_plans:
       <p>そのほかにも様々な利用方法があります。<br>詳しくは団体ホームページ（
       <a href="http://furatto-totsuka.com/wp/" target="brank">http://furatto-totsuka.com/wp/</a>）をご覧ください。ボランティアは常に募集しています。</p>
     color_theme: "red"
+
+
+## 港南台タウンカフェ
+  -
+    article_id: 8
+    title: ""
+    description: |
+      <p>・港南台テント村（フリマ・イベント等）企画運営</p>
+      <p>・カフェサロン・小箱ショップ運営</p>
+      <p>・市民レポーター（かわら版・ころBOX、街発見レポートの取材・企画など）</p>
+      <p>・キャンドルナイトin港南台や、港南台国際協力まつりなど市民活動イベント等の企画や運営など</p>
+      <p>・タウンカフェの夜間営業：まちサロン、もっと×２交流ステーション</p>
+      <p><a href="http://www.town-cafe.jp/kounandai/images/staff_img/volunteer.pdf" target="brank">チラシ</a></p>
+    color_theme: "green"

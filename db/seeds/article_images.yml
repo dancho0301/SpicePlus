@@ -137,3 +137,28 @@ article_images:
     id: 77
     title: "ふらっと戸塚"
     image: "totsuka/totsuka07.png"
+
+  -
+    id: 81
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe01.JPG"
+
+  -
+    id: 82
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe02.JPG"
+
+  -
+    id: 83
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe03.JPG"
+
+  -
+    id: 84
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe04.jpg"
+
+  -
+    id: 85
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe05.jpg"

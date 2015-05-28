@@ -40,4 +40,4 @@ bower.json
 .memo
 
 # 画像
-/public/system/*
+public/system

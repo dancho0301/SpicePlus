@@ -67,7 +67,15 @@ groups:
     id: 6
     name: "コミュニティカフェふらっとステーションとつか"
     master_name: "有賀 美代"
-    address: "横浜市戸塚区吉田町104ー1ザ・パークハウス戸塚１F"
+    address: "横浜市戸塚区吉田町104ー1 ザ・パークハウス戸塚１F"
     url: "http://kumin-net.com/"
     detail: |
       <p>（ふらっとステーションとつか）<br>ふらっと自由に立ち寄れ、多様な人が集い、出会いがある「みんなの居場所」、コミュニティカフェふらっとステーションとつかを運営しています。</p>
+
+  -
+    id: 7
+    name: "港南台タウンカフェ"
+    master_name: "斎藤　保"
+    address: "横浜市港南台4-17-22 ブックスキタミ2F"
+    url: "http://www.town-cafe.jp/kounandai/index.html"
+    detail: "<p>港南台タウンカフェの運営<br>まちの交流イベント<br>まちの情報事務局</p>"

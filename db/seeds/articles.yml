@@ -82,3 +82,15 @@ articles:
     group_id: 6
     spice_id: 1
     photo: 'totsuka.top.png'
+
+  -
+    id: 8
+    title: 'コミュニティカフェでイベントスタッフ体験'
+    publication_date: "2015/05/18"
+    discription: '港南台タウンカフェは、株式会社イータウンが商店会や市民活動団体と協働で運営するコミュニティカフェです。「caféからはじまるおもしろまちづくり」を理念に、港南台のまちづくりの発信基地として、カフェの運営のほか、地域情報サイトの作成やイベントの企画・運営などを、地域の有志や団体と連携して行っています。今回は、毎月第３金曜日に開催される「まちサロン in cafe」の活動に参加してきました。'
+    article: "08_towncafe.haml"
+    genre_id: 1
+    area_id: 10
+    group_id: 7
+    spice_id: 3
+    photo: 'towncafe.top.png'

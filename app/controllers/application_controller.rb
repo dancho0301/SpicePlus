@@ -7,4 +7,14 @@ class ApplicationController < ActionController::Base
     admin_path
   end
 
+  before_action do
+    case request.user_agent
+    when /iPad/
+        request.variant = :tablet
+      when /iPhone/
+        request.variant = :mobile
+    end
+  end
+
+
 end

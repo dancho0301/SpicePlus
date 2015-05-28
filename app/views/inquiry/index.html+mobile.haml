@@ -1,0 +1,69 @@
+.row.container_inquiry
+  .col-xs-12
+    = form_for @inquiry, :url => inquiry_confirm_path do |f|
+      .page_header
+        %h1 お問い合わせ
+      .description
+        興味を持っていただきありがとうございます。
+
+        参加希望・質問など下記より受け付けています。
+      - if @inquiry.errors.any?
+        %div.alert.alert-danger{role: "alert"}
+          %strong 入力内容にエラーがあります
+          %ul
+            - @inquiry.errors.each do |attr, msg|
+              %li #{msg}
+
+      %table
+        - if @article.present?
+          %tr
+            %th
+              %span.eng Report
+              %br/
+              %span.jpn レポート
+            %td
+              %p.report_name
+                = @article.title
+              = f.hidden_field :article_id, :value => @article.id
+        %tr
+          %th
+            %span.eng Name
+            %br/
+            %span.jpn 名前
+          %td
+            = f.text_field :family_name, :placeholder => "姓", :maxlength => 10, :value => @inquiry.family_name
+            = f.text_field :first_name, :placeholder => "名", :maxlength => 10, :value => @inquiry.first_name
+            %span.text-danger （必須）
+        %tr
+          %th
+            %span.eng Reading
+            %br/
+            %span.jpn フリガナ
+
+
+          %td
+            = f.text_field :family_name_kana, :placeholder => "セイ", :maxlength => 10, :value => @inquiry.family_name_kana
+            = f.text_field :first_name_kana, :placeholder => "メイ", :maxlength => 10, :value => @inquiry.first_name_kana
+            %span.text-danger （必須）
+        %tr
+          %th
+            %span.eng Mail Address
+            %br/
+            %span.jpn メールアドレス
+
+          %td
+            = f.text_field :email, :size => 30, :placeholder => "@spice-plus.yokohama", :value => @inquiry.email
+            %span.text-danger （必須）
+        %tr
+          %th
+            %span.eng Inquiry
+            %br/
+            %span.jpn お問い合わせ内容
+
+          %td
+            = f.text_area :message, :value => @inquiry.message
+      .submit
+        = f.submit "確認", class: "btn btn-primary"
+
+- content_for :header do
+  <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Expanded&subset=latin,latin-ext' rel='stylesheet' type='text/css'>

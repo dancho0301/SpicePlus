@@ -1,0 +1,334 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+//$screen-lg: 9999px;
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+//////////////////////
+// 共通カラー定義
+$theme-green: #30A0B5;
+
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+  background-color: #FEF8ED;
+  padding-top: 0px;
+  /* font-family: 'PT Sans Caption',"Hiragino Kaku Gothic ProN", Meiryo, sans-serif; */
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  a{
+    color: #E09200;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////
+// 共通
+.height-100{
+  min-height: 100%;
+  height: 100%;
+}
+.clear{
+  clear: both;
+}
+
+/////////////////////
+// ナビゲーションバー
+
+.navbar-header{
+  background-color: $theme-green;
+  color: white;
+
+  .navbar-brand{
+    margin: 0px;
+    padding: 10px 10px;
+    img{
+      height: 34px;
+    }
+  }
+
+  .navbar-toggle{
+    &:hover{
+      background-color: $theme-green;
+    }
+  }
+}
+
+
+
+
+
+
+
+////////////////////////////////////////////////////
+.container{
+  min-height: 100%;
+  height: 100%;
+
+  #footer{
+    text-align: center;
+    vertical-align: bottom;
+    color: #BCBEC4;
+    font-size: 12px;
+    margin-bottom: 25px;
+    img.logo{
+      width: 120px;
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////
+// トップページ
+.square-container{
+  margin-top: 55px;
+
+  // 記事一覧リンク
+  a.to_article_list{
+    color: #30A0B4;
+    font-size: 12px;
+  }
+
+  .article-list{
+    /* border-radius: 15px; */
+    border-radius: 10px;
+    overflow: hidden;
+    height: 240px;
+    box-shadow: 3px 3px #E9DBC4;
+    margin-bottom: 10px;
+
+    .article_image{
+      height: 120px;
+      margin: 0 auto;
+      overflow:hidden;
+      position:relative;
+      img{
+        float:left;
+        position:absolute;
+        display: black;
+        z-index: 1;
+      }
+    }
+
+    .spice_icon{
+      background: url("/images/spice_icons.png") no-repeat top left;
+      width: 40px;
+      height: 50px;
+      position: relative;
+      top: 5px;
+      left: 10px;
+      z-index: 2;
+    }
+    .spice_icon1{background-position: -10px 0;}    //ワイワイ
+    .spice_icon2{background-position: -55px 0;}    //ガッツリ
+    .spice_icon3{background-position: -95px 0;}    //マッタリ
+
+    .article_title{
+      height: 60px;
+      background-color: #FFFFFF;
+      padding: 20px 10px ;
+      p.title{
+        margin-bottom: 0px;
+
+      }
+      .new{
+        position: relative;
+        top: 10px;
+        font-size: 10px;
+        color: #E43468;
+
+      }
+    }
+    .author{
+      color: white;
+      font-size: 12px;
+      height: 60px;
+      .author-left{
+        float:left;
+      }
+      .author-right{
+        float: left;
+        margin-top: 10px;
+        margin-left: 5px;
+        width: 70%;
+      }
+      img{
+        margin-left: 15px;
+        margin-top: 0px;
+      }
+      .fukidashi{
+        position: relative;
+        top: 0px;
+        left: 25px;
+        width:0;
+        height:0;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        border-top: 10px solid white;
+      }
+      .date{
+        font-size: 10px;
+        font-weight: normal;
+      }
+      .author-name{
+        margin-top: 8px;
+      }
+      .label{
+        float: left;
+        margin-right: 5px;
+        background-color: #FFFFFF;
+      }
+    }
+    .tour{
+      background-color: #D56565;
+      .label{
+        color: #D56565;
+      }
+    }
+    .report{
+      background-color: #30A0B4;
+      .label{
+        color: #30A0B4;
+      }
+    }
+    .event{
+      background-color: #E09200;
+      .label{
+        color: #E09200;
+      }
+    }
+    .notice{
+      background-color: #797979;
+      .label{
+        color: #797979;
+      }
+    }
+  }
+  .article-list-dummy{
+    background-color: #DDD ;
+    background-image: url("/images/dummy.png");
+    height: 240px;
+  }
+}
+
+
+///////////////////////////
+
+// トップページのサムネイル一覧
+div.thumb-list{
+  padding-bottom: 10px;
+  .image{
+    width: 100%;
+    .tags{
+      z-index: 100;
+      position: relative;
+      width: 98%;
+      margin-top: -30px;
+      text-align: right;
+    }
+    .new_icon{
+      background-image: url('/images/new.png');
+      background-repeat: no-repeat;
+      z-index: 100;
+      position: relative;
+      left: 0px;
+      width: 55px;
+      height: 55px;
+      margin-bottom: -55px;
+    }
+  }
+
+  .caption{
+    padding-top: 10px;
+    .area{
+      font-size: 12px;
+    }
+    h4{
+      font-size: 13px;
+      font-weight: bold;
+    }
+  }
+}
+
+/* ラベルのカスタマイズ */
+.label-tour{
+  background-color: #f28c1e;
+  font-size: 9pt;
+}
+.label-report{
+  background-color: #c35252;
+  font-size: 9pt;
+}
+.label-event{
+  background-color: #11b769;
+  font-size: 9pt;
+}
+
+
+.sidebar{
+  background-color: #49F;
+  h1{
+    font-size: 100%;
+    font-weight: bold;
+  }
+}
+.sns_buttons{
+  div{
+    padding: 5px 0px 0px 0px;
+  }
+}
+
+
+/* 検索フォーム */
+.search{
+  border-radius: 5px;
+  background-color: #DDD;
+  padding: 10px 10px 5px 10px;
+  margin: 10px 0px 20px 0px;
+  .btn{
+    width: 100%;
+  }
+}
+
+/*  sns-icon
+/*--------------------------------- */
+.sns-icon{
+  margin-top: 30px;
+}
+.sns-icon li{
+  padding-left: 20px;
+}
+.sns-icon li:hover{
+  color: #fff;
+}
+
+// 共通部品
+.article_image{
+  img{
+
+  }
+}
+
+
+
+@import "mobile/article.css.scss";
+@import "mobile/static_pages.css.scss";
+@import "mobile/inquiry.css.scss";
+@import "admin.css.scss";
