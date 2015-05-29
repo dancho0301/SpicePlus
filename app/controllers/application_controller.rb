@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     case request.user_agent
     when /iPad/
         request.variant = :tablet
-      when /iPhone/
+      when /iPhone|Android/
         request.variant = :mobile
     end
   end
