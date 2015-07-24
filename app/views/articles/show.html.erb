@@ -171,7 +171,7 @@
             <% end %>
             <% if @article.group.master_name %>
             <tr>
-              <th>理事長：</th>
+              <th>代表者：</th>
               <td><%= @article.group.master_name %></td>
             </tr>
             <% end %>
@@ -190,13 +190,13 @@
             <% if @article.group.activity %>
             <tr>
               <th>主な活動：</th>
-              <td><%= raw @article.group.activity %></td>
+              <td><%= simple_format @article.group.activity %></td>
             </tr>
             <% end %>
             <% if @article.group.detail %>
             <tr>
               <th>立ち上げ経緯：</th>
-              <td><%= raw @article.group.detail %></td>
+              <td><%= simple_format @article.group.detail %></td>
             </tr>
             <% end %>
           </table>

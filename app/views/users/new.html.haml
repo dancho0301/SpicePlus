@@ -1,0 +1,27 @@
+%h1
+  Sign Up
+
+= form_for @user do |f|
+  - if @user.errors.any?
+    .error_messages
+      %h2
+        Form is invalid
+      %ul
+        - for message in @user.errors.full_messages
+          %li
+            = message
+
+  .form_group
+    = f.label :username, "ユーザ名"
+    = f.text_field :username, class: "form-control"
+  .form_group
+    = f.label :email, "メールアドレス"
+    = f.text_field :email, class: "form-control"
+  .form_group
+    = f.label :password, "パスワード"
+    = f.password_field :password, class: "form-control"
+  .form_group
+    = f.label :password_confirmation, "パスワード（確認用）"
+    = f.password_field :password_confirmation, class: "form-control"
+  .actions
+    = f.submit

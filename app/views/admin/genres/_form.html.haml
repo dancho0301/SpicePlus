@@ -1,0 +1,22 @@
+= form_for([:admin, @genre]) do |f|
+  - if @genre.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@genre.errors.count, "error")
+        prohibited this genre from being saved:
+      %ul
+        - @genre.errors.full_messages.each do |message|
+          %li
+            = message
+
+
+  %div.form-group
+    = f.label :name
+    %br
+    = f.text_field :name, class: "form-control"
+  %div.form-group
+    = f.label :css_class
+    %br
+    = f.text_field :css_class, class: "form-control"
+  %div.actions
+    = f.submit

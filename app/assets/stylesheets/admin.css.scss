@@ -1,8 +1,34 @@
+.header_admin{
+  background-color: rgb(201, 201, 201);
+  padding: 5px 10px;
+  margin-bottom: 15px;
+}
+
 .sidebar_admin{
   .links{
     li{
       a{
         background: none;
+      }
+    }
+  }
+}
+
+.admin{
+  ul.admin_menu_list{
+    li{
+      display: inline-block;
+    }
+  }
+  table.table{
+    td.function{
+      width: 75px;
+    }
+  }
+  .article{
+    table{
+      span.group_name{
+        font-size: 10px;
       }
     }
   }

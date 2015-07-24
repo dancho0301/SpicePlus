@@ -1,0 +1,28 @@
+- if notice.present?
+  %p#notice
+    = notice
+
+%div.row.article
+  %div.col-md-12
+    %h1 記事一覧
+    %table.table.table-hover
+      %thead
+        %tr
+          %th タイトル
+          %th 公開日
+          %th &nbsp;
+      %tbody
+        - @articles.each do |article|
+          %tr
+            %td
+              %span.group_name= article.group.name
+              %br
+              = article.title
+            %td= article.publication_date
+            %td
+              = link_to 'プレビュー', article, :class => "btn btn-primary"
+              = link_to '編集', edit_admin_article_path(article), :class => "btn btn-primary"
+              = link_to '削除', [:admin, article], method: :delete, data: { confirm: '削除すると元に戻せません。よろしいですか？' }, :class => "btn btn-danger"
+%div.row
+  %div.col-md-12
+    = link_to '新規投稿', new_admin_article_path, :class => "btn btn-primary"

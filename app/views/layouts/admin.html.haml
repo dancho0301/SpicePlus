@@ -4,34 +4,14 @@
     %meta{charset: "utf-8"}
     %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=980", :name => "viewport"}/
+
+    / google から除外する
+    %meta{name:"robots", content:"noindex"}
+
     %link{:href => "http://fonts.googleapis.com/css?family=Stint+Ultra+Expanded&subset=latin,latin-ext", :rel => "stylesheet", :type => "text/css"}/
     %link{rel: "stylesheet", href: "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"}
-    :javascript
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-60225107-1', 'auto');
-      ga('require', 'displayfeatures');
-      ga('send', 'pageview');
 
     = yield :header
-
-    -# Facebook
-    - if @article.present?
-      %meta{:content => @article.title, :property => "og:title"}/
-      %meta{:content => URI.join(request.url, @article.photo.url), :property => "og:image"}/
-    - else
-      %meta{:content => "SpicePlus〜体験レポート型NPO総合情報サイト〜", :property => "og:title"}/
-      %meta{:content => URI.join(request.url, 'images/spice+logo_square.png'), :property => "og:image"}/
-
-    %meta{:content => "article", :property => "og:type"}/
-    %meta{:content => "SpicePlus〜体験レポート型NPO総合情報サイト〜", :property => "og:description"}/
-    %meta{:content => request.url, :property => "og:url"}/
-    %meta{:content => "SpicePlus〜体験レポート型NPO総合情報サイト〜", :property => "og:site_name"}/
-    %meta{:content => "ja_JP", :property => "og:locale"}/
-    %meta{:content => "100001861825076", :property => "fb:admins"}/
-    %meta{:content => "1025982064097586", :property => "fb:app_id"}/
 
     %link{:href => "/apple-touch-icon-57x57.png", :rel => "apple-touch-icon", :sizes => "57x57"}/
     %link{:href => "/apple-touch-icon-60x60.png", :rel => "apple-touch-icon", :sizes => "60x60"}/
@@ -65,7 +45,7 @@
       .row.height-100
         #sidebar.col-xs-3.sidebar.sidebar_admin
           .logo
-            = link_to image_tag("logo_nega.png", :size => "500", :class => "img-responsive"), :root
+            = link_to image_tag("logo_nega.png", :size => "500", :class => "img-responsive"), admin_root_path
           %p.catchcopy SPICE+は、体験レポート型のNPO総合情報サイトです。
           %ul.links
             %li
@@ -82,7 +62,28 @@
             %a{:href => "http://www.facebook.com/share.php?u=#{request.url}", :onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"}
               %i.fa.fa-facebook-square
         .col-xs-9
-          = yield
-          #footer
-            Copyright© アクションポート横浜 All Right Reserved.
-            \#{link_to image_tag("ActionPort_Logo.png", class: "logo"), "http://actionport-yokohama.org/"}
+          .row
+            .col-xs-12.header_admin
+              - if current_user
+                Logged in as
+                %strong
+                  = current_user.username
+                -# = link_to "パスワード変更", edit_user_registration_path, :class => "navbar-link"
+                |
+                = link_to "ログアウト", logout_path, :class => "navbar-link"
+              - else
+                = link_to "ログイン", login_path, :class => 'navbar-link'
+
+              - if notice
+                %hr
+                %p{class:"alert alert-success"}
+                  = notice
+              - if alert
+                %p{class:"alert alert-danger"}
+                  = alert
+          .row
+            .col-xs-12.admin
+              = yield
+              #footer
+                Copyright© アクションポート横浜 All Right Reserved.
+                \#{link_to image_tag("ActionPort_Logo.png", class: "logo"), "http://actionport-yokohama.org/"}

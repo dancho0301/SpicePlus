@@ -119,3 +119,25 @@ article_recommends:
   -
     article_id: 8
     discription: "港南台を深く知ることができる"
+
+## 横浜珍百景
+  -
+    article_id: 9
+    discription: "知った気になっていた街の魅力をもっとディープに知れる！"
+  -
+    article_id: 9
+    discription: "新鮮すぎて時間と疲れを忘れられる！"
+  -
+    article_id: 9
+    discription: "「今度ぜったいここに来よう」的なお気に入りスポットが見つかる！"
+
+## ガチスカ！
+  -
+    article_id: 10
+    discription: "楽しい&ガチなごみ拾いで心も体もリフレッシュ！"
+  -
+    article_id: 10
+    discription: "初めて会った人ともごみ拾いを通じて仲よくなれる！"
+  -
+    article_id: 10
+    discription: "その街を綺麗にすることができる！"

@@ -1,0 +1,23 @@
+%div
+  .jumbotron
+    %h1
+      ここはSpice+の管理用ページです
+
+  - unless current_user
+    %h2
+      ログイン
+    %p
+      ログインIDは管理者にお問い合わせください。
+  - else
+    %h2
+      記事を登録する
+    %ul.admin_menu_list.list-unstyled
+      %li
+        = link_to "団体を登録する", admin_groups_path, class: "btn btn-default"
+      %li
+        = link_to "記事を登録する", admin_articles_path, class: "btn btn-default"
+    %h2
+      各種マスタを登録する
+    %ul.admin_menu_list.list-unstyled
+      %li
+        = link_to "ジャンルを登録する", admin_genres_path, class: "btn btn-default"

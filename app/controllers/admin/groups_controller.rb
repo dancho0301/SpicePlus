@@ -1,5 +1,6 @@
-class GroupsController < ApplicationController
+class Admin::GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  layout "admin"
 
   # GET /groups
   def index
@@ -24,7 +25,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      redirect_to @group, notice: 'Group was successfully created.'
+      redirect_to [:admin, @group], notice: '団体情報が登録されました.'
     else
       render :new
     end
@@ -33,7 +34,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   def update
     if @group.update(group_params)
-      redirect_to @group, notice: 'Group was successfully updated.'
+      redirect_to [:admin, @group], notice: '団体情報が更新されました'
     else
       render :edit
     end
@@ -42,7 +43,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   def destroy
     @group.destroy
-    redirect_to groups_url, notice: 'Group was successfully destroyed.'
+    redirect_to admin_groups_url, notice: '団体情報が削除されました'
   end
 
   private
@@ -53,6 +54,6 @@ class GroupsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def group_params
-      params.require(:group).permit(:name, :master_name, :address)
+      params.require(:group).permit(:name, :master_name, :address, :tel, :url, :mail, :activity, :detail)
     end
 end

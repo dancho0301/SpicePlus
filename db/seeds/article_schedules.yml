@@ -304,3 +304,53 @@ article_schedules:
     article_id: 8
     time: "21:00"
     title: "解散"
+
+## 横浜珍百景
+  -
+    article_id: 9
+    time: "11:00"
+    title: "集合"
+  -
+    article_id: 9
+    time: "11:15"
+    title: "チーム分け"
+  -
+    article_id: 9
+    time: "11:30"
+    title: "街歩きスタート"
+  -
+    article_id: 9
+    time: "15:00"
+    title: "ゴール、共有"
+  -
+    article_id: 9
+    time: "16:00"
+    title: "解散"
+
+
+## ガチスカ！
+  -
+    article_id: 10
+    time: "12:30〜13:00"
+    title: "現地集合"
+    description: "活動内容・注意事項などの説明"
+  -
+    article_id: 10
+    time: "13:00〜13:30"
+    title: "開会式"
+    description: "（ごみ拾いの注意やグループ分けを行ないました！）"
+  -
+    article_id: 10
+    time: "13:30〜15:30"
+    title: "ごみ拾い"
+    description: "（グループごとにルートを分かれてごみ拾いをして回ります！）"
+  -
+    article_id: 10
+    time: "15:30〜16:30"
+    title: "レクリエーション"
+    description: "（ごみ拾いを終えて、どこにどんなごみが落ちていたかをグループで話し合って反省会を行ないました！）"
+  -
+    article_id: 10
+    time: "16:30"
+    title: "閉会式・解散"
+    description: 

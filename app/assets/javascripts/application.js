@@ -35,8 +35,12 @@ $(document).ready(function() {
   }
 
   $('#summernote').summernote({
-    height: 300, /*高さを指定*/
-    lang: 'ja-JP', /*日本語対応*/
+    height: 300,      /*高さを指定*/
+    lang: 'ja-JP',    /*日本語対応*/
+    toolbar: ['bold', 'italic', 'underline', 'clear'],
+
+
+
 
     onImageUpload: function(files, editor, welEditable) {
         sendFile(files[0], editor,welEditable);

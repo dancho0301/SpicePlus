@@ -3,12 +3,12 @@ class Admin::ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_group, only: [:new, :edit]
   before_action :set_genre, only: [:new, :edit]
   before_action :set_area, only: [:new, :edit]
-  before_action :set_spiciness, only: [:new, :edit]
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order("publication_date DESC")
   end
 
   def show
@@ -54,8 +54,8 @@ class Admin::ArticlesController < ApplicationController
     def set_area
       @areas = Area.all
     end
-    def set_spiciness
-      @spiciness = Spiciness.all
+    def set_group
+      @groups = Group.all
     end
 
     # Only allow a trusted parameter "white list" through.

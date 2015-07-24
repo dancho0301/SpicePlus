@@ -13,8 +13,9 @@ class Article < ActiveRecord::Base
   belongs_to :group
 
   # imageをattachファイルとする。stylesで画像サイズを定義できる
+  # TODO 画像をトリミングする
   has_attached_file :photo,
-    styles: { top: "848x424>", medium: "450x450>", thumb: "300x100>" },
+    styles: { top: "800x", medium: "450x450>", thumb: "300x100>" },
     :path => ":rails_root/public/system/:class/:attachment/:id/:style.:extension",
     :url => "/system/:class/:attachment/:id/:style.:extension"
 

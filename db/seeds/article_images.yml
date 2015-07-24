@@ -162,3 +162,43 @@ article_images:
     id: 85
     title: "港南台タウンカフェ"
     image: "towncafe/towncafe05.jpg"
+
+  -
+    id: 91
+    title: "横浜珍百景"
+    image: "chin_hyakkei/1.jpg"
+
+  -
+    id: 92
+    title: "横浜珍百景"
+    image: "chin_hyakkei/2.jpg"
+
+  -
+    id: 93
+    title: "横浜珍百景"
+    image: "chin_hyakkei/3.jpg"
+
+  -
+    id: 94
+    title: "横浜珍百景"
+    image: "chin_hyakkei/4.jpg"
+
+  -
+    id: 101
+    title: "ガチスカ！"
+    image: "gachi_suka/1.jpg"
+
+  -
+    id: 102
+    title: "ガチスカ！"
+    image: "gachi_suka/2.jpg"
+
+  -
+    id: 103
+    title: "ガチスカ！"
+    image: "gachi_suka/3.jpg"
+
+  -
+    id: 104
+    title: "ガチスカ！"
+    image: "gachi_suka/4.jpg"

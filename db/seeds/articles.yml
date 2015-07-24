@@ -94,3 +94,27 @@ articles:
     group_id: 7
     spice_id: 3
     photo: 'towncafe.top.png'
+
+  -
+    id: 9
+    title: 'まちを歩いて地域の魅力を再発見！'
+    publication_date: '2015/07/05'
+    discription: '今回は横浜アクションプランナーさんが定期的に行っている若者による街歩き企画「横浜珍百景」に参加してきました。「横浜珍百景」とは街歩きをしながら、横浜の「珍」を探してtwitterでつぶやき、それを地図上でマッピングしていくイベントで、今回は大学生から若手社会人、約３０名が参加していました。'
+    article: '09_chin_hyakkei.haml'
+    genre_id: 2
+    area_id: 10
+    group_id: 8
+    spice_id: 1
+    photo: 'chin_hyakkei.top.png'
+
+  -
+    id: 10
+    title: 'ミッション型ごみ拾いでわくわく環境活動！'
+    publication_date: '2015/06/30'
+    discription: '「ガチスカ！」は、『環境活動という言葉の無い社会の実現』を目指し、ごみ拾いイベント等を学生中心に行なっている団体です。しかもただのごみ拾いじゃない！毎回参加者に様々なミッションが与えられて、それをチームでクリアしながら行なう「大人数ミッション型ごみ拾い」。今回はそんな「ガチスカ！」のごみ拾いイベントに一日参加してきました！'
+    article: '10_gachi_suka.haml'
+    genre_id: 2
+    area_id: 10
+    group_id: 9
+    spice_id: 1
+    photo: 'gachi_suka.top.png'

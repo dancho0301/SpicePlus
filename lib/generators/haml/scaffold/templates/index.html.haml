@@ -1,0 +1,29 @@
+%h1
+  Listing <%= plural_table_name %>
+
+%table.table.table-hover
+  %thead
+    %tr
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      %th
+        <%= attribute.human_name %>
+<% end -%>
+      %th{colspan: "3"}
+
+  %tbody
+    - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+      %tr
+<% attributes.each do |attribute| -%>
+        %td
+          = <%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+        %td.function
+          = link_to '参照', <%= singular_table_name %>_path(<%= singular_table_name %>), class: "btn btn-primary"
+        %td.function
+          = link_to '変更', edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: "btn btn-primary"
+        %td.function
+          = link_to '削除', <%= singular_table_name %>_path(<%= singular_table_name %>), method: :delete, data: { confirm: '本当によろしいですか？' }, class: "btn btn-danger"
+
+%br
+
+= link_to '新規作成', new_<%= singular_table_name %>_path, class: "btn btn-primary"

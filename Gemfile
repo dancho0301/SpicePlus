@@ -1,7 +1,6 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-
 gem 'rails', '4.1.1'
 gem 'mysql2'
 gem 'active_hash'
@@ -21,8 +20,9 @@ gem 'rails-i18n' # ransackには関係ないけどdate_select用
 gem 'ransack'
 
 # 管理画面
-gem "devise"
-gem "bcrypt"
+# gem "devise"
+# gem "bcrypt"
+gem "sorcery"
 
 # Bootstrap
 gem 'bootstrap-sass'#, '3.2.0.2'
@@ -51,6 +51,7 @@ group :development do
 end
 
 group :development, :test do
+  gem "sqlite3"
   gem "rspec-rails", "~> 2.14.0"
   gem "factory_girl_rails", "~> 4.2.1"
   gem 'pry-rails'
