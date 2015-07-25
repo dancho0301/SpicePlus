@@ -51,15 +51,25 @@ class Admin::ArticlesController < ApplicationController
     def set_genre
       @genres = Genre.all
     end
+
     def set_area
       @areas = Area.all
     end
+
     def set_group
       @groups = Group.all
     end
 
+    def set_schedule_form
+      10.times do
+        schedule = ArticleSchedule.new
+        @article.article_schedules << schedule
+      end
+    end
+
+
     # Only allow a trusted parameter "white list" through.
     def article_params
-      params.require(:article).permit(:name, :title, :article, :photo, :genre_id)
+      params.require(:article).permit(:name, :title, :article, :photo, :genre_id, :article_schedules)
     end
 end

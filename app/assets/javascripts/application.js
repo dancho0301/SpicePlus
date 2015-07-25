@@ -12,41 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery
 //= require bootstrap
-//= require_tree .
-
-$(document).ready(function() {
-
-  function sendFile(file, editor,welEditable) {
-    data = new FormData();
-    data.append("article_image[image]", file);
-    $.ajax({
-      url: '/admin/article_images',
-      data: data,
-      cache: false,
-      contentType: false,
-      processData: false,
-      type: 'POST',
-      success: function(data){
-        editor.insertImage(welEditable, data.url);
-      }
-    });
-  }
-
-  $('#summernote').summernote({
-    height: 300,      /*高さを指定*/
-    lang: 'ja-JP',    /*日本語対応*/
-    toolbar: ['bold', 'italic', 'underline', 'clear'],
-
-
-
-
-    onImageUpload: function(files, editor, welEditable) {
-        sendFile(files[0], editor,welEditable);
-    }
-  });
-});
+//= require redactor-rails
+//= require redactor-rails/plugins
 
 $(function( ) {
   $(".article_image img").on("load",function(){
@@ -58,4 +26,12 @@ $(function( ) {
     $(this).css("top", "-"+ih+"px");
     $(this).css("left", "-"+iw+"px");
   });
+
+  $('.redactor').redactor(
+    { "imageUpload":"/redactor_assets/create?" + params,
+      "imageGetJson":"/redactor_assets/",
+      "buttonSource": true,
+      "replaceDivs": false,
+      "css":"style.css"}
+  );
 });

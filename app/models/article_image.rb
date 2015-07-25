@@ -1,6 +1,4 @@
 class ArticleImage < ActiveRecord::Base
-
-
   # imageをattachファイルとする。stylesで画像サイズを定義できる
   has_attached_file :image,
     styles: { medium: "300x300>", thumb: "100x100>" },

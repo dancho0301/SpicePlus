@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # redactor
+  resources :redactor_assets
+  post "redactor_assets/create"
+
   get 'sessions/new'
 
   get 'static_pages/about'

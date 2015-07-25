@@ -39,8 +39,25 @@
         = image_tag @article.photo, class: "img-responsive"
       .form-group
         = f.label :article, "本文"
-        = f.text_area :article, :class => " form-control", :id => "summernote", rows: 20
+        = f.text_area :article, :class => "form-control redactor", :id => "", rows: 20
+
+      .form-group
+        %table.table.table-hover
+          %thead
+            %tr
+              %th 時刻
+              %th 活動内容
+              %th 備考
+          %tbody
+            - @article.article_schedules.each do |schedule|
+              = f.fields_for :article_schedules, schedule do |schedule_field|
+                %tr
+                  %td= schedule_field.text_field :time
+                  %td= schedule_field.text_field :title
+                  %td= schedule_field.text_field :description
+
       .actions.form-group
         = f.submit :class => "btn btn-primary"
+
 
 -# %script{src: "/ckeditor/ckeditor.js"}

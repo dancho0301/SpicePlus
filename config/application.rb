@@ -40,5 +40,7 @@ module SpicePlus
     # config.time_zone = 'Central Time (US & Canada)'
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+
+    config.assets.precompile += ['redactor.js', 'redactor.css']
   end
 end

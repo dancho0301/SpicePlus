@@ -10,6 +10,9 @@ gem 'active_hash'
 gem "paperclip"
 gem 'mini_magick'              # CarrierWaveでリサイズなどができるようになる
 
+# エディタに画像アップローダをつける。
+# gem 'redactor-paperclip', github: 'DynamoMTL/redactor-paperclip'
+
 gem 'jquery-rails'
 
 gem 'therubyracer'
