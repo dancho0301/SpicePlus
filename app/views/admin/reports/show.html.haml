@@ -19,7 +19,7 @@
 
 %p
   %strong Article:
-  = @report.article
+  = @report.report_body
 
 %p
   %strong Signature:
@@ -29,5 +29,5 @@
   %strong Spice:
   = @report.spice_id
 
-= link_to '変更', edit_report_path(@report), class: "btn btn-primary"
-= link_to '戻る', reports_path, class: "btn btn-primary"
+= link_to '変更', edit_admin_article_report_path(@report), class: "btn btn-primary"
+= link_to '戻る', admin_article_reports_path, class: "btn btn-primary"

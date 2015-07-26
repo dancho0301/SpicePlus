@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # redactor
   resources :redactor_assets
   post "redactor_assets/create"
@@ -79,12 +80,15 @@ Rails.application.routes.draw do
 
   get :admin, to: "admin#index", as: "admin_root"
   namespace :admin do
-    resources :articles
+    resources :articles, shallow: true do
+      resources :reports
+    end
+    # get "reports" => "reports#show"
     resources :article_images
     resources :groups
     resources :areas
     resources :genres
-    resources :reports
+    resources :spices
   end
 
   # 認証系

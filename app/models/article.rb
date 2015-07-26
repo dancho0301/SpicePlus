@@ -15,6 +15,7 @@ class Article < ActiveRecord::Base
   belongs_to :genre
   belongs_to :area
   belongs_to :group
+  belongs_to :spice
 
   # imageをattachファイルとする。stylesで画像サイズを定義できる
   # TODO 画像をトリミングする

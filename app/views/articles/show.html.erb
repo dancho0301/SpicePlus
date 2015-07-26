@@ -73,7 +73,7 @@
                         <div class="date"><%= report.report_date.strftime("%y.%m.%d [%a]") %></div>
                         <h3><%= report.title %></h3>
                         <p class="truncate">
-                          <%= simple_format report.article %>
+                          <%= simple_format report.report_body %>
                         </p>
                         <div class="spice">
                           <span class="signature"><%= report.signature %></span>的には

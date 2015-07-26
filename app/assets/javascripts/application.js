@@ -36,3 +36,15 @@ $(function( ) {
       "css":"style.css"}
   );
 });
+
+$().ready(function() {
+  $('.truncate').jTruncSubstr({
+    length: 200,            // 表示する文字数
+    minTrail: 0,            // 省略文字の最低文字数
+    moreText: "more",       // 省略部分を表示するリンクの文字
+    lessText: "hide",       // 省略部分を非表示にするリンクの文字
+    ellipsisText: "...",    // 省略部分をあらわす文字
+    moreAni: "fast",        // 折り広げるスピード
+    lessAni: "fast"         // 折り畳むスピード
+  });
+});

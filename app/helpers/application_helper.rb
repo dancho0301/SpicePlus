@@ -16,4 +16,13 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields btn btn-default", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def shallow_args(namespace, parent, child)
+    if namespace.nil?
+      child.try(:new_record?) ? [parent, child] : child
+    else
+      child.try(:new_record?) ? [namespace, parent, child] : [namespace, child]
+    end
+  end
+
 end

@@ -64,7 +64,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.string     :name
       t.string     :title
       t.date       :report_date
-      t.text       :article
+      t.text       :report_body
       t.attachment :photo
       t.string     :point
       t.integer    :main_reporter

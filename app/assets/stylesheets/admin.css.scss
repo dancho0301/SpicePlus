@@ -5,7 +5,7 @@
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
@@ -42,6 +42,9 @@
     }
   }
   .article{
+    .function_button{
+      text-align: right;
+    }
     table{
       span.group_name{
         font-size: 10px;
@@ -51,6 +54,18 @@
       td.time{
         input{
           width: 200px;
+        }
+      }
+    }
+    table.report{
+      background-color: rgb(228, 228, 228);
+
+      tr.article{
+        background-color: rgb(116, 116, 116);
+        color: white;
+        .article_name{
+          font-size: 16px;
+          font-weight: bold;
         }
       }
     }

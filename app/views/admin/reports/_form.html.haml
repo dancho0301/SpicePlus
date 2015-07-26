@@ -1,4 +1,4 @@
-= form_for(@report) do |f|
+= form_for shallow_args(:admin, @article, @report) do |f|
   - if @report.errors.any?
     %div#error_explanation
       %h2
@@ -11,32 +11,35 @@
 
 
   %div.form-group
-    = f.label :article_id
+    = f.label :article_id, "記事"
     %br
-    = f.text_field :article_id, class: "form-control"
+    = f.hidden_field :article_id
+    = @report.article.title
+
   %div.form-group
-    = f.label :name
+    = f.label :name, "レポーター名"
     %br
     = f.text_field :name, class: "form-control"
   %div.form-group
-    = f.label :title
+    = f.label :title, "タイトル"
     %br
     = f.text_field :title, class: "form-control"
   %div.form-group
-    = f.label :report_date
+    = f.label :report_date, "レポート日"
     %br
-    = f.text_field :report_date, class: "form-control"
+    = f.date_select :report_date, class: "form-control"
   %div.form-group
-    = f.label :article
+    = f.label :report_body, "本文"
     %br
-    = f.text_field :article, class: "form-control"
+    = f.text_area :report_body, class: "form-control", rows: 7
   %div.form-group
-    = f.label :signature
+    = f.label :signature, "一人称"
     %br
     = f.text_field :signature, class: "form-control"
   %div.form-group
-    = f.label :spice_id
+    = f.label :spice_id, "スパイス"
     %br
-    = f.text_field :spice_id, class: "form-control"
-  %div.actions
-    = f.submit
+    = f.collection_select(:spice_id, @spices, :id, :name, {}, {:class => 'form-control'})
+
+  %div.actions.form-group
+    = f.submit class: "btn btn-primary"

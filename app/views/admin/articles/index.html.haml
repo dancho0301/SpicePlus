@@ -1,11 +1,11 @@
-- if notice.present?
-  %p#notice
-    = notice
-
 %div.row.article
   %div.col-md-12
     %h1 記事一覧
-    %table.table.table-hover
+    %div.function_button
+      = link_to '新規投稿', new_admin_article_path, :class => "btn btn-primary"
+%div.row.article
+  %div.col-md-12
+    %table.table
       %thead
         %tr
           %th タイトル
@@ -23,6 +23,31 @@
               = link_to 'プレビュー', article, :class => "btn btn-primary"
               = link_to '編集', edit_admin_article_path(article), :class => "btn btn-primary"
               = link_to '削除', [:admin, article], method: :delete, data: { confirm: '削除すると元に戻せません。よろしいですか？' }, :class => "btn btn-danger"
-%div.row
-  %div.col-md-12
-    = link_to '新規投稿', new_admin_article_path, :class => "btn btn-primary"
+          %tr
+            %td{colspan: 3}
+              %table.table.report
+                %thead
+                  %tr
+                    %th
+                      レポーター名
+                    %th
+                      タイトル
+                    %th
+                      スパイス
+                    %th{colspan: "2"}
+
+                %tbody
+                  - article.reports.each do |report|
+                    %tr
+                      %td
+                        = report.name
+                        （#{report.signature}）
+                      %td
+                        = report.title
+                      %td
+                        = report.spice.name
+                      %td.function
+                        = link_to '変更', edit_admin_report_path(report), class: "btn btn-primary"
+                      %td.function
+                        = link_to '削除', admin_report_path(report), method: :delete, data: { confirm: '本当によろしいですか？' }, class: "btn btn-danger"
+              = link_to 'レポート作成', new_admin_article_report_path(article.id), class: "btn btn-primary"

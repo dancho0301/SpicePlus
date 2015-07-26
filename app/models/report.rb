@@ -1,6 +1,9 @@
 class Report < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
 
+  belongs_to :article
+  belongs_to :spice
+
   # imageをattachファイルとする。stylesで画像サイズを定義できる
   has_attached_file :photo,
     styles: { medium: "300x300>", thumb: "100x100>" },

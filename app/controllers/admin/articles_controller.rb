@@ -16,6 +16,16 @@ class Admin::ArticlesController < ApplicationController
 
   def new
   	@article = Article.new
+    @article.article_schedules.build
+    3.times do
+      @article.article_plans.build
+    end
+  end
+
+  def edit
+    (3 - @article.article_plans.count).times do
+      @article.article_plans.build
+    end
   end
 
   def create
@@ -29,7 +39,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def update
-    p article_params
+    # p article_params
     if @article.update(article_params)
       redirect_to admin_articles_path, notice: '記事が更新されました'
     else
@@ -61,12 +71,12 @@ class Admin::ArticlesController < ApplicationController
       @groups = Group.all
     end
 
-    def set_schedule_form
-      10.times do
-        schedule = ArticleSchedule.new
-        @article.article_schedules << schedule
-      end
-    end
+    # def set_schedule_form
+    #   10.times do
+    #     schedule = ArticleSchedule.new
+    #     @article.article_schedules << schedule
+    #   end
+    # end
 
 
     # Only allow a trusted parameter "white list" through.
