@@ -8,7 +8,7 @@
 
 require 'haml'
 
-[Genre, Line, Area, Group, ArticlePlan, ArticleSchedule, ArticleRecommend].each do |c|
+[Genre, Line, Area, Group, Spice, ArticlePlan, ArticleSchedule, ArticleRecommend].each do |c|
   yml = File.read("#{Rails.root}/db/seeds/#{c.to_s.tableize}.yml")
   list = YAML.load(yml).symbolize_keys
   c.destroy_all

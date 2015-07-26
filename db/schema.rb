@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20150724135541) do
     t.string   "name"
     t.string   "title"
     t.date     "report_date"
-    t.text     "article"
+    t.text     "report_body"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -162,10 +162,10 @@ ActiveRecord::Schema.define(version: 20150724135541) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "username",                        null: false
-    t.string   "email",                           null: false
-    t.string   "crypted_password",                null: false
-    t.string   "salt",                            null: false
+    t.string   "username",                                        null: false
+    t.string   "email",                                           null: false
+    t.string   "crypted_password",                                null: false
+    t.string   "salt",                                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_me_token"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(version: 20150724135541) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.boolean  "administrator",                   default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

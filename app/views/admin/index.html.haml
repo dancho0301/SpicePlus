@@ -16,10 +16,20 @@
         = link_to "団体を登録する", admin_groups_path, class: "btn btn-default"
       %li
         = link_to "記事を登録する", admin_articles_path, class: "btn btn-default"
-      %li
-        = link_to "レポートを登録する", admin_reports_path, class: "btn btn-default"
+
+  -# 管理者用
+  - if current_user.administrator
     %h2
-      各種マスタを登録する
+      管理者用
+    %ul.admin_menu_list.list-unstyled
+      %li
+        = link_to "ユーザを登録する", admin_users_path, class: "btn btn-default"
+    %p.text-danger
+      以下はcssの変更が必要です。緊急時以外は利用しないように。
     %ul.admin_menu_list.list-unstyled
       %li
         = link_to "ジャンルを登録する", admin_genres_path, class: "btn btn-default"
+      %li
+        = link_to "スパイスを登録する", admin_genres_path, class: "btn btn-default"
+      %li
+        = link_to "リンクを管理する（工事中）", admin_genres_path, class: "btn btn-default"

@@ -1,7 +1,4 @@
-%h1
-  Sign Up
-
-= form_for @user do |f|
+= form_for([:admin, @user]) do |f|
   - if @user.errors.any?
     .error_messages
       %h2
@@ -23,5 +20,13 @@
   .form_group
     = f.label :password_confirmation, "パスワード（確認用）"
     = f.password_field :password_confirmation, class: "form-control"
-  .actions
-    = f.submit
+  - if current_user.administrator
+    %br
+    .form_group
+      = f.label :administrator, "管理者"
+      = f.check_box :administrator
+
+  %br
+  %div.actions.form_group
+    = f.submit class: "btn btn-primary"
+  %br

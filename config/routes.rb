@@ -89,13 +89,13 @@ Rails.application.routes.draw do
     resources :areas
     resources :genres
     resources :spices
+    resources :users
   end
 
   # 認証系
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
-  resources :users
   resources :sessions
   get "secret" => "home#secret", :as => "secret"
 

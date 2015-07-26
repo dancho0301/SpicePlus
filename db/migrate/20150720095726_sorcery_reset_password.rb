@@ -5,5 +5,7 @@ class SorceryResetPassword < ActiveRecord::Migration
     add_column :users, :reset_password_email_sent_at, :datetime, :default => nil
 
     add_index :users, :reset_password_token
+
+    add_column :users, :administrator, :boolean, :default => false
   end
 end
