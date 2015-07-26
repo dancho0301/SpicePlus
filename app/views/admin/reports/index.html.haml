@@ -1,0 +1,49 @@
+%h1
+  Listing reports
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        Article
+      %th
+        Name
+      %th
+        Title
+      %th
+        Report date
+      %th
+        Article
+      %th
+        Signature
+      %th
+        Spice
+      %th{colspan: "3"}
+
+  %tbody
+    - @reports.each do |report|
+      %tr
+        %td
+          = report.article_id
+        %td
+          = report.name
+        %td
+          = report.title
+        %td
+          = report.report_date
+        %td
+          = report.article
+        %td
+          = report.signature
+        %td
+          = report.spice_id
+        %td.function
+          = link_to '参照', report_path(report), class: "btn btn-primary"
+        %td.function
+          = link_to '変更', edit_report_path(report), class: "btn btn-primary"
+        %td.function
+          = link_to '削除', report_path(report), method: :delete, data: { confirm: '本当によろしいですか？' }, class: "btn btn-danger"
+
+%br
+
+= link_to '新規作成', new_report_path, class: "btn btn-primary"

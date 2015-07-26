@@ -1,0 +1,42 @@
+= form_for(@report) do |f|
+  - if @report.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@report.errors.count, "error")
+        prohibited this report from being saved:
+      %ul
+        - @report.errors.full_messages.each do |message|
+          %li
+            = message
+
+
+  %div.form-group
+    = f.label :article_id
+    %br
+    = f.text_field :article_id, class: "form-control"
+  %div.form-group
+    = f.label :name
+    %br
+    = f.text_field :name, class: "form-control"
+  %div.form-group
+    = f.label :title
+    %br
+    = f.text_field :title, class: "form-control"
+  %div.form-group
+    = f.label :report_date
+    %br
+    = f.text_field :report_date, class: "form-control"
+  %div.form-group
+    = f.label :article
+    %br
+    = f.text_field :article, class: "form-control"
+  %div.form-group
+    = f.label :signature
+    %br
+    = f.text_field :signature, class: "form-control"
+  %div.form-group
+    = f.label :spice_id
+    %br
+    = f.text_field :spice_id, class: "form-control"
+  %div.actions
+    = f.submit

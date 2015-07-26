@@ -58,16 +58,9 @@
         <div class="panel-group" id="accordion reports">
           <div class="panel panel-article">
             <div class="panel-heading">
-              <h4 class="panel-title">
-                <!--
-                  data-toggle : Collapseを起動させる
-                  data-parent : アコーディオン風に閉じたり開いたりするためのもの
-                  href : 指定した場所のパネルを開く
-                -->
-                <a data-toggle="collapse" data-parent="#accordion" href="#reportersVoice">レポーターの声</a>
-              </h4>
+              <h4 class="panel-title">レポーターの声</h4>
             </div>
-            <div id="reportersVoice" class="collapse">
+            <div id="reportersVoice">
               <div class="panel-body">
                 <% @article.reports.each_with_index do |report, idx| %>
                   <div class="row report">
@@ -79,7 +72,9 @@
                       <div class="report_inner report_inner<%= idx %>">
                         <div class="date"><%= report.report_date.strftime("%y.%m.%d [%a]") %></div>
                         <h3><%= report.title %></h3>
-                        <p><%= raw report.article %></p>
+                        <p class="truncate">
+                          <%= simple_format report.article %>
+                        </p>
                         <div class="spice">
                           <span class="signature"><%= report.signature %></span>的には
                           <span class="spice_icon spice_icon<%= report.spice_id %>"></span>
@@ -95,16 +90,9 @@
             <!-- 一日の流れ -->
             <% if @article.article_schedules.exists? %>
               <div class="panel-heading">
-                <h4 class="panel-title">
-                  <!--
-                    data-toggle : Collapseを起動させる
-                    data-parent : アコーディオン風に閉じたり開いたりするためのもの
-                    href : 指定した場所のパネルを開く
-                  -->
-                  <a data-toggle="collapse" data-parent="#accordion" href="#dairySchedule">一日の流れ</a>
-                </h4>
+                <h4 class="panel-title">一日の流れ</h4>
               </div>
-              <div id="dairySchedule" class="collapse">
+              <div id="dairySchedule">
                 <div class="panel-body">
                   <div class="row schedule">
                     <div class="col-xs-2">
@@ -134,22 +122,15 @@
             <!-- 参加可能プラン -->
             <% if @article.article_plans.exists? %>
               <div class="panel-heading">
-                <h4 class="panel-title">
-                  <!--
-                    data-toggle : Collapseを起動させる
-                    data-parent : アコーディオン風に閉じたり開いたりするためのもの
-                    href : 指定した場所のパネルを開く
-                  -->
-                  <a data-toggle="collapse" data-parent="#accordion" href="#activityPlans">参加可能プラン</a>
-                </h4>
+                <h4 class="panel-title">参加可能プラン</h4>
               </div>
-              <div id="activityPlans" class="collapse">
+              <div id="activityPlans">
                 <div class="panel-body">
                   <% @article.article_plans.each_with_index do |plan, idx| %>
                     <div class="row plan">
                       <div class="col-xs-12 activityPlans_inner activityPlans_inner<%= idx %>">
                         <h3 class="<%= plan.color_theme %>"><%= plan.title %></h3>
-                        <p><%= raw plan.description %></p>
+                        <p><%= simple_format plan.description %></p>
                       </div>
                     </div>
                   <% end %>

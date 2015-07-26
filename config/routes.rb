@@ -84,6 +84,7 @@ Rails.application.routes.draw do
     resources :groups
     resources :areas
     resources :genres
+    resources :reports
   end
 
   # 認証系

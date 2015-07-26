@@ -54,12 +54,16 @@
               = f.fields_for :article_schedules, schedule do |schedule_field|
                 = render "article_schedule_fields", f: schedule_field
         = link_to_add_fields "行追加", f, :article_schedules
-      -# .form-group
-      -#   = f.label :article_plans, "参加可能プラン"
-      -#     - @article.article_plans.each do |plan|
-      -#       = f.fields_for :article_schedules, plan do |plan_field|
-      -#         = plan_field.text_field :title
-      -#         = plan_field.text_field :description
+      .form-group
+        = f.label :article_plans, "参加可能プラン"
+        %br
+        - @article.article_plans.each do |plan|
+          = f.fields_for :article_plans, plan do |plan_field|
+            = plan_field.label :title, "タイトル"
+            = plan_field.text_field :title, :class => "form-control"
+            = plan_field.label :description, "内容"
+            = plan_field.text_area :description, :class => "form-control"
+            %hr
 
       .actions.form-group
         = f.submit :class => "btn btn-primary"

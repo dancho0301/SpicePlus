@@ -1,11 +1,12 @@
 class Article < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  #before_save :edit_imgtag
+  before_save :check_plan_exists
 
   has_many :article_images
   has_many :reports
   has_many :article_plans
+  accepts_nested_attributes_for :article_plans, allow_destroy: true
   has_many :article_schedules
   accepts_nested_attributes_for :article_schedules, allow_destroy: true
   has_many :article_recommends
@@ -40,4 +41,15 @@ class Article < ActiveRecord::Base
   def main_reporter
     self.reports.where("main_reporter = 1").first
   end
+
+  private
+    # プランの存在を確認。空白行は削除する
+    def check_plan_exists
+      self.article_plans.each do |plan|
+        if plan.title.empty? && plan.description.empty?
+            plan.destroy!
+        end
+      end
+    end
+
 end
