@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
   has_many :reports
   has_many :article_plans
   has_many :article_schedules
-  accepts_nested_attributes_for :article_schedules
+  accepts_nested_attributes_for :article_schedules, allow_destroy: true
   has_many :article_recommends
 
   belongs_to :line

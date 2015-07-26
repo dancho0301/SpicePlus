@@ -29,6 +29,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def update
+    p article_params
     if @article.update(article_params)
       redirect_to admin_articles_path, notice: '記事が更新されました'
     else
@@ -70,6 +71,7 @@ class Admin::ArticlesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def article_params
-      params.require(:article).permit(:name, :title, :article, :photo, :genre_id, :article_schedules)
+      # params.require(:article).permit(:name, :title, :article, :photo, :genre_id, :group_id, :publication_date, :discription, :area_id, :article_schedules_attributes)
+      params.require(:article).permit!
     end
 end

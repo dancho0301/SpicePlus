@@ -42,19 +42,24 @@
         = f.text_area :article, :class => "form-control redactor", :id => "", rows: 20
 
       .form-group
-        %table.table.table-hover
+        = f.label :article_schedules, "活動スケジュール"
+        %table.table.table-hover#article_schedule
           %thead
             %tr
-              %th 時刻
-              %th 活動内容
-              %th 備考
+              %th.time 時刻
+              %th.title 活動内容
+              %th.description 備考
           %tbody
             - @article.article_schedules.each do |schedule|
               = f.fields_for :article_schedules, schedule do |schedule_field|
-                %tr
-                  %td= schedule_field.text_field :time
-                  %td= schedule_field.text_field :title
-                  %td= schedule_field.text_field :description
+                = render "article_schedule_fields", f: schedule_field
+        = link_to_add_fields "行追加", f, :article_schedules
+      -# .form-group
+      -#   = f.label :article_plans, "参加可能プラン"
+      -#     - @article.article_plans.each do |plan|
+      -#       = f.fields_for :article_schedules, plan do |plan_field|
+      -#         = plan_field.text_field :title
+      -#         = plan_field.text_field :description
 
       .actions.form-group
         = f.submit :class => "btn btn-primary"

@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require redactor-rails
 //= require redactor-rails/plugins
+//= require_tree .
 
 $(function( ) {
   $(".article_image img").on("load",function(){
