@@ -24,7 +24,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
     create_table :articles do |t|
       t.string     :title
       t.date       :publication_date
-      t.string     :discription
+      t.string     :description
       t.text       :article
       t.attachment :photo
       t.integer    :genre_id
@@ -37,7 +37,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
     # おすすめポイント
     create_table :article_recommends do |t|
       t.integer :article_id
-      t.string  :discription
+      t.string  :description
     end
 
     # 参加プラン
@@ -76,7 +76,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
     # 記事の画像
     create_table :article_images do |t|
       t.string :title
-      t.string :discription
+      t.string :description
       t.attachment :image
       t.timestamps
     end

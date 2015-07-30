@@ -6,7 +6,6 @@
           %ul
             - @article.errors.full_messages.each do |message|
               %li= message
-
   .row
     .col-md-12
       .form-group
@@ -22,9 +21,9 @@
         %br
         = f.text_field :title, :class => "form-control"
       .form-group
-        = f.label :discription, "概要（シェアしたりすると出る。画面には出ない）"
+        = f.label :description, "概要（シェアしたりすると出る。画面には出ない）"
         %br
-        = f.text_area :discription, :class => "form-control", rows: 5
+        = f.text_area :description, :class => "form-control", rows: 5
       .form-group
         = f.label :genre_id, "ジャンル"
         %br
@@ -33,6 +32,10 @@
         = f.label :area_id, "地域"
         %br
         = f.collection_select(:area_id, @areas, :id, :name, {}, {:class => 'form-control'})
+      .form-group
+        = f.label :spice_id, "スパイス"
+        %br
+        = f.collection_select(:spice_id, @spices, :id, :name, {}, {:class => 'form-control'})
       .form-group
         = f.label :photo, "トップ画像"
         = f.file_field :photo

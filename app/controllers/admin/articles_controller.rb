@@ -3,9 +3,7 @@ class Admin::ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  before_action :set_group, only: [:new, :edit]
-  before_action :set_genre, only: [:new, :edit]
-  before_action :set_area, only: [:new, :edit]
+  before_action :set_collections, only: [:new, :edit]
 
   def index
     @articles = Article.all.order("publication_date DESC")
@@ -30,10 +28,10 @@ class Admin::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
     if @article.save
       redirect_to admin_articles_path, notice: '記事が作成されました'
     else
+      set_collections
       render :new
     end
   end
@@ -43,6 +41,7 @@ class Admin::ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to admin_articles_path, notice: '記事が更新されました'
     else
+      set_collections
       render :edit
     end
   end
@@ -50,7 +49,6 @@ class Admin::ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to admin_articles_path, notice: '記事が削除されました'
-
   end
 
   private
@@ -71,6 +69,13 @@ class Admin::ArticlesController < ApplicationController
       @groups = Group.all
     end
 
+    def set_collections
+      @genres = Genre.all
+      @areas = Area.all
+      @groups = Group.all
+      @spices = Spice.all
+    end
+
     # def set_schedule_form
     #   10.times do
     #     schedule = ArticleSchedule.new
@@ -81,7 +86,7 @@ class Admin::ArticlesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def article_params
-      # params.require(:article).permit(:name, :title, :article, :photo, :genre_id, :group_id, :publication_date, :discription, :area_id, :article_schedules_attributes)
+      # params.require(:article).permit(:name, :title, :article, :photo, :genre_id, :group_id, :publication_date, :description, :area_id, :article_schedules_attributes)
       params.require(:article).permit!
     end
 end

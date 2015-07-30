@@ -14,9 +14,9 @@
         %td
           = area.name
         %td.function
-          = link_to '参照', admin_area_path(area), class: "btn btn-primary"
+          = link_to '参照', admin_area_path(area), class: "btn btn-default"
         %td.function
-          = link_to '変更', edit_admin_area_path(area), class: "btn btn-primary"
+          = link_to '変更', edit_admin_area_path(area), class: "btn btn-default"
         %td.function
           = link_to '削除', admin_area_path(area), method: :delete, data: { confirm: '本当によろしいですか？' }, class: "btn btn-danger"
 

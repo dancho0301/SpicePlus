@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150724135541) do
 
   create_table "article_images", force: true do |t|
     t.string   "title"
-    t.string   "discription"
+    t.string   "description"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150724135541) do
 
   create_table "article_recommends", force: true do |t|
     t.integer "article_id"
-    t.string  "discription"
+    t.string  "description"
   end
 
   create_table "article_schedules", force: true do |t|
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150724135541) do
   create_table "articles", force: true do |t|
     t.string   "title"
     t.date     "publication_date"
-    t.string   "discription"
+    t.string   "description"
     t.text     "article"
     t.string   "photo_file_name"
     t.string   "photo_content_type"

@@ -3,141 +3,141 @@ article_recommends:
   -
     id: 1
     article_id: 1
-    discription: "乳幼児と接する機会が多い！"
+    description: "乳幼児と接する機会が多い！"
 
   -
     id: 2
     article_id: 1
-    discription: "人生の先輩である親・シニア世代との交流もある！"
+    description: "人生の先輩である親・シニア世代との交流もある！"
 
   -
     id: 3
     article_id: 1
-    discription: "乳幼児や親子と接する機会は将来必ず役に立つ！"
+    description: "乳幼児や親子と接する機会は将来必ず役に立つ！"
 
 # 竹ファン
   -
     id: 4
     article_id: 2
-    discription: "活動メンバーの熱意がステキ！"
+    description: "活動メンバーの熱意がステキ！"
 
   -
     id: 5
     article_id: 2
-    discription: "初めてでも丁寧に教えてもらえる！"
+    description: "初めてでも丁寧に教えてもらえる！"
 
   -
     id: 6
     article_id: 2
-    discription: "竹林で本格的な伐採作業！"
+    description: "竹林で本格的な伐採作業！"
 
 # 教育支援協会
   -
     id: 7
     article_id: 3
-    discription: "子どもたちとの触れ合い、楽しい時間を過ごせる！"
+    description: "子どもたちとの触れ合い、楽しい時間を過ごせる！"
 
   -
     id: 8
     article_id: 3
-    discription: "初めてでも参加しやすく、仲間もできる！"
+    description: "初めてでも参加しやすく、仲間もできる！"
 
   -
     id: 9
     article_id: 3
-    discription: "子どもたちから「学べる」！"
+    description: "子どもたちから「学べる」！"
 
 # ぐりぐら
   -
     id: 10
     article_id: 4
-    discription: "「食」についての知識が深まる！"
+    description: "「食」についての知識が深まる！"
 
   -
     id: 11
     article_id: 4
-    discription: "子どもの主体性を育てる関わり方を体感できる！"
+    description: "子どもの主体性を育てる関わり方を体感できる！"
 
   -
     id: 12
     article_id: 4
-    discription: "家庭のような雰囲気の中で活動できる！"
+    description: "家庭のような雰囲気の中で活動できる！"
 
 # 港南台プレイパーク
   -
     id: 13
     article_id: 5
-    discription: "解放された自由な遊び場で子どもと一緒になって楽しむことが出来る！"
+    description: "解放された自由な遊び場で子どもと一緒になって楽しむことが出来る！"
 
   -
     id: 14
     article_id: 5
-    discription: "お母さんやお父さん、地域のボランティアさんともお話しが出来る！"
+    description: "お母さんやお父さん、地域のボランティアさんともお話しが出来る！"
 
   -
     id: 15
     article_id: 5
-    discription: "走り回って、泥んこになって、目一杯遊ぶことが出来る！"
+    description: "走り回って、泥んこになって、目一杯遊ぶことが出来る！"
 
 # ふくしまキッズ
   -
     id: 16
     article_id: 6
-    discription: "子どもたちと生活をともにすることで、濃密な交流ができる"
+    description: "子どもたちと生活をともにすることで、濃密な交流ができる"
 
   -
     id: 17
     article_id: 6
-    discription: "ボランティアは200人以上！年齢や職業が異なる、たくさんの人たちと出会える！"
+    description: "ボランティアは200人以上！年齢や職業が異なる、たくさんの人たちと出会える！"
 
   -
     id: 18
     article_id: 6
-    discription: "都合の良い時間で、自分の得意なことを活用して参加できる！"
+    description: "都合の良い時間で、自分の得意なことを活用して参加できる！"
 
   -
     article_id: 7
-    discription: "地域の幅広い世代の方々と交流ができる"
+    description: "地域の幅広い世代の方々と交流ができる"
 
   -
     article_id: 7
-    discription: "地域にふらっと立ち寄れる居場所ができる"
+    description: "地域にふらっと立ち寄れる居場所ができる"
 
   -
     article_id: 7
-    discription: "イベントで出会った人たちとのつながりができる"
+    description: "イベントで出会った人たちとのつながりができる"
 
 
   -
     article_id: 8
-    discription: "参加者との距離感が近いので、地域の人とも交流しやすい"
+    description: "参加者との距離感が近いので、地域の人とも交流しやすい"
 
   -
     article_id: 8
-    discription: "港南台の街が楽しくなるさまざまな企画がある"
+    description: "港南台の街が楽しくなるさまざまな企画がある"
 
   -
     article_id: 8
-    discription: "港南台を深く知ることができる"
+    description: "港南台を深く知ることができる"
 
 ## 横浜珍百景
   -
     article_id: 9
-    discription: "知った気になっていた街の魅力をもっとディープに知れる！"
+    description: "知った気になっていた街の魅力をもっとディープに知れる！"
   -
     article_id: 9
-    discription: "新鮮すぎて時間と疲れを忘れられる！"
+    description: "新鮮すぎて時間と疲れを忘れられる！"
   -
     article_id: 9
-    discription: "「今度ぜったいここに来よう」的なお気に入りスポットが見つかる！"
+    description: "「今度ぜったいここに来よう」的なお気に入りスポットが見つかる！"
 
 ## ガチスカ！
   -
     article_id: 10
-    discription: "楽しい&ガチなごみ拾いで心も体もリフレッシュ！"
+    description: "楽しい&ガチなごみ拾いで心も体もリフレッシュ！"
   -
     article_id: 10
-    discription: "初めて会った人ともごみ拾いを通じて仲よくなれる！"
+    description: "初めて会った人ともごみ拾いを通じて仲よくなれる！"
   -
     article_id: 10
-    discription: "その街を綺麗にすることができる！"
+    description: "その街を綺麗にすることができる！"

@@ -10,7 +10,7 @@ describe Article do
   it { is_expected.to respond_to(:title) }
   it { is_expected.to respond_to(:publication_date) }
   it { is_expected.to respond_to(:genre_id) }
-  it { is_expected.to respond_to(:discription)}
+  it { is_expected.to respond_to(:description)}
   it { is_expected.to respond_to(:article)}
   it { is_expected.to respond_to(:genre_id)}
   it { is_expected.to respond_to(:area_id)}
@@ -65,24 +65,37 @@ describe Article do
     end
   end
 
-  describe "#discription" do
+  describe "#description" do
     describe "when it is valid" do
       it {is_expected.to be_valid}
     end
 
     describe "when it is empty" do
       before do
-        article.discription = ""
+        article.description = ""
       end
       it {is_expected.not_to be_valid}
     end
 
     describe "when it is over 100 chars" do
       before do
-        article.discription = ""
+        article.description = ""
         201.times do
-          article.discription << "あ"
+          article.description << "あ"
         end
+      end
+      it {is_expected.not_to be_valid}
+    end
+  end
+
+  describe "#genre_id" do
+    describe "when it is valid" do
+      it {is_expected.to be_valid}
+    end
+
+    describe "when it is empty" do
+      before do
+        article.genre_id = nil
       end
       it {is_expected.not_to be_valid}
     end

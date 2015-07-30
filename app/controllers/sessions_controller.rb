@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout  "admin"
   def new
   end
 
@@ -9,6 +10,7 @@ class SessionsController < ApplicationController
       redirect_back_or_to admin_root_path, :notice => "ログインしました"
     else
       flash.now.alert = "Emailかpasswordが間違っています"
+      redirect_to login_path, :alert => "Emailかpasswordが間違っています"
     end
   end
 

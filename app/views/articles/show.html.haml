@@ -30,7 +30,7 @@
       .reccomends
         - @article.article_recommends.each_with_index do |recommend, idx|
           .fukidashi{class: "fukidashi#{idx}"}
-            %p= recommend.discription
+            %p= recommend.description
       .clear
 
       -# 記事

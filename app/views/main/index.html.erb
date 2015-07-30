@@ -79,7 +79,6 @@
                 <%= image_tag article.photo, :height => "120" %>
                 <div class="spice_icon spice_icon<%= article.spice_id %>"></div>
               <% end %>
-
             </div>
             <div class="article_title">
               <% if article.publication_date >= (Date.today << 2) %>
@@ -91,7 +90,11 @@
             <div class="author <%= article.genre.css_class %>">
               <div class="author-left">
                 <div class="fukidashi"></div>
-                <%= image_tag article.main_reporter.photo, :size => "40x40" %>
+                <% if article.main_reporter.present? %>
+                  <%= image_tag article.main_reporter.photo, :size => "40x40" %>
+                <% else %>
+                  <%= image_tag "user.dummy_f.png", :size => "40x40" %>
+                <% end %>
               </div>
               <div class="author-right">
                 <div class="label"><%= article.genre.name %></div>
@@ -99,7 +102,11 @@
                   <%= article.publication_date.strftime("%y.%m.%d") %>
                 </div>
                 <div class="author-name">
-                  Reported by <%= article.main_reporter.name %>
+                  <% if article.main_reporter.present? %>
+                    Reported by <%= article.main_reporter.name %>
+                  <% else %>
+                    Reported by 名無しさん
+                  <% end %>
                 </div>
               </div>
             </div>
