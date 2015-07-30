@@ -1,4 +1,4 @@
-class LinesController < ApplicationController
+class Admin::LinesController < ApplicationController
   before_action :set_line, only: [:show, :edit, :update, :destroy]
   layout "admin"
 

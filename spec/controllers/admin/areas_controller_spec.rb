@@ -34,7 +34,7 @@ describe Admin::AreasController do
     it "assigns all areas as @areas" do
       area = Area.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:areas).should eq([area])
+      expect(assigns(:areas)).to eq([area])
     end
   end
 
@@ -42,14 +42,14 @@ describe Admin::AreasController do
     it "assigns the requested area as @area" do
       area = Area.create! valid_attributes
       get :show, {:id => area.to_param}, valid_session
-      assigns(:area).should eq(area)
+      expect(assigns(:area)).to eq(area)
     end
   end
 
   describe "GET new" do
     it "assigns a new area as @area" do
       get :new, {}, valid_session
-      assigns(:area).should be_a_new(Area)
+      expect(assigns(:area)).to be_a_new(Area)
     end
   end
 
@@ -57,7 +57,7 @@ describe Admin::AreasController do
     it "assigns the requested area as @area" do
       area = Area.create! valid_attributes
       get :edit, {:id => area.to_param}, valid_session
-      assigns(:area).should eq(area)
+      expect(assigns(:area)).to eq(area)
     end
   end
 
@@ -71,29 +71,29 @@ describe Admin::AreasController do
 
       it "assigns a newly created area as @area" do
         post :create, {:area => valid_attributes}, valid_session
-        assigns(:area).should be_a(Area)
-        assigns(:area).should be_persisted
+        expect(assigns(:area)).to be_a(Area)
+        expect(assigns(:area)).to be_persisted
       end
 
       it "redirects to the created area" do
         post :create, {:area => valid_attributes}, valid_session
-        response.should redirect_to(Area.last)
+        expect(response).to redirect_to(Area.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved area as @area" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Area.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Area).to receive(:save).and_return(false)
         post :create, {:area => { "name" => "invalid value" }}, valid_session
-        assigns(:area).should be_a_new(Area)
+        expect(assigns(:area)).to be_a_new(Area)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Area.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Area).to receive(:save).and_return(false)
         post :create, {:area => { "name" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        expect(response).to render_template("new")
       end
     end
   end
@@ -106,20 +106,20 @@ describe Admin::AreasController do
         # specifies that the Area created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Area.any_instance.should_receive(:update).with({ "name" => "MyString" })
+        expect_any_instance_of(Area).to receive(:update).with({ "name" => "MyString" })
         put :update, {:id => area.to_param, :area => { "name" => "MyString" }}, valid_session
       end
 
       it "assigns the requested area as @area" do
         area = Area.create! valid_attributes
         put :update, {:id => area.to_param, :area => valid_attributes}, valid_session
-        assigns(:area).should eq(area)
+        expect(assigns(:area)).to eq(area)
       end
 
       it "redirects to the area" do
         area = Area.create! valid_attributes
         put :update, {:id => area.to_param, :area => valid_attributes}, valid_session
-        response.should redirect_to(area)
+        expect(response).to redirect_to(area)
       end
     end
 
@@ -127,17 +127,17 @@ describe Admin::AreasController do
       it "assigns the area as @area" do
         area = Area.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Area.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Area).to receive(:save).and_return(false)
         put :update, {:id => area.to_param, :area => { "name" => "invalid value" }}, valid_session
-        assigns(:area).should eq(area)
+        expect(assigns(:area)).to eq(area)
       end
 
       it "re-renders the 'edit' template" do
         area = Area.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Area.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Area).to receive(:save).and_return(false)
         put :update, {:id => area.to_param, :area => { "name" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -153,7 +153,7 @@ describe Admin::AreasController do
     it "redirects to the areas list" do
       area = Area.create! valid_attributes
       delete :destroy, {:id => area.to_param}, valid_session
-      response.should redirect_to(areas_url)
+      expect(response).to redirect_to(areas_url)
     end
   end
 

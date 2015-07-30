@@ -12,8 +12,8 @@ describe "groups/show" do
   it "renders attributes in <p>" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Name/)
-    rendered.should match(/Master Name/)
-    rendered.should match(/Address/)
+    expect(rendered).to match(/Name/)
+    expect(rendered).to match(/Master Name/)
+    expect(rendered).to match(/Address/)
   end
 end

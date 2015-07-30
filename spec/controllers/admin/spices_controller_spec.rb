@@ -34,7 +34,7 @@ describe Admin::SpicesController do
     it "assigns all spices as @spices" do
       spice = Spice.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:spices).should eq([spice])
+      expect(assigns(:spices)).to eq([spice])
     end
   end
 
@@ -42,14 +42,14 @@ describe Admin::SpicesController do
     it "assigns the requested spice as @spice" do
       spice = Spice.create! valid_attributes
       get :show, {:id => spice.to_param}, valid_session
-      assigns(:spice).should eq(spice)
+      expect(assigns(:spice)).to eq(spice)
     end
   end
 
   describe "GET new" do
     it "assigns a new spice as @spice" do
       get :new, {}, valid_session
-      assigns(:spice).should be_a_new(Spice)
+      expect(assigns(:spice)).to be_a_new(Spice)
     end
   end
 
@@ -57,7 +57,7 @@ describe Admin::SpicesController do
     it "assigns the requested spice as @spice" do
       spice = Spice.create! valid_attributes
       get :edit, {:id => spice.to_param}, valid_session
-      assigns(:spice).should eq(spice)
+      expect(assigns(:spice)).to eq(spice)
     end
   end
 
@@ -71,29 +71,29 @@ describe Admin::SpicesController do
 
       it "assigns a newly created spice as @spice" do
         post :create, {:spice => valid_attributes}, valid_session
-        assigns(:spice).should be_a(Spice)
-        assigns(:spice).should be_persisted
+        expect(assigns(:spice)).to be_a(Spice)
+        expect(assigns(:spice)).to be_persisted
       end
 
       it "redirects to the created spice" do
         post :create, {:spice => valid_attributes}, valid_session
-        response.should redirect_to(Spice.last)
+        expect(response).to redirect_to(Spice.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved spice as @spice" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Spice.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Spice).to receive(:save).and_return(false)
         post :create, {:spice => { "name" => "invalid value" }}, valid_session
-        assigns(:spice).should be_a_new(Spice)
+        expect(assigns(:spice)).to be_a_new(Spice)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Spice.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Spice).to receive(:save).and_return(false)
         post :create, {:spice => { "name" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        expect(response).to render_template("new")
       end
     end
   end
@@ -106,20 +106,20 @@ describe Admin::SpicesController do
         # specifies that the Spice created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Spice.any_instance.should_receive(:update).with({ "name" => "MyString" })
+        expect_any_instance_of(Spice).to receive(:update).with({ "name" => "MyString" })
         put :update, {:id => spice.to_param, :spice => { "name" => "MyString" }}, valid_session
       end
 
       it "assigns the requested spice as @spice" do
         spice = Spice.create! valid_attributes
         put :update, {:id => spice.to_param, :spice => valid_attributes}, valid_session
-        assigns(:spice).should eq(spice)
+        expect(assigns(:spice)).to eq(spice)
       end
 
       it "redirects to the spice" do
         spice = Spice.create! valid_attributes
         put :update, {:id => spice.to_param, :spice => valid_attributes}, valid_session
-        response.should redirect_to(spice)
+        expect(response).to redirect_to(spice)
       end
     end
 
@@ -127,17 +127,17 @@ describe Admin::SpicesController do
       it "assigns the spice as @spice" do
         spice = Spice.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Spice.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Spice).to receive(:save).and_return(false)
         put :update, {:id => spice.to_param, :spice => { "name" => "invalid value" }}, valid_session
-        assigns(:spice).should eq(spice)
+        expect(assigns(:spice)).to eq(spice)
       end
 
       it "re-renders the 'edit' template" do
         spice = Spice.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Spice.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Spice).to receive(:save).and_return(false)
         put :update, {:id => spice.to_param, :spice => { "name" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -153,7 +153,7 @@ describe Admin::SpicesController do
     it "redirects to the spices list" do
       spice = Spice.create! valid_attributes
       delete :destroy, {:id => spice.to_param}, valid_session
-      response.should redirect_to(spices_url)
+      expect(response).to redirect_to(spices_url)
     end
   end
 

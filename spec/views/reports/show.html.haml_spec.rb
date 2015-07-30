@@ -16,12 +16,12 @@ describe "reports/show" do
   it "renders attributes in <p>" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Article/)
-    rendered.should match(/Name/)
-    rendered.should match(/Title/)
-    rendered.should match(/Report Date/)
-    rendered.should match(/Article/)
-    rendered.should match(/Signature/)
-    rendered.should match(/Spice/)
+    expect(rendered).to match(/Article/)
+    expect(rendered).to match(/Name/)
+    expect(rendered).to match(/Title/)
+    expect(rendered).to match(/Report Date/)
+    expect(rendered).to match(/Article/)
+    expect(rendered).to match(/Signature/)
+    expect(rendered).to match(/Spice/)
   end
 end

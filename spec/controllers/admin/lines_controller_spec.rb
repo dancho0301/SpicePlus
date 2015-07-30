@@ -34,7 +34,7 @@ describe Admin::LinesController do
     it "assigns all lines as @lines" do
       line = Line.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:lines).should eq([line])
+      expect(assigns(:lines)).to eq([line])
     end
   end
 
@@ -42,14 +42,14 @@ describe Admin::LinesController do
     it "assigns the requested line as @line" do
       line = Line.create! valid_attributes
       get :show, {:id => line.to_param}, valid_session
-      assigns(:line).should eq(line)
+      expect(assigns(:line)).to eq(line)
     end
   end
 
   describe "GET new" do
     it "assigns a new line as @line" do
       get :new, {}, valid_session
-      assigns(:line).should be_a_new(Line)
+      expect(assigns(:line)).to be_a_new(Line)
     end
   end
 
@@ -57,7 +57,7 @@ describe Admin::LinesController do
     it "assigns the requested line as @line" do
       line = Line.create! valid_attributes
       get :edit, {:id => line.to_param}, valid_session
-      assigns(:line).should eq(line)
+      expect(assigns(:line)).to eq(line)
     end
   end
 
@@ -71,29 +71,29 @@ describe Admin::LinesController do
 
       it "assigns a newly created line as @line" do
         post :create, {:line => valid_attributes}, valid_session
-        assigns(:line).should be_a(Line)
-        assigns(:line).should be_persisted
+        expect(assigns(:line)).to be_a(Line)
+        expect(assigns(:line)).to be_persisted
       end
 
       it "redirects to the created line" do
         post :create, {:line => valid_attributes}, valid_session
-        response.should redirect_to(Line.last)
+        expect(response).to redirect_to(Line.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved line as @line" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Line.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Line).to receive(:save).and_return(false)
         post :create, {:line => { "name" => "invalid value" }}, valid_session
-        assigns(:line).should be_a_new(Line)
+        expect(assigns(:line)).to be_a_new(Line)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Line.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Line).to receive(:save).and_return(false)
         post :create, {:line => { "name" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        expect(response).to render_template("new")
       end
     end
   end
@@ -106,20 +106,20 @@ describe Admin::LinesController do
         # specifies that the Line created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Line.any_instance.should_receive(:update).with({ "name" => "MyString" })
+        expect_any_instance_of(Line).to receive(:update).with({ "name" => "MyString" })
         put :update, {:id => line.to_param, :line => { "name" => "MyString" }}, valid_session
       end
 
       it "assigns the requested line as @line" do
         line = Line.create! valid_attributes
         put :update, {:id => line.to_param, :line => valid_attributes}, valid_session
-        assigns(:line).should eq(line)
+        expect(assigns(:line)).to eq(line)
       end
 
       it "redirects to the line" do
         line = Line.create! valid_attributes
         put :update, {:id => line.to_param, :line => valid_attributes}, valid_session
-        response.should redirect_to(line)
+        expect(response).to redirect_to(line)
       end
     end
 
@@ -127,17 +127,17 @@ describe Admin::LinesController do
       it "assigns the line as @line" do
         line = Line.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Line.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Line).to receive(:save).and_return(false)
         put :update, {:id => line.to_param, :line => { "name" => "invalid value" }}, valid_session
-        assigns(:line).should eq(line)
+        expect(assigns(:line)).to eq(line)
       end
 
       it "re-renders the 'edit' template" do
         line = Line.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Line.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Line).to receive(:save).and_return(false)
         put :update, {:id => line.to_param, :line => { "name" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -153,7 +153,7 @@ describe Admin::LinesController do
     it "redirects to the lines list" do
       line = Line.create! valid_attributes
       delete :destroy, {:id => line.to_param}, valid_session
-      response.should redirect_to(lines_url)
+      expect(response).to redirect_to(lines_url)
     end
   end
 

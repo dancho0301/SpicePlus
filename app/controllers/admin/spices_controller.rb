@@ -1,4 +1,4 @@
-class SpicesController < ApplicationController
+class Admin::SpicesController < ApplicationController
   before_action :set_spice, only: [:show, :edit, :update, :destroy]
 
   # GET /spices

@@ -34,7 +34,7 @@ describe Admin::ReportsController do
     it "assigns all reports as @reports" do
       report = Report.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:reports).should eq([report])
+      expect(assigns(:reports)).to eq([report])
     end
   end
 
@@ -42,14 +42,14 @@ describe Admin::ReportsController do
     it "assigns the requested report as @report" do
       report = Report.create! valid_attributes
       get :show, {:id => report.to_param}, valid_session
-      assigns(:report).should eq(report)
+      expect(assigns(:report)).to eq(report)
     end
   end
 
   describe "GET new" do
     it "assigns a new report as @report" do
       get :new, {}, valid_session
-      assigns(:report).should be_a_new(Report)
+      expect(assigns(:report)).to be_a_new(Report)
     end
   end
 
@@ -57,7 +57,7 @@ describe Admin::ReportsController do
     it "assigns the requested report as @report" do
       report = Report.create! valid_attributes
       get :edit, {:id => report.to_param}, valid_session
-      assigns(:report).should eq(report)
+      expect(assigns(:report)).to eq(report)
     end
   end
 
@@ -71,29 +71,29 @@ describe Admin::ReportsController do
 
       it "assigns a newly created report as @report" do
         post :create, {:report => valid_attributes}, valid_session
-        assigns(:report).should be_a(Report)
-        assigns(:report).should be_persisted
+        expect(assigns(:report)).to be_a(Report)
+        expect(assigns(:report)).to be_persisted
       end
 
       it "redirects to the created report" do
         post :create, {:report => valid_attributes}, valid_session
-        response.should redirect_to(Report.last)
+        expect(response).to redirect_to(Report.last)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved report as @report" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Report.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Report).to receive(:save).and_return(false)
         post :create, {:report => { "article_id" => "invalid value" }}, valid_session
-        assigns(:report).should be_a_new(Report)
+        expect(assigns(:report)).to be_a_new(Report)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Report.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Report).to receive(:save).and_return(false)
         post :create, {:report => { "article_id" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        expect(response).to render_template("new")
       end
     end
   end
@@ -106,20 +106,20 @@ describe Admin::ReportsController do
         # specifies that the Report created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Report.any_instance.should_receive(:update).with({ "article_id" => "MyString" })
+        expect_any_instance_of(Report).to receive(:update).with({ "article_id" => "MyString" })
         put :update, {:id => report.to_param, :report => { "article_id" => "MyString" }}, valid_session
       end
 
       it "assigns the requested report as @report" do
         report = Report.create! valid_attributes
         put :update, {:id => report.to_param, :report => valid_attributes}, valid_session
-        assigns(:report).should eq(report)
+        expect(assigns(:report)).to eq(report)
       end
 
       it "redirects to the report" do
         report = Report.create! valid_attributes
         put :update, {:id => report.to_param, :report => valid_attributes}, valid_session
-        response.should redirect_to(report)
+        expect(response).to redirect_to(report)
       end
     end
 
@@ -127,17 +127,17 @@ describe Admin::ReportsController do
       it "assigns the report as @report" do
         report = Report.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Report.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Report).to receive(:save).and_return(false)
         put :update, {:id => report.to_param, :report => { "article_id" => "invalid value" }}, valid_session
-        assigns(:report).should eq(report)
+        expect(assigns(:report)).to eq(report)
       end
 
       it "re-renders the 'edit' template" do
         report = Report.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Report.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(Report).to receive(:save).and_return(false)
         put :update, {:id => report.to_param, :report => { "article_id" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -153,7 +153,7 @@ describe Admin::ReportsController do
     it "redirects to the reports list" do
       report = Report.create! valid_attributes
       delete :destroy, {:id => report.to_param}, valid_session
-      response.should redirect_to(reports_url)
+      expect(response).to redirect_to(reports_url)
     end
   end
 

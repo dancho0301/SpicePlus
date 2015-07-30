@@ -17,6 +17,20 @@ class Article < ActiveRecord::Base
   belongs_to :group
   belongs_to :spice
 
+  # バリデータ
+  validates :title , presence: true
+  validates :title, length: {maximum: 20, too_long: "タイトルは20文字以内にしてください"}
+  validates :article, presence: true
+  validates :publication_date, presence: true
+  validates :discription, presence: true
+  validates :discription, length: {maximum: 200, too_long: "説明は200文字以内にしてください"}
+  validates :genre_id, presence: true
+  validates :area_id, presence: true
+  validates :group_id, presence: true
+  validates :spice_id, presence: true
+  validates :photo, presence: true
+
+
   # imageをattachファイルとする。stylesで画像サイズを定義できる
   # TODO 画像をトリミングする
   has_attached_file :photo,
