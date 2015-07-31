@@ -8,12 +8,26 @@ class ApplicationController < ActionController::Base
   end
 
   before_action do
-    case request.user_agent
-    when /iPad/
-        request.variant = :tablet
-      when /iPhone|Android/
-        request.variant = :mobile
+    if (request.user_agent =~ /Windows/ && request.user_agent =~ /touch/) ||
+      request.user_agent =~ /ipad/ ||
+      (request.user_agent =~ /Android/ && request.user_agent !~ /Mobile/) ||
+      (request.user_agent =~ /firefox/ && request.user_agent =~ /tablet/) ||
+      request.user_agent =~ /kindle/ ||
+      request.user_agent =~ /Silk/ ||
+      request.user_agent =~ /playbook/
+      request.variant = :tablet
+    elsif (request.user_agent =~ /Windows/ && request.user_agent =~ /Phone/) ||
+      request.user_agent =~ /iPhone/ ||
+      request.user_agent =~ /ipod/ ||
+      (request.user_agent =~ /Android/ && request.user_agent =~ /Mobile/) ||
+      (request.user_agent =~ /firefox/ && request.user_agent =~ /Mobile/) ||
+      request.user_agent =~ /blackberry/
+      request.variant = :mobile
     end
+
+    puts request.user_agent
+    puts request.variant
+
   end
 
 

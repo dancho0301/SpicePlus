@@ -18,11 +18,17 @@
               .author{class: article.genre.css_class}
                 .author-left
                   .fukidashi
-                  = image_tag article.main_reporter.photo, :size => "40x40"
+                  - if article.main_reporter.present?
+                    = image_tag article.main_reporter.photo, :size => "40x40"
+                  - else
+                    = image_tag "user.dummy_f.png", :size => "40x40"
                 .author-right
                   .label
                     = article.genre.name
                   .date
                     = article.publication_date.strftime("%y.%m.%d")
                   .author-name
+                  - if article.main_reporter.present?
                     Reported by #{article.main_reporter.name}
+                  - else
+                    Reported by 名無しさん
