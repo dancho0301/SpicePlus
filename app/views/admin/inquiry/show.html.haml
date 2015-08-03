@@ -1,0 +1,25 @@
+%p#notice
+  = notice
+
+%p
+  %strong 受付日時:
+  = @inquiry.created_at
+%p
+  %strong 氏名:
+  = @inquiry.family_name + " " + @inquiry.first_name
+%p
+  %strong 氏名カナ:
+  = @inquiry.family_name_kana + " " + @inquiry.first_name_kana
+%p
+  %strong メールアドレス:
+  = @inquiry.email
+%p
+  %strong メッセージ:
+  = @inquiry.message
+
+- if @inquiry.article
+  %p
+    %strong 記事:
+    = @inquiry.article.title
+
+= link_to '戻る', admin_inquiry_index_path, class: "btn btn-primary"

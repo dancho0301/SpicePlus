@@ -90,6 +90,7 @@ Rails.application.routes.draw do
     resources :genres
     resources :spices
     resources :users
+    resources :inquiry, only: [:index, :show]
   end
 
   # 認証系

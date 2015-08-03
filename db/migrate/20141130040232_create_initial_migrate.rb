@@ -132,6 +132,7 @@ class CreateInitialMigrate < ActiveRecord::Migration
       t.string :email
       t.string :message
       t.integer :article_id
+      t.timestamps
     end
   end
 end

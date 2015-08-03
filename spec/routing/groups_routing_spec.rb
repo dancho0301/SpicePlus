@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe GroupsController do
   describe "routing" do

@@ -72,7 +72,7 @@ class Admin::ArticlesController < ApplicationController
     def set_collections
       @genres = Genre.all
       @areas = Area.all
-      @groups = Group.all
+      @groups = Group.all.order("id DESC")
       @spices = Spice.all
     end
 

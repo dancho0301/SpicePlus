@@ -1,0 +1,29 @@
+%h1
+  お問い合わせ一覧
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        受付日時
+      %th
+        氏名
+      %th
+        メッセージ
+      %th
+        記事
+      %th{colspan: "3"}
+  %tbody
+    - @inquiries.each do |inquiry|
+      %tr
+        %td
+          = inquiry.created_at
+        %td
+          #{inquiry.family_name} #{inquiry.first_name}
+        %td
+          = inquiry.message
+        %td
+          - if inquiry.article
+            = inquiry.article.title
+        %td.function
+          = link_to '参照', admin_inquiry_path(inquiry), class: "btn btn-primary"
