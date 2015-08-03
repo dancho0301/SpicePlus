@@ -355,19 +355,24 @@
       a{
         color: #E09200;
       }
-
-      .green{
-        color: #30A0B5;
-        border-bottom-color: #30A0B5;
+      .activityPlans_inner0{
+        h3{
+          color: #30A0B5;
+          border-bottom-color: #30A0B5;
         }
-      .orange{
-        color: #E09200;
-        border-bottom-color: #E09200;
+      }
+      .activityPlans_inner1{
+        h3{
+          color: #E09200;
+          border-bottom-color: #E09200;
         }
-      .red{
-        color: #E53468;
-        border-bottom-color: #E53468;
+      }
+      .activityPlans_inner2{
+        h3{
+          color: #E53468;
+          border-bottom-color: #E53468;
         }
+      }
     }
 
     // 団体情報
