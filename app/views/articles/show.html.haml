@@ -22,9 +22,9 @@
         .reporters_inner
           - @article.reports.each_with_index do |report, idx|
             .reporter
-              %p{class: "icon#{idx}"}
+              %p{class: "icon#{idx%2}"}
                 = report.name
-              = image_tag report.photo, :class => "icon icon#{idx}"
+              = image_tag report.photo, :class => "icon icon#{idx%2}"
 
       -# おすすめポイント
       .reccomends

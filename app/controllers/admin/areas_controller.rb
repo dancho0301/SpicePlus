@@ -1,5 +1,7 @@
 class Admin::AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login
+
   layout "admin"
 
   # GET /admin/areas

@@ -2,8 +2,8 @@ class Admin::ArticlesController < ApplicationController
   layout "admin"
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-
   before_action :set_collections, only: [:new, :edit]
+  before_filter :require_login
 
   def index
     @articles = Article.all.order("publication_date DESC")

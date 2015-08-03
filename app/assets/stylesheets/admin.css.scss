@@ -46,6 +46,15 @@
       text-align: right;
     }
     table{
+      td.photo{
+        width: 110px;
+      }
+      td.title{
+        width: 250px;
+      }
+      td.publication_date{
+        width: 20px;
+      }
       span.group_name{
         font-size: 10px;
       }
@@ -59,10 +68,10 @@
     }
     table.report{
       background-color: rgb(228, 228, 228);
-
+      border-radius: 10px;
       tr.article{
         background-color: rgb(116, 116, 116);
-        color: white;
+        color: #ffffff;
         .article_name{
           font-size: 16px;
           font-weight: bold;

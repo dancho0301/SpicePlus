@@ -1,5 +1,6 @@
 class Admin::ArticleImagesController < ApplicationController
   layout "admin"
+  before_filter :require_login
 
   before_action :set_article_image, only: [:show, :edit, :update, :destroy]
 

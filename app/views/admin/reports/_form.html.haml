@@ -23,6 +23,11 @@
     = label :main_reporter, "メインレポーター"
     = f.check_box :main_reporter
   %div.form-group
+    = f.label :photo, "画像"
+    = f.file_field :photo
+    - if @report.photo.present?
+      = image_tag @report.photo(:thumb), class: "img-responsive"
+  %div.form-group
     = f.label :title, "タイトル"
     = f.text_field :title, class: "form-control"
   %div.form-group

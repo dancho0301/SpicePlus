@@ -39,7 +39,8 @@
       .form-group
         = f.label :photo, "トップ画像"
         = f.file_field :photo
-        = image_tag @article.photo, class: "img-responsive"
+        - if @article.photo.present?
+          = image_tag @article.photo, class: "img-responsive"
       .form-group
         = f.label :article, "本文"
         = f.text_area :article, :class => "form-control redactor", :id => "", rows: 20

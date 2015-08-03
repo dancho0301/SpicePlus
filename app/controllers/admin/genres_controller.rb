@@ -1,6 +1,8 @@
 class Admin::GenresController < ApplicationController
-  before_action :set_genre, only: [:show, :edit, :update, :destroy]
   layout "admin"
+
+  before_action :set_genre, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login
 
   # GET /genres
   def index

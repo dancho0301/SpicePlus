@@ -2,6 +2,7 @@ class Admin::ReportsController < ApplicationController
   layout "admin"
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :set_spice, only: [:edit, :new]
+  before_filter :require_login
 
   # GET /reports
   # def index
@@ -60,6 +61,6 @@ class Admin::ReportsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def report_params
-      params.require(:report).permit(:article_id, :name, :title, :report_date, :report_body, :signature, :spice_id, :main_reporter)
+      params.require(:report).permit(:article_id, :name, :title, :report_date, :report_body, :signature, :spice_id, :main_reporter, :photo)
     end
 end

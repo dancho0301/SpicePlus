@@ -1,5 +1,6 @@
 class Admin::GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login
   layout "admin"
 
   # GET /groups

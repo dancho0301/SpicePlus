@@ -1,5 +1,6 @@
 class Admin::SpicesController < ApplicationController
   before_action :set_spice, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login
 
   # GET /spices
   def index

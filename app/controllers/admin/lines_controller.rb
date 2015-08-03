@@ -1,5 +1,6 @@
 class Admin::LinesController < ApplicationController
   before_action :set_line, only: [:show, :edit, :update, :destroy]
+  before_filter :require_login
   layout "admin"
 
   # GET /lines

@@ -32,8 +32,8 @@
         <div class="reporters_inner">
           <% @article.reports.each_with_index do |report, idx| %>
           <div class="reporter">
-            <p class="icon<%= idx %>"><%= report.name %></p>
-            <%= image_tag report.photo, :class => "icon icon#{idx}" %>
+            <p class="icon<%= idx%3 %>"><%= report.name %></p>
+            <%= image_tag report.photo, :class => "icon icon#{idx%3}" %>
           </div>
           <% end %>
         </div>
@@ -65,11 +65,11 @@
                 <% @article.reports.each_with_index do |report, idx| %>
                   <div class="row report">
                     <div class="col-xs-3">
-                      <%= image_tag report.photo, :class => "icon icon#{idx}" %>
-                      <p class="reporter_name reporter_name<%= idx %>"><%= report.name %></p>
+                      <%= image_tag report.photo, :class => "icon icon#{idx%3}" %>
+                      <p class="reporter_name reporter_name<%= idx%3 %>"><%= report.name %></p>
                     </div>
-                    <div class="col-xs-9 report_bg report_bg<%= idx %>">
-                      <div class="report_inner report_inner<%= idx %>">
+                    <div class="col-xs-9 report_bg report_bg<%= idx%3 %>">
+                      <div class="report_inner report_inner<%= idx%3 %>">
                         <div class="date"><%= report.report_date.strftime("%y.%m.%d [%a]") %></div>
                         <h3><%= report.title %></h3>
                         <p class="truncate">

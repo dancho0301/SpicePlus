@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     admin_path
   end
 
+  # ユーザエージェントの確認（タブレット版は特に作ってないけどね☆
   before_action do
     if (request.user_agent =~ /Windows/ && request.user_agent =~ /touch/) ||
       request.user_agent =~ /ipad/ ||
@@ -24,10 +25,12 @@ class ApplicationController < ActionController::Base
       request.user_agent =~ /blackberry/
       request.variant = :mobile
     end
+  end
 
-    puts request.user_agent
-    puts request.variant
 
+  # 権限が無かった場合（管理者ページのみ）
+  def not_authenticated
+    redirect_to login_path
   end
 
 
