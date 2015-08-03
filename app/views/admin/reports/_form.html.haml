@@ -1,0 +1,47 @@
+= form_for shallow_args(:admin, @article, @report) do |f|
+  - if @report.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@report.errors.count, "error")
+        prohibited this report from being saved:
+      %ul
+        - @report.errors.full_messages.each do |message|
+          %li
+            = message
+
+
+  %div.form-group
+    = f.label :article_id, "記事"
+    %br
+    = f.hidden_field :article_id
+    = @report.article.title
+
+  %div.form-group
+    = f.label :name, "レポーター名"
+    = f.text_field :name, class: "form-control"
+  %div.form-group
+    = label :main_reporter, "メインレポーター"
+    = f.check_box :main_reporter
+  %div.form-group
+    = f.label :photo, "画像"
+    = f.file_field :photo
+    - if @report.photo.present?
+      = image_tag @report.photo(:thumb), class: "img-responsive"
+  %div.form-group
+    = f.label :title, "タイトル"
+    = f.text_field :title, class: "form-control"
+  %div.form-group
+    = f.label :report_date, "レポート日"
+    = f.date_field :report_date, class: "form-control"
+  %div.form-group
+    = f.label :report_body, "本文"
+    = f.text_area :report_body, class: "form-control", rows: 7
+  %div.form-group
+    = f.label :signature, "一人称"
+    = f.text_field :signature, class: "form-control"
+  %div.form-group
+    = f.label :spice_id, "スパイス"
+    = f.collection_select(:spice_id, @spices, :id, :name, {}, {:class => 'form-control'})
+
+  %div.actions.form-group
+    = f.submit class: "btn btn-primary"

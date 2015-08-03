@@ -1,0 +1,29 @@
+%h1
+  Listing spices
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Css class
+      %th{colspan: "3"}
+
+  %tbody
+    - @spices.each do |spice|
+      %tr
+        %td
+          = spice.name
+        %td
+          = spice.css_class
+        %td.function
+          = link_to '参照', spice_path(spice), class: "btn btn-default"
+        %td.function
+          = link_to '変更', edit_spice_path(spice), class: "btn btn-default"
+        %td.function
+          = link_to '削除', spice_path(spice), method: :delete, data: { confirm: '本当によろしいですか？' }, class: "btn btn-danger"
+
+%br
+
+= link_to '新規作成', new_spice_path, class: "btn btn-default"

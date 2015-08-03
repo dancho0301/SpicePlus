@@ -1,0 +1,12 @@
+users:
+  -
+    username: だんちょ
+    email: samuraimania.d@gmail.com
+    password: 41341403
+    administrator: true
+
+  -
+    username: 高城
+    email: y.takajo@actionport-yokohama.org
+    password: takajo
+    administrator: true

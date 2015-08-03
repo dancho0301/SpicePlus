@@ -8,6 +8,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+require "rspec-rails"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -40,5 +41,7 @@ module SpicePlus
     # config.time_zone = 'Central Time (US & Canada)'
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+
+    config.assets.precompile += ['redactor.js', 'redactor.css']
   end
 end

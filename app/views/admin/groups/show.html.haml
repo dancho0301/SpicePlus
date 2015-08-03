@@ -1,0 +1,37 @@
+%p#notice
+  = notice
+
+%p
+  %strong 団体名:
+  = @group.name
+
+%p
+  %strong 代表者名:
+  = @group.master_name
+
+%p
+  %strong 住所:
+  = @group.address
+
+%p
+  %strong 電話番号:
+  = @group.tel
+
+%p
+  %strong Url:
+  = @group.url
+
+%p
+  %strong Mail:
+  = @group.mail
+
+%p
+  %strong 主な活動:
+  = @group.activity
+
+%p
+  %strong 立ち上げ経緯:
+  = @group.detail
+
+= link_to '変更', edit_admin_group_path(@group), class: "btn btn-default"
+= link_to '戻る', admin_groups_path, class: "btn btn-default"

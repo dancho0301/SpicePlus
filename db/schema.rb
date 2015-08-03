@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130040232) do
+ActiveRecord::Schema.define(version: 20150724135541) do
 
   create_table "areas", force: true do |t|
     t.string "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
 
   create_table "article_images", force: true do |t|
     t.string   "title"
-    t.string   "discription"
+    t.string   "description"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20141130040232) do
 
   create_table "article_recommends", force: true do |t|
     t.integer "article_id"
-    t.string  "discription"
+    t.string  "description"
   end
 
   create_table "article_schedules", force: true do |t|
@@ -61,20 +61,19 @@ ActiveRecord::Schema.define(version: 20141130040232) do
   create_table "articles", force: true do |t|
     t.string   "title"
     t.date     "publication_date"
-    t.string   "discription"
+    t.string   "description"
     t.text     "article"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "member_id"
     t.integer  "genre_id"
     t.integer  "area_id"
     t.integer  "group_id"
     t.integer  "spice_id"
-    t.string   "author_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "favorites",          default: 0
   end
 
   create_table "entry", force: true do |t|
@@ -108,13 +107,15 @@ ActiveRecord::Schema.define(version: 20141130040232) do
   end
 
   create_table "inquiries", force: true do |t|
-    t.string  "family_name"
-    t.string  "first_name"
-    t.string  "family_name_kana"
-    t.string  "first_name_kana"
-    t.string  "email"
-    t.string  "message"
-    t.integer "article_id"
+    t.string   "family_name"
+    t.string   "first_name"
+    t.string   "family_name_kana"
+    t.string   "first_name_kana"
+    t.string   "email"
+    t.string   "message"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "lines", force: true do |t|
@@ -130,12 +131,19 @@ ActiveRecord::Schema.define(version: 20141130040232) do
     t.datetime "updated_at"
   end
 
+  create_table "redactor_assets", force: true do |t|
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+  end
+
   create_table "reports", force: true do |t|
     t.integer  "article_id"
     t.string   "name"
     t.string   "title"
     t.date     "report_date"
-    t.text     "article"
+    t.text     "report_body"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -156,21 +164,22 @@ ActiveRecord::Schema.define(version: 20141130040232) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "username",                                        null: false
+    t.string   "email",                                           null: false
+    t.string   "crypted_password",                                null: false
+    t.string   "salt",                                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.boolean  "administrator",                   default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
 
 end

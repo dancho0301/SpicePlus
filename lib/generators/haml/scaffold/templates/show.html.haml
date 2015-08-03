@@ -1,0 +1,11 @@
+%p#notice
+  = notice
+
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+%p
+  %strong <%= attribute.human_name %>:
+  = @<%= singular_table_name %>.<%= attribute.name %>
+
+<% end -%>
+= link_to '変更', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-default"
+= link_to '戻る', <%= index_helper %>_path, class: "btn btn-default"

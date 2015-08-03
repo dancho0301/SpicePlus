@@ -59,7 +59,7 @@ article_images:
   -
     id: 12
     title: "竹ファン２"
-    discription: ""
+    description: ""
     image: "take/take03.png"
 
   -
@@ -81,3 +81,124 @@ article_images:
     id: 16
     title: "プレイパーク１"
     image: "konan/04.png"
+
+# ふくしまキッズ
+  -
+    id: 61
+    title: "ふくしまキッズ"
+    image: "fuku/fuku.01.png"
+
+  -
+    id: 62
+    title: "ふくしまキッズ"
+    image: "fuku/fuku.02.png"
+
+  -
+    id: 63
+    title: "ふくしまキッズ"
+    image: "fuku/fuku.03.png"
+
+  -
+    id: 64
+    title: "ふくしまキッズ"
+    image: "fuku/fuku.04.png"
+
+  -
+    id: 71
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka01.png"
+
+  -
+    id: 72
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka02.png"
+
+  -
+    id: 73
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka03.png"
+
+  -
+    id: 74
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka04.png"
+
+  -
+    id: 75
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka05.png"
+
+  -
+    id: 76
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka06.png"
+
+  -
+    id: 77
+    title: "ふらっと戸塚"
+    image: "totsuka/totsuka07.png"
+
+  -
+    id: 81
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe01.JPG"
+
+  -
+    id: 82
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe02.JPG"
+
+  -
+    id: 83
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe03.JPG"
+
+  -
+    id: 84
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe04.jpg"
+
+  -
+    id: 85
+    title: "港南台タウンカフェ"
+    image: "towncafe/towncafe05.jpg"
+
+  -
+    id: 91
+    title: "横浜珍百景"
+    image: "chin_hyakkei/1.jpg"
+
+  -
+    id: 92
+    title: "横浜珍百景"
+    image: "chin_hyakkei/2.jpg"
+
+  -
+    id: 93
+    title: "横浜珍百景"
+    image: "chin_hyakkei/3.jpg"
+
+  -
+    id: 94
+    title: "横浜珍百景"
+    image: "chin_hyakkei/4.jpg"
+
+  -
+    id: 101
+    title: "ガチスカ！"
+    image: "gachi_suka/1.jpg"
+
+  -
+    id: 102
+    title: "ガチスカ！"
+    image: "gachi_suka/2.jpg"
+
+  -
+    id: 103
+    title: "ガチスカ！"
+    image: "gachi_suka/3.jpg"
+
+  -
+    id: 104
+    title: "ガチスカ！"
+    image: "gachi_suka/4.jpg"

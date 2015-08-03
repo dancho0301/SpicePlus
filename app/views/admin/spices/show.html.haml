@@ -1,0 +1,12 @@
+%p#notice
+  = notice
+
+%p
+  %strong Name:
+  = @spice.name
+
+%p
+  %strong Css class:
+  = @spice.css_class
+
+= link_to '戻る', spices_path, class: "btn btn-default"

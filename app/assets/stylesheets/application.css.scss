@@ -21,8 +21,6 @@
 @import "non-responsive";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "summernote";
-
 
 html{
   height: 100%;
@@ -122,7 +120,7 @@ body{
     .sns_buttons{
       text-align: center;
       margin-bottom: 20px;
-      margin-top: 30px;
+      margin-top: 40px;
       h3{
         margin-bottom: 5px;
       }
@@ -296,9 +294,12 @@ body{
       display: table-cell;
       vertical-align: middle;
       p.title{
-        width: 205px;
-        text-align: center;
-        margin-bottom: 0px;
+        // width: 205px;
+        // text-align: center;
+        // margin-bottom: 0px;
+        width: 185px;
+        margin: 0px 10px;
+        text-align: left;
       }
       .new{
         float: left;
@@ -481,4 +482,5 @@ div.thumb-list{
 
 @import "article.css.scss";
 @import "static_pages.css.scss";
-@import "inquiry.css.scss"
+@import "inquiry.css.scss";
+@import "admin.css.scss";

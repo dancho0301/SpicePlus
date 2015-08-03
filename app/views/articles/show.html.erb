@@ -32,8 +32,8 @@
         <div class="reporters_inner">
           <% @article.reports.each_with_index do |report, idx| %>
           <div class="reporter">
-            <p class="icon<%= idx %>"><%= report.name %></p>
-            <%= image_tag report.photo, :class => "icon icon#{idx}" %>
+            <p class="icon<%= idx%3 %>"><%= report.name %></p>
+            <%= image_tag report.photo, :class => "icon icon#{idx%3}" %>
           </div>
           <% end %>
         </div>
@@ -43,7 +43,7 @@
       <div class="reccomends">
         <% @article.article_recommends.each_with_index do |recommend, idx| %>
           <div class="fukidashi fukidashi<%= idx %>">
-            <p><%= recommend.discription %></p>
+            <p><%= recommend.description %></p>
           </div>
         <% end %>
       </div>
@@ -58,28 +58,23 @@
         <div class="panel-group" id="accordion reports">
           <div class="panel panel-article">
             <div class="panel-heading">
-              <h4 class="panel-title">
-                <!--
-                  data-toggle : Collapseを起動させる
-                  data-parent : アコーディオン風に閉じたり開いたりするためのもの
-                  href : 指定した場所のパネルを開く
-                -->
-                <a data-toggle="collapse" data-parent="#accordion" href="#reportersVoice">レポーターの声</a>
-              </h4>
+              <h4 class="panel-title">レポーターの声</h4>
             </div>
-            <div id="reportersVoice" class="collapse">
+            <div id="reportersVoice">
               <div class="panel-body">
                 <% @article.reports.each_with_index do |report, idx| %>
                   <div class="row report">
                     <div class="col-xs-3">
-                      <%= image_tag report.photo, :class => "icon icon#{idx}" %>
-                      <p class="reporter_name reporter_name<%= idx %>"><%= report.name %></p>
+                      <%= image_tag report.photo, :class => "icon icon#{idx%3}" %>
+                      <p class="reporter_name reporter_name<%= idx%3 %>"><%= report.name %></p>
                     </div>
-                    <div class="col-xs-9 report_bg report_bg<%= idx %>">
-                      <div class="report_inner report_inner<%= idx %>">
+                    <div class="col-xs-9 report_bg report_bg<%= idx%3 %>">
+                      <div class="report_inner report_inner<%= idx%3 %>">
                         <div class="date"><%= report.report_date.strftime("%y.%m.%d [%a]") %></div>
                         <h3><%= report.title %></h3>
-                        <p><%= raw report.article %></p>
+                        <p class="truncate">
+                          <%= simple_format report.report_body %>
+                        </p>
                         <div class="spice">
                           <span class="signature"><%= report.signature %></span>的には
                           <span class="spice_icon spice_icon<%= report.spice_id %>"></span>
@@ -95,16 +90,9 @@
             <!-- 一日の流れ -->
             <% if @article.article_schedules.exists? %>
               <div class="panel-heading">
-                <h4 class="panel-title">
-                  <!--
-                    data-toggle : Collapseを起動させる
-                    data-parent : アコーディオン風に閉じたり開いたりするためのもの
-                    href : 指定した場所のパネルを開く
-                  -->
-                  <a data-toggle="collapse" data-parent="#accordion" href="#dairySchedule">一日の流れ</a>
-                </h4>
+                <h4 class="panel-title">一日の流れ</h4>
               </div>
-              <div id="dairySchedule" class="collapse">
+              <div id="dairySchedule">
                 <div class="panel-body">
                   <div class="row schedule">
                     <div class="col-xs-2">
@@ -134,22 +122,15 @@
             <!-- 参加可能プラン -->
             <% if @article.article_plans.exists? %>
               <div class="panel-heading">
-                <h4 class="panel-title">
-                  <!--
-                    data-toggle : Collapseを起動させる
-                    data-parent : アコーディオン風に閉じたり開いたりするためのもの
-                    href : 指定した場所のパネルを開く
-                  -->
-                  <a data-toggle="collapse" data-parent="#accordion" href="#activityPlans">参加可能プラン</a>
-                </h4>
+                <h4 class="panel-title">参加可能プラン</h4>
               </div>
-              <div id="activityPlans" class="collapse">
+              <div id="activityPlans">
                 <div class="panel-body">
                   <% @article.article_plans.each_with_index do |plan, idx| %>
                     <div class="row plan">
                       <div class="col-xs-12 activityPlans_inner activityPlans_inner<%= idx %>">
                         <h3 class="<%= plan.color_theme %>"><%= plan.title %></h3>
-                        <p><%= raw plan.description %></p>
+                        <p><%= simple_format plan.description %></p>
                       </div>
                     </div>
                   <% end %>
@@ -171,7 +152,7 @@
             <% end %>
             <% if @article.group.master_name %>
             <tr>
-              <th>理事長：</th>
+              <th>代表者：</th>
               <td><%= @article.group.master_name %></td>
             </tr>
             <% end %>
@@ -190,13 +171,13 @@
             <% if @article.group.activity %>
             <tr>
               <th>主な活動：</th>
-              <td><%= raw @article.group.activity %></td>
+              <td><%= simple_format @article.group.activity %></td>
             </tr>
             <% end %>
             <% if @article.group.detail %>
             <tr>
               <th>立ち上げ経緯：</th>
-              <td><%= raw @article.group.detail %></td>
+              <td><%= simple_format @article.group.detail %></td>
             </tr>
             <% end %>
           </table>
@@ -207,7 +188,10 @@
       </div>
       <!-- 参加ボタン -->
       <div class="entry_btn">
-        <%= link_to image_tag("entry_off.png"), inquiry_path + "/article/" + @article.id.to_s %>
+        <!-- <%= link_to "", id: "favorites" do %>
+            <button type="button" class="btn btn-warning">☆気になる</button>
+        <% end %> -->
+        <%= link_to image_tag("entry_off.png"), inquiry_path + "/article/" + @article.id.to_s, id: "entry" %>
       </div>
     </div>
   </div> <!-- .row -->

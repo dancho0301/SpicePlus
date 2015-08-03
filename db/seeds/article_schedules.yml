@@ -210,3 +210,147 @@ article_schedules:
     article_id: 5
     time: "17:30"
     title: "解散"
+
+
+  -
+    id: 35
+    article_id: 6
+    time: "12/23"
+    title: "子ども達が福島から移動、入所式"
+  -
+    id: 36
+    article_id: 6
+    time: "12/24"
+    title: "横浜・八景シーパラダイスへ"
+  -
+    id: 37
+    article_id: 6
+    time: "12/25"
+    title: "だがしや楽校ワークショップ、クリスマスパーティ"
+  -
+    id: 38
+    article_id: 6
+    time: "12/26"
+    title: "横浜の子どもたちとの交流会"
+  -
+    id: 39
+    article_id: 6
+    time: "12/27"
+    title: "だがしや楽校"
+  -
+    id: 40
+    article_id: 6
+    time: "12/29"
+    title: "横浜ウォークラリー"
+  -
+    id: 41
+    article_id: 6
+    time: "12/29"
+    title: "お別れ会、福島へ移動"
+
+# ふらっとステーションとつか
+  -
+    article_id: 7
+    time: "18:00"
+    title: "スタート"
+  -
+    article_id: 7
+    time: "18:20"
+    title: "参加者によるケーキ作り"
+  -
+    article_id: 7
+    time: "18:50"
+    title: "食事スタート"
+  -
+    article_id: 7
+    time: "19:30"
+    title: "スタッフによるショー"
+  -
+    article_id: 7
+    time: "20:00"
+    title: "終了、片付け"
+  -
+    article_id: 7
+    time: "20:30"
+    title: "解散"
+
+## 港南台タウンカフェ
+  -
+    article_id: 8
+    time: "17:00"
+    title: "集合・オリエンテーション"
+
+  -
+    article_id: 8
+    time: "17:30"
+    title: "会場準備　テーブルのセッティングやおつまみの準備"
+
+  -
+    article_id: 8
+    time: "18:00"
+    title: "受付"
+
+  -
+    article_id: 8
+    time: "18:30"
+    title: "まちサロン開始　受付の対応、飲み物等おかわりの準備"
+
+  -
+    article_id: 8
+    time: "20:00"
+    title: "まちサロン終了　後片付け　ミーティング"
+
+  -
+    article_id: 8
+    time: "21:00"
+    title: "解散"
+
+## 横浜珍百景
+  -
+    article_id: 9
+    time: "11:00"
+    title: "集合"
+  -
+    article_id: 9
+    time: "11:15"
+    title: "チーム分け"
+  -
+    article_id: 9
+    time: "11:30"
+    title: "街歩きスタート"
+  -
+    article_id: 9
+    time: "15:00"
+    title: "ゴール、共有"
+  -
+    article_id: 9
+    time: "16:00"
+    title: "解散"
+
+
+## ガチスカ！
+  -
+    article_id: 10
+    time: "12:30〜13:00"
+    title: "現地集合"
+    description: "活動内容・注意事項などの説明"
+  -
+    article_id: 10
+    time: "13:00〜13:30"
+    title: "開会式"
+    description: "（ごみ拾いの注意やグループ分けを行ないました！）"
+  -
+    article_id: 10
+    time: "13:30〜15:30"
+    title: "ごみ拾い"
+    description: "（グループごとにルートを分かれてごみ拾いをして回ります！）"
+  -
+    article_id: 10
+    time: "15:30〜16:30"
+    title: "レクリエーション"
+    description: "（ごみ拾いを終えて、どこにどんなごみが落ちていたかをグループで話し合って反省会を行ないました！）"
+  -
+    article_id: 10
+    time: "16:30"
+    title: "閉会式・解散"
+    description: 

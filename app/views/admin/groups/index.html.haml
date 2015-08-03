@@ -1,0 +1,24 @@
+%h1
+  団体一覧
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        団体名
+      %th{colspan: "2"}
+
+  %tbody
+    - @groups.each do |group|
+      %tr
+        %td
+          = group.name
+        %td.function
+          = link_to '変更', edit_admin_group_path(group), class: "btn btn-primary"
+        %td.function
+          = link_to '削除', admin_group_path(group), method: :delete, data: { confirm: '本当によろしいですか？' }, class: "btn btn-danger"
+
+%br
+
+= link_to '新規作成', new_admin_group_path, class: "btn btn-primary"
+= link_to '戻る', admin_root_path, class: "btn btn-default"

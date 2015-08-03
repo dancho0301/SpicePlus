@@ -1,7 +1,6 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-
 gem 'rails', '4.1.1'
 gem 'mysql2'
 gem 'active_hash'
@@ -10,6 +9,9 @@ gem 'active_hash'
 #gem 'carrierwave'              # 画像アップローダ
 gem "paperclip"
 gem 'mini_magick'              # CarrierWaveでリサイズなどができるようになる
+
+# エディタに画像アップローダをつける。
+# gem 'redactor-paperclip', github: 'DynamoMTL/redactor-paperclip'
 
 gem 'jquery-rails'
 
@@ -21,8 +23,9 @@ gem 'rails-i18n' # ransackには関係ないけどdate_select用
 gem 'ransack'
 
 # 管理画面
-gem "devise"
-gem "bcrypt"
+# gem "devise"
+# gem "bcrypt"
+gem "sorcery"
 
 # Bootstrap
 gem 'bootstrap-sass'#, '3.2.0.2'
@@ -36,6 +39,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 
+# url短縮
+gem "bitly"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -48,10 +54,13 @@ group :development do
 end
 
 group :development, :test do
-  gem "rspec-rails", "~> 2.14.0"
-  gem "factory_girl_rails", "~> 4.2.1"
+  gem "sqlite3"
+  gem "rspec", '~> 3.1.0'
+  gem "rspec-rails"
+  gem "factory_girl_rails"
   gem 'pry-rails'
   gem 'pry-doc'
+  gem 'transpec'
 end
 
 group :test do

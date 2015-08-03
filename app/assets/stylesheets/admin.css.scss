@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require redactor-rails
+ *= redactor-rails/plugins
+ */
+
+.header_admin{
+  background-color: rgb(201, 201, 201);
+  padding: 5px 10px;
+  margin-bottom: 15px;
+}
+
+.sidebar_admin{
+  .links{
+    li{
+      a{
+        background: none;
+      }
+    }
+  }
+}
+
+.admin{
+  ul.admin_menu_list{
+    li{
+      display: inline-block;
+    }
+  }
+  table.table{
+    td.function{
+      width: 75px;
+    }
+  }
+  .article{
+    .function_button{
+      text-align: right;
+    }
+    table{
+      td.photo{
+        width: 110px;
+      }
+      td.title{
+        width: 250px;
+      }
+      td.publication_date{
+        width: 20px;
+      }
+      span.group_name{
+        font-size: 10px;
+      }
+    }
+    table#article_schedule{
+      td.time{
+        input{
+          width: 200px;
+        }
+      }
+    }
+    table.report{
+      background-color: rgb(228, 228, 228);
+      border-radius: 10px;
+      tr.article{
+        background-color: rgb(116, 116, 116);
+        color: #ffffff;
+        .article_name{
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

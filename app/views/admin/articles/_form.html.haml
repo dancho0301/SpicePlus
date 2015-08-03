@@ -1,0 +1,76 @@
+= form_for([:admin, @article]) do |f|
+  .row
+    .col-md-12
+      - if @article.errors.any?
+        #error_explanation
+          %ul
+            - @article.errors.full_messages.each do |message|
+              %li= message
+  .row
+    .col-md-12
+      .form-group
+        = f.label :group_id, "団体名"
+        %br
+        = f.collection_select(:group_id, @groups, :id, :name, {}, {:class => 'form-control'})
+      .form-group
+        = f.label :publication_date, "公開日"
+        %br
+        = f.date_select :publication_date, :class => 'form-control'
+      .form-group
+        = f.label :title, "タイトル"
+        %br
+        = f.text_field :title, :class => "form-control"
+      .form-group
+        = f.label :description, "概要（シェアしたりすると出る。画面には出ない）"
+        %br
+        = f.text_area :description, :class => "form-control", rows: 5
+      .form-group
+        = f.label :genre_id, "ジャンル"
+        %br
+        = f.collection_select(:genre_id, @genres, :id, :name, {}, {:class => 'form-control'})
+      .form-group
+        = f.label :area_id, "地域"
+        %br
+        = f.collection_select(:area_id, @areas, :id, :name, {}, {:class => 'form-control'})
+      .form-group
+        = f.label :spice_id, "スパイス"
+        %br
+        = f.collection_select(:spice_id, @spices, :id, :name, {}, {:class => 'form-control'})
+      .form-group
+        = f.label :photo, "トップ画像"
+        = f.file_field :photo
+        - if @article.photo.present?
+          = image_tag @article.photo, class: "img-responsive"
+      .form-group
+        = f.label :article, "本文"
+        = f.text_area :article, :class => "form-control redactor", :id => "", rows: 20
+
+      .form-group
+        = f.label :article_schedules, "活動スケジュール"
+        %table.table.table-hover#article_schedule
+          %thead
+            %tr
+              %th.time 時刻
+              %th.title 活動内容
+              %th.description 備考
+          %tbody
+            - @article.article_schedules.each do |schedule|
+              = f.fields_for :article_schedules, schedule do |schedule_field|
+                = render "article_schedule_fields", f: schedule_field
+        = link_to_add_fields "行追加", f, :article_schedules
+      .form-group
+        = f.label :article_plans, "参加可能プラン"
+        %br
+        - @article.article_plans.each do |plan|
+          = f.fields_for :article_plans, plan do |plan_field|
+            = plan_field.label :title, "タイトル"
+            = plan_field.text_field :title, :class => "form-control"
+            = plan_field.label :description, "内容"
+            = plan_field.text_area :description, :class => "form-control"
+            %hr
+
+      .actions.form-group
+        = f.submit :class => "btn btn-primary"
+
+
+-# %script{src: "/ckeditor/ckeditor.js"}

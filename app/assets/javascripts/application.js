@@ -12,37 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery
 //= require bootstrap
+//= require redactor-rails
+//= require redactor-rails/plugins
 //= require_tree .
-
-$(document).ready(function() {
-
-  function sendFile(file, editor,welEditable) {
-    data = new FormData();
-    data.append("article_image[image]", file);
-    $.ajax({
-      url: '/admin/article_images',
-      data: data,
-      cache: false,
-      contentType: false,
-      processData: false,
-      type: 'POST',
-      success: function(data){
-        editor.insertImage(welEditable, data.url);
-      }
-    });
-  }
-
-  $('#summernote').summernote({
-    height: 300, /*高さを指定*/
-    lang: 'ja-JP', /*日本語対応*/
-
-    onImageUpload: function(files, editor, welEditable) {
-        sendFile(files[0], editor,welEditable);
-    }
-  });
-});
 
 $(function( ) {
   $(".article_image img").on("load",function(){
@@ -53,5 +26,25 @@ $(function( ) {
     ih = ($(this).height() - ch) / 2;
     $(this).css("top", "-"+ih+"px");
     $(this).css("left", "-"+iw+"px");
+  });
+
+  $('.redactor').redactor(
+    { "imageUpload":"/redactor_assets/create?" + params,
+      "imageGetJson":"/redactor_assets/",
+      "buttonSource": true,
+      "replaceDivs": false,
+      "css":"style.css"}
+  );
+});
+
+$().ready(function() {
+  $('.truncate').jTruncSubstr({
+    length: 200,            // 表示する文字数
+    minTrail: 0,            // 省略文字の最低文字数
+    moreText: "more",       // 省略部分を表示するリンクの文字
+    lessText: "hide",       // 省略部分を非表示にするリンクの文字
+    ellipsisText: "...",    // 省略部分をあらわす文字
+    moreAni: "fast",        // 折り広げるスピード
+    lessAni: "fast"         // 折り畳むスピード
   });
 });

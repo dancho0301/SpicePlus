@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+
+  # redactor
+  resources :redactor_assets
+  post "redactor_assets/create"
+
+  get 'sessions/new'
+
   get 'static_pages/about'
   get 'static_pages/recruitment'
   get 'static_pages/contact'
 
-  devise_for :users
+  # devise_for :users
 
   root "main#index"
 
@@ -71,11 +78,26 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get :admin, to: "admin#index"
+  get :admin, to: "admin#index", as: "admin_root"
   namespace :admin do
-    resources :articles
+    resources :articles, shallow: true do
+      resources :reports
+    end
+    # get "reports" => "reports#show"
     resources :article_images
     resources :groups
+    resources :areas
+    resources :genres
+    resources :spices
+    resources :users
+    resources :inquiry, only: [:index, :show]
   end
+
+  # 認証系
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  resources :sessions
+  get "secret" => "home#secret", :as => "secret"
 
 end

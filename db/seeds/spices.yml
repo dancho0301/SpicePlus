@@ -1,0 +1,15 @@
+spices:
+  -
+    id: 1
+    name: "ワイワイ系"
+    css_class: "spice_icon1"
+
+  -
+    id: 2
+    name: "ガッツリ系"
+    css_class: "spice_icon2"
+
+  -
+    id: 3
+    name: "マッタリ系"
+    css_class: "spice_icon3"

@@ -1,0 +1,7 @@
+%tr
+  %td= f.text_field :time, class: "time", maxlength: 10
+  %td= f.text_field :title, class: "title", maxlength: 20
+  %td= f.text_field :description, class: "description", maxlength: 40
+  %td
+    = f.hidden_field :_destroy
+    = link_to "削除", '#', class: "remove_fields btn btn-danger"
