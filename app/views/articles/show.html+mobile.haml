@@ -79,32 +79,32 @@
         %h3
           団体情報
         .group_info
-          - if @article.group.name
+          - if @article.group.name.present?
             %h4
               団体名
             %p
               = @article.group.name
-          - if @article.group.master_name
+          - if @article.group.master_name.present?
             %h4
               理事長
             %p
               = @article.group.master_name
-          - if @article.group.address
+          - if @article.group.address.present?
             %h4
               所在地
             %p
               = @article.group.address
-          - if @article.group.url
+          - if @article.group.url.present?
             %h4
               ホームページ
             %p
               = link_to @article.group.url, @article.group.url
-          - if @article.group.activity
+          - if @article.group.activity.present?
             %h4
               主な活動
             %p
               = raw @article.group.activity
-          - if @article.group.detail
+          - if @article.group.detail.present?
             %h4
               立ち上げ経緯
             %p

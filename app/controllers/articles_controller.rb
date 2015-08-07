@@ -7,13 +7,13 @@ class ArticlesController < ApplicationController
 
   # 記事一覧
   def index
-    @articles = @search.result.order("publication_date DESC")
+    @articles = @search.result.order("publication_date DESC").where("publication_date <= ?", Date.today)
   end
 
   # 記事
   # サイドバーには表示中の記事以外を表示する
   def show
-    @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC")
+    @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC").where("publication_date <= ?", Date.today)
   end
 
   private

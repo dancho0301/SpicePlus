@@ -144,37 +144,37 @@
         <% if @article.group %>
         <div class="group_info">
           <table class="table group_info">
-            <% if @article.group.name %>
+            <% if @article.group.name.present? %>
             <tr>
               <th>団体名：</th>
               <td><%= @article.group.name %></td>
             </tr>
             <% end %>
-            <% if @article.group.master_name %>
+            <% if @article.group.master_name.present? %>
             <tr>
               <th>代表者：</th>
               <td><%= @article.group.master_name %></td>
             </tr>
             <% end %>
-            <% if @article.group.address %>
+            <% if @article.group.address.present? %>
             <tr>
               <th>所在地：</th>
               <td><%= @article.group.address %></td>
             </tr>
             <% end %>
-            <% if @article.group.url %>
+            <% if @article.group.url.present? %>
             <tr>
               <th>ホームページ：</th>
               <td><%= link_to @article.group.url, @article.group.url %></td>
             </tr>
             <% end %>
-            <% if @article.group.activity %>
+            <% if @article.group.activity.present? %>
             <tr>
               <th>主な活動：</th>
               <td><%= simple_format @article.group.activity %></td>
             </tr>
             <% end %>
-            <% if @article.group.detail %>
+            <% if @article.group.detail.present? %>
             <tr>
               <th>立ち上げ経緯：</th>
               <td><%= simple_format @article.group.detail %></td>
