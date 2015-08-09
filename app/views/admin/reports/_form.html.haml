@@ -32,7 +32,7 @@
     = f.text_field :title, class: "form-control"
   %div.form-group
     = f.label :report_date, "レポート日"
-    = f.date_field :report_date, class: "form-control"
+    = f.date_select :report_date, class: "form-control"
   %div.form-group
     = f.label :report_body, "本文"
     = f.text_area :report_body, class: "form-control", rows: 7

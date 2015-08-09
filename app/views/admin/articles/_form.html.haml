@@ -16,6 +16,9 @@
         = f.label :publication_date, "公開日"
         %br
         = f.date_select :publication_date, :class => 'form-control'
+        - if current_user.administrator
+          = label :publication, "公開"
+          = f.check_box :publication
       .form-group
         = f.label :title, "タイトル"
         %br
