@@ -17,7 +17,7 @@
 # server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 server '192.168.33.10', port: 2222, user: 'vagrant', roles: %w{web, app, db}, ssh_options: {
   user: 'vagrant',
-  keys: %w(~/.vagrant.d/insecure_private_key),
+  # keys: %w(~/.vagrant.d/insecure_private_key),
   auth_methods: %w(publickey)
 }
 
