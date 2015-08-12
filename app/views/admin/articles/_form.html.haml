@@ -40,6 +40,12 @@
         %br
         = f.collection_select(:spice_id, @spices, :id, :name, {}, {:class => 'form-control'})
       .form-group
+        = f.label :article_recommends, "おすすめポイント"
+        %br
+        - @article.article_recommends.each do |recommend|
+          = f.fields_for :article_recommends, recommend do |recommend_field|
+            = recommend_field.text_field :description, :class => "form-control"
+      .form-group
         = f.label :photo, "トップ画像"
         = f.file_field :photo
         - if @article.photo.present?
