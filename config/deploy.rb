@@ -19,6 +19,7 @@ set :scm, :git
 
 # Default value for :log_level is :debug
 set :log_level, :debug
+# set :log_level, :info
 
 # Default value for :pty is false
 # set :pty, true
@@ -35,13 +36,52 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+set :default_stage, "staging"
+set :assets_roles, [:web, :app]
+
 namespace :deploy do
+
+=begin
+    deploy:starting
+      deploy:check
+        git:check
+        deploy:check:directories
+        deploy:check:linked_dirs
+        deploy:check:make_linked_dirs
+        deploy:check:linked_files
+    deploy:started
+    deploy:updating
+      git:create_release
+      deploy:symlink:shared
+        deploy:symlink:linked_files
+        deploy:symlink:linked_dirs
+    deploy:updated
+    deploy:publishing
+      deploy:symlink:release
+    deploy:published
+    deploy:finishing
+      deploy:cleanup
+    deploy:finished
+=end
+
+  before :starting, :upload
+
+  desc "Upload database.yml"
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/database.yml', "#{shared_path}/config/database.yml")
+      puts "＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊"
+    end
+  end
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 

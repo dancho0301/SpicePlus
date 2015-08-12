@@ -43,7 +43,7 @@ group :development do
   # gem 'erb2haml'
   gem 'annotate', '2.5.0'      # テーブル情報をモデルファイルに追記してくれる
   gem 'capistrano', '~> 3.1.0'
-  gem 'capistrano-rails', '~> 1.0.0'
+  gem 'capistrano-rails', '~> 1.0'
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'rails-erd'              # モデルのER図をPDFで出力してくれる
   gem 'rails_best_practices'   # Railsのベストプラクティスを教えてくれる
