@@ -6,7 +6,7 @@ class Admin::ArticlesController < ApplicationController
   before_filter :require_login
 
   def index
-    @articles = Article.all.order("publication_date DESC")
+    @articles = Article.all.order("publication_date DESC").includes([:group, reports: :spice])
   end
 
   def show
