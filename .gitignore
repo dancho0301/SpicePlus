@@ -39,3 +39,8 @@ bower.json
 # Ignore pow environment settings
 .powenv
 .memo
+
+# Capistrano
+/config/deploy.rb
+/config/deplpy
+Capfile
