@@ -6,7 +6,7 @@ class Admin::ArticlesController < ApplicationController
   before_filter :require_login
 
   def index
-    @articles = Article.all.order("publication_date DESC")
+    @articles = Article.all.order("publication_date DESC").includes([:group, reports: :spice])
   end
 
   def show
@@ -17,12 +17,16 @@ class Admin::ArticlesController < ApplicationController
     @article.article_schedules.build
     3.times do
       @article.article_plans.build
+      @article.article_recommends.build
     end
   end
 
   def edit
     (3 - @article.article_plans.count).times do
       @article.article_plans.build
+    end
+    (3 - @article.article_recommends.count).times do
+      @article.article_recommends.build
     end
   end
 

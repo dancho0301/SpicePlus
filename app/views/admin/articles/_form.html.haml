@@ -16,6 +16,9 @@
         = f.label :publication_date, "公開日"
         %br
         = f.date_select :publication_date, :class => 'form-control'
+        - if current_user.administrator
+          = label :publication, "公開"
+          = f.check_box :publication
       .form-group
         = f.label :title, "タイトル"
         %br
@@ -36,6 +39,12 @@
         = f.label :spice_id, "スパイス"
         %br
         = f.collection_select(:spice_id, @spices, :id, :name, {}, {:class => 'form-control'})
+      .form-group
+        = f.label :article_recommends, "おすすめポイント"
+        %br
+        - @article.article_recommends.each do |recommend|
+          = f.fields_for :article_recommends, recommend do |recommend_field|
+            = recommend_field.text_field :description, :class => "form-control"
       .form-group
         = f.label :photo, "トップ画像"
         = f.file_field :photo

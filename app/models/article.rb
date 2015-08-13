@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  before_save :check_plan_exists
+  before_save :check_plan_exists, :check_recommend_exists
 
   has_many :article_images
   has_many :reports
@@ -10,6 +10,7 @@ class Article < ActiveRecord::Base
   has_many :article_schedules
   accepts_nested_attributes_for :article_schedules, allow_destroy: true
   has_many :article_recommends
+  accepts_nested_attributes_for :article_recommends, allow_destroy: true
 
   belongs_to :line
   belongs_to :genre
@@ -73,6 +74,14 @@ class Article < ActiveRecord::Base
       self.article_plans.each do |plan|
         if plan.title.empty? && plan.description.empty?
             plan.destroy!
+        end
+      end
+    end
+    # おすすめポイントの存在を確認。空白行は削除する
+    def check_recommend_exists
+      self.article_recommends.each do |recommend|
+        if recommend.description.empty?
+            recommend.destroy!
         end
       end
     end
