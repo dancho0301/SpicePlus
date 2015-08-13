@@ -41,6 +41,8 @@ bower.json
 .memo
 
 # Capistrano
-/config/deploy.rb
-/config/deplpy/
+config/deploy.rb
+config/deplpy
+config/deplpy/production.rb
+config/deplpy/staging.rb
 Capfile
