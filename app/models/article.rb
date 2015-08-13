@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  before_save :check_plan_exists, :check_plan_exists
+  before_save :check_plan_exists, :check_recommend_exists
 
   has_many :article_images
   has_many :reports
@@ -78,7 +78,7 @@ class Article < ActiveRecord::Base
       end
     end
     # おすすめポイントの存在を確認。空白行は削除する
-    def check_plan_exists
+    def check_recommend_exists
       self.article_recommends.each do |recommend|
         if recommend.description.empty?
             recommend.destroy!
