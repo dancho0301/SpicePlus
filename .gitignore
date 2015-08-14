@@ -44,3 +44,5 @@ bower.json
 config/deploy.rb
 config/deploy/
 Capfile
+
+.pryrc

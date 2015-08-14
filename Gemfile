@@ -57,7 +57,6 @@ group :development do
   gem 'better_errors'          # エラー画面を見やすくする
   gem 'binding_of_caller'      # better_errorsのエラー画面でREPLが使える
   gem 'tapp'                   # プリントデバッグがしやすくなる
-  gem 'pry-byebug'             # pryでデバックコマンドが使える
   gem 'awesome_print'          # プリントデバッグの出力を整形
   gem 'hirb'                   # SQLの結果を見やすく整形してくれる
   gem 'hirb-unicode'           # hirbの日本語対応
@@ -69,6 +68,7 @@ group :development, :test do
   gem "rspec", '~> 3.1.0'      # テストツール
   gem 'rspec-rails'            # RailsでRspecが使える
   gem 'pry-rails'              # railsでpryが使える
+  gem 'pry-byebug' # デバッグを実施
   gem 'pry-doc'
   gem 'transpec'
 end
