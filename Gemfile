@@ -61,6 +61,8 @@ group :development do
   gem 'hirb'                   # SQLの結果を見やすく整形してくれる
   gem 'hirb-unicode'           # hirbの日本語対応
 
+  gem 'spring'                 # RspecなどでRailsをプリロードする
+
 end
 
 group :development, :test do
@@ -70,7 +72,6 @@ group :development, :test do
   gem 'pry-rails'              # railsでpryが使える
   gem 'pry-byebug' # デバッグを実施
   gem 'pry-doc'
-  gem 'transpec'
 end
 
 group :test do
