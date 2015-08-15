@@ -81,9 +81,8 @@
               <% end %>
             </div>
             <div class="article_title">
-              <% if article.publication_date >= (Date.today << 2) %>
-
-              <div class="new">NEW!</div>
+              <% if article.publication_date >= (Date.today << 1) %>
+                <div class="new">NEW!</div>
               <% end %>
               <p class="title"><%= article.title %></p>
             </div>
