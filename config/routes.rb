@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'static_pages/about'
-  get 'static_pages/recruitment'
+  get 'static_pages/recruit'
   get 'static_pages/contact'
 
   # devise_for :users

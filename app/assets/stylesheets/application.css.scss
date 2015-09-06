@@ -80,14 +80,25 @@ body{
       text-align: center;
     }
     //ナビゲーションバーのカスタマイズ
-    .links{
+    ul.links{
       padding-top: 60px;
+      padding-left: 65px;
       width: 100%;
       margin: 0 auto;
       li{
         width: 100%;
         list-style-type: none;
         margin-top: 15px;
+
+        &.icon1{
+          list-style-image: url("/images/menu_icon1.png");
+        }
+        &.icon2{
+          list-style-image: url("/images/menu_icon2.png");
+        }
+        &.icon3{
+          list-style-image: url("/images/menu_icon3.png");
+        }
         a{
           margin: 3px 10px;
           padding-top: 3px;
@@ -97,11 +108,11 @@ body{
 
           width: 104px;
           height: 30px;
-          background: url("/images/menu_icons.png") no-repeat top left;
+          //background: url("/images/menu_icons.png") no-repeat top left;
 
-          &.search{background-position: 0 0;}
-          &.about{background-position: 0 -38px;}
-          &.contact{background-position: 0 -76px;}
+          // &.search{background-position: 0 0;}
+          // &.about{background-position: 0 -38px;}
+          // &.contact{background-position: 0 -76px;}
         }
       }
     }
