@@ -40,7 +40,7 @@ group :doc do
 end
 
 group :development do
-  # gem 'erb2haml'
+  gem 'erb2haml'
   gem 'annotate', '2.5.0'      # テーブル情報をモデルファイルに追記してくれる
   gem 'capistrano', '~> 3.1.0'
   gem 'capistrano-rails', '~> 1.0'
@@ -72,6 +72,7 @@ group :development, :test do
   gem 'pry-rails'              # railsでpryが使える
   gem 'pry-byebug' # デバッグを実施
   gem 'pry-doc'
+  gem 'meta_request'
 end
 
 group :test do

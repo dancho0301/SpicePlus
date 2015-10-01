@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   get 'articles', :to => 'articles#index'
   get 'articles(/:id)', :to => 'articles#show', :as => 'article'
 
+  # いいね 20151001
+  get 'articles/like(/:id)(/:genre)', :to => 'articles#like', :as => 'article_like'
+
+  get 'maps', to: 'maps#index'
+
   # お問い合わせ
   get  "inquiry" => "inquiry#index"               # 入力
   get  "inquiry/article/:article_id" => "inquiry#article" # 記事からの問い合わせ

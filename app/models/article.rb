@@ -3,7 +3,6 @@ class Article < ActiveRecord::Base
 
   before_save :check_plan_exists, :check_recommend_exists
 
-  has_many :article_images
   has_many :reports
   has_many :article_plans
   accepts_nested_attributes_for :article_plans, allow_destroy: true
@@ -11,6 +10,11 @@ class Article < ActiveRecord::Base
   accepts_nested_attributes_for :article_schedules, allow_destroy: true
   has_many :article_recommends
   accepts_nested_attributes_for :article_recommends, allow_destroy: true
+
+  # 20150929
+  has_many :article_favirites
+  accepts_nested_attributes_for :article_favirites, allow_destroy: true
+
 
   belongs_to :line
   belongs_to :genre

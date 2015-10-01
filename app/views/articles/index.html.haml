@@ -25,7 +25,6 @@
                 .label #{article.genre.name}
                 .date  #{article.publication_date.strftime("%y.%m.%d")}
                 .author-name
-                  Reported by
                   %br/
                   %span.name #{article.main_reporter.name}
                   = image_tag article.main_reporter.photo, :size => "40x40"
