@@ -327,6 +327,53 @@ border-width: 2px;
         font-size: 13px;
       }
     }
+
+    .article_reputation{
+      ul{
+        display:flex;
+        padding-left: 0px;
+        li{
+          list-style:none;
+          margin: 0px 5px;
+          img{
+            cursor: pointer;
+          }
+          .arrow_box {
+          	position: relative;
+          	background: #ffffff;
+          	border: 1px solid #A5A5A5;
+            margin-bottom: 15px;
+            height: 30px;
+            text-align: center;
+            padding: 4px;
+            font-size: 1.5rem;
+            border-radius: 5px;
+          }
+          .arrow_box:after, .arrow_box:before {
+          	top: 100%;
+          	left: 25%;
+          	border: solid transparent;
+          	content: " ";
+          	height: 0;
+          	width: 0;
+          	position: absolute;
+          	pointer-events: none;
+          }
+          .arrow_box:after {
+          	border-color: rgba(255, 255, 255, 0);
+          	border-top-color: #ffffff;
+          	border-width: 10px;
+          	margin-left: -10px;
+          }
+          .arrow_box:before {
+          	border-color: rgba(120, 120, 120, 0);
+          	border-top-color: #787878;
+          	border-width: 11px;
+          	margin-left: -11px;
+          }
+        }
+      }
+    }
   }
   .entry_btn{
     width: 100%;
