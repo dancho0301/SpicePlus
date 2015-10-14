@@ -71,7 +71,9 @@
             = image_tag "spice+logo_holizonal.png"
         %div#navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
+            %li
+              = link_to "記事一覧", articles_path
+            %li
               = link_to "Spice+とは", static_pages_about_path
             %li
               = link_to "お問い合わせ", inquiry_path
