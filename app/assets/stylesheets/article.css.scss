@@ -401,7 +401,8 @@
 
     .article_reputation{
       ul{
-        display:flex;
+        display: flex;
+        display: -webkit-flex; /* Safari */
         padding-left: 0px;
         li{
           list-style:none;
