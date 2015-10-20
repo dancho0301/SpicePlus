@@ -81,42 +81,42 @@
                               #{report.signature}的には
                               %span{class: "spice_icon spice_icon#{report.spice_id}"}
                               系でした
-        -# 一日の流れ
-        - if @article.article_schedules.exists?
-          .panel-heading
-            %h4.panel-title 一日の流れ
-            #dairySchedule
-              .panel-body
-                .row.schedule
-                  .col-xs-2
-                    = image_tag "clock.png"
-                  .col-xs-10.schedule_inner
-                    %table.dairySchedule
-                      - @article.article_schedules.each_with_index do |schedule, idx|
-                        %tr
-                          %th
-                            = schedule.time
-                          %td
-                            %h3
-                              = schedule.title
-                            %p
-                              = raw schedule.description
-                    .allow
-                      = image_tag "schedule_allow.png"
-        -# 参加可能プラン
-        - if @article.article_plans.exists?
-          .panel-heading
-            %h4.panel-title 参加可能プラン
-          #activityPlans
-            .panel-body
-              - @article.article_plans.each_with_index do |plan, idx|
-                - if plan.title.present?
-                  .row.plan
-                    .col-xs-12.activityPlans_inner{class: "activityPlans_inner#{idx}"}
-                      %h3{class: "#{plan.color_theme}"}
-                        = plan.title
-                      %p
-                        = simple_format plan.description
+                -# 一日の流れ
+                - if @article.article_schedules.exists?
+                  .panel-heading
+                    %h4.panel-title 一日の流れ
+                  #dairySchedule
+                    .panel-body
+                      .row.schedule
+                        .col-xs-2
+                          = image_tag "clock.png"
+                        .col-xs-10.schedule_inner
+                          %table.dairySchedule
+                            - @article.article_schedules.each_with_index do |schedule, idx|
+                              %tr
+                                %th
+                                  = schedule.time
+                                %td
+                                  %h3
+                                    = schedule.title
+                                  %p
+                                    = raw schedule.description
+                          .allow
+                            = image_tag "schedule_allow.png"
+                -# 参加可能プラン
+                - if @article.article_plans.exists?
+                  .panel-heading
+                    %h4.panel-title 参加可能プラン
+                  #activityPlans
+                    .panel-body
+                      - @article.article_plans.each_with_index do |plan, idx|
+                        - if plan.title.present?
+                          .row.plan
+                            .col-xs-12.activityPlans_inner{class: "activityPlans_inner#{idx}"}
+                              %h3{class: "#{plan.color_theme}"}
+                                = plan.title
+                              %p
+                                = simple_format plan.description
         -# 団体情報
         - if @article.group
           .group_info
