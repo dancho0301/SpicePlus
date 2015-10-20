@@ -110,11 +110,12 @@
                   #activityPlans
                     .panel-body
                       - @article.article_plans.each_with_index do |plan, idx|
-                        - if plan.title.present?
+                        - if plan.present?
                           .row.plan
                             .col-xs-12.activityPlans_inner{class: "activityPlans_inner#{idx}"}
-                              %h3{class: "#{plan.color_theme}"}
-                                = plan.title
+                              - if plan.title.present?
+                                %h3{class: "#{plan.color_theme}"}
+                                  = plan.title
                               %p
                                 = simple_format plan.description
         -# 団体情報
