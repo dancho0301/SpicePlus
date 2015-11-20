@@ -100,4 +100,10 @@ describe Article do
       it {is_expected.not_to be_valid}
     end
   end
+
+  describe "geocode" do
+    before do
+
+    end
+  end
 end

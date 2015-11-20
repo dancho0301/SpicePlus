@@ -15,7 +15,6 @@ class Article < ActiveRecord::Base
   has_many :article_favirites
   accepts_nested_attributes_for :article_favirites, allow_destroy: true
 
-
   belongs_to :line
   belongs_to :genre
   belongs_to :area
@@ -34,6 +33,11 @@ class Article < ActiveRecord::Base
   validates :group_id, presence: true
   validates :spice_id, presence: true
   validates :photo, presence: true
+
+  # geocoding
+  # geocoded_by :address, :latitude, :longitude
+  geocoded_by :address
+  before_validation :geocode
 
   def validate
     puts self.article_plans.count
@@ -72,6 +76,11 @@ class Article < ActiveRecord::Base
     self.reports.where("main_reporter = 1").first
   end
 
+  # 緯度経度情報を取得する
+  def address
+    self.group.address
+  end
+
   private
     # プランの存在を確認。空白行は削除する
     def check_plan_exists
@@ -89,5 +98,4 @@ class Article < ActiveRecord::Base
         end
       end
     end
-
 end

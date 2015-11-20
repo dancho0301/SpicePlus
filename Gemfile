@@ -19,6 +19,7 @@ gem 'active_hash'
 gem 'kaminari'                 # ページャ
 gem "bitly"                    # url短縮
 gem 'rails_autolink'           # URLの自動リンク化
+gem 'geocoder'
 
 # エディタに画像アップローダをつける。
 # いじりたかったのでプラグインとして持ってきた
@@ -31,9 +32,6 @@ gem 'ransack'
 # 管理画面
 gem "sorcery"
 
-
-
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -41,7 +39,7 @@ end
 
 group :development do
   gem 'erb2haml'
-  gem 'annotate', '2.5.0'      # テーブル情報をモデルファイルに追記してくれる
+  #gem 'annotate', '2.5.0'      # テーブル情報をモデルファイルに追記してくれる
   gem 'capistrano', '~> 3.1.0'
   gem 'capistrano-rails', '~> 1.0'
   gem 'capistrano-bundler', '~> 1.1.2'
@@ -62,7 +60,6 @@ group :development do
   gem 'hirb-unicode'           # hirbの日本語対応
 
   gem 'spring'                 # RspecなどでRailsをプリロードする
-
 end
 
 group :development, :test do
