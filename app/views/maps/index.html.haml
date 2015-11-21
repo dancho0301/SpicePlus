@@ -44,7 +44,13 @@
   <script>
     var data = new Array();
     <% @articles.each do |article| %>
-    data.push({position: new google.maps.LatLng(<%= article.latitude %>, <%= article.longitude %>), content: '<%= article.title %>', spice: <%= article.spice_id %>});
+    <%   if article.latitude.presence && article.longitude.presence %>
+    data.push({
+      position: new google.maps.LatLng(<%= article.latitude %>, <%= article.longitude %>),
+      content: '<%= article.title %>',
+      spice: <%= article.spice_id %>
+    });
+    <%   end %>
     <% end %>
   </script>
 

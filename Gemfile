@@ -49,8 +49,8 @@ group :development do
   gem 'quiet_assets'           # アセットログの抑制
 
   # gem 'guard'                # ファイルの変更を監視して作業を自動化 ※bundlerを使わないほうがいいためコメントアウト
-  # gem 'guard-rspec'            # ファイルが変更されたらRsepcを自動実行
-  # gem 'guard-livereload'       # ファイルが変更されたらページを自動リロード
+  # gem 'guard-rspec'          # ファイルが変更されたらRsepcを自動実行
+  # gem 'guard-livereload'     # ファイルが変更されたらページを自動リロード
 
   gem 'better_errors'          # エラー画面を見やすくする
   gem 'binding_of_caller'      # better_errorsのエラー画面でREPLが使える
