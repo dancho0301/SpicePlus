@@ -73,8 +73,6 @@
         <div class="col-sm-4 col_left">
           <div class="article-list">
             <div class="article_image">
-              <%# image_tag "demo/bino.top.jpg", :height => "100" %>
-              <%# link_to image_tag(article.photo, :height => "120"), article %>
               <%= link_to article do %>
                 <%= image_tag article.photo, :height => "120" %>
                 <div class="spice_icon spice_icon<%= article.spice_id %>"></div>

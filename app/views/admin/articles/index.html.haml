@@ -29,6 +29,17 @@
               = link_to '編集', edit_admin_article_path(article), :class => "btn btn-primary"
               = link_to '削除', [:admin, article], method: :delete, data: { confirm: '削除すると元に戻せません。よろしいですか？' }, :class => "btn btn-danger"
           %tr
+            %td{colspan: 3}
+              = article.group.address
+            %td
+              - if article.latitude.presence && article.longitude.presence
+                = link_to "緯度経度取得済み", "http://maps.google.com/maps?q=#{article.latitude},#{article.longitude}"
+              - else
+                %div.alert.alert-danger{role: alert}
+                  緯度経度取得失敗
+                  %br
+                  = link_to "住所を修正して下さい", edit_admin_group_path(article.group), class: "alert-link"
+          %tr
             %td{colspan: 4}
               %table.table.report
                 %thead
@@ -55,4 +66,5 @@
                         = link_to '変更', edit_admin_report_path(report), class: "btn btn-primary"
                       %td.function
                         = link_to '削除', admin_report_path(report), method: :delete, data: { confirm: '本当によろしいですか？' }, class: "btn btn-danger"
-              = link_to 'レポート作成', new_admin_article_report_path(article.id), class: "btn btn-primary"
+              - if article.reports.count < 3
+                = link_to 'レポート作成', new_admin_article_report_path(article.id), class: "btn btn-primary"
