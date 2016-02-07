@@ -46,8 +46,6 @@ class Article < ActiveRecord::Base
     end
   end
 
-
-
   # imageをattachファイルとする。stylesで画像サイズを定義できる
   # TODO 画像をトリミングする
   has_attached_file :photo,

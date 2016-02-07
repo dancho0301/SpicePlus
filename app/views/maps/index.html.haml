@@ -15,39 +15,47 @@
 -#           = article.group.name
 -#         %td
 -#           = article.title
-          - @articles.each do |article|
-            %article
-              .article_image
-                = link_to article do
-                  = image_tag(article.photo(:medium))
-                  .spice_icon{:class => "spice_icon#{article.spice_id}"}
+        - @articles.each do |article|
+          %article
+            .article_image
+              = link_to article do
+                = image_tag(article.photo(:medium))
+                .spice_icon{:class => "spice_icon#{article.spice_id}"}
 
-              .article_title
-                - if article.publication_date >= (Date.today << 2)
-                  .new NEW!
-                .title
-                  = link_to article.title, article
-                  %p.group_name
-                    = article.group.name
-                .description
-                  = article_description(article)
-              .author{:class => "#{article.genre.css_class}"}
-                .label #{article.genre.name}
-                .date  #{article.publication_date.strftime("%y.%m.%d")}
-                .author-name
-                  %br/
-                  %span.name #{article.main_reporter.name}
-                  = image_tag article.main_reporter.photo, :size => "40x40"
-                .fukidashi
+            .article_title
+              - if article.publication_date >= (Date.today << 2)
+                .new NEW!
+              .title
+                = link_to article.title, article
+                %p.group_name
+                  = article.group.name
+              .description
+                = article_description(article)
+            .author{:class => "#{article.genre.css_class}"}
+              .label #{article.genre.name}
+              .date  #{article.publication_date.strftime("%y.%m.%d")}
+              .author-name
+                %br/
+                %span.name #{article.main_reporter.name}
+                = image_tag article.main_reporter.photo, :size => "40x40"
+              .fukidashi
 
 :erb
   <script>
     var data = new Array();
     <% @articles.each do |article| %>
-    data.push({position: new google.maps.LatLng(<%= article.latitude %>, <%= article.longitude %>), content: '<%= article.title %>', spice: <%= article.spice_id %>});
+    <%   if article.latitude.presence && article.longitude.presence %>
+    <%
+      content = "<p>#{article.title}</p>" + image_tag(article.photo, :height => "120")
+    %>
+    data.push({
+      position: new google.maps.LatLng(<%= article.latitude %>, <%= article.longitude %>),
+      content: '<%= link_to raw(content), article %>',
+      spice: <%= article.spice_id %>
+    });
+    <%   end %>
     <% end %>
   </script>
 
--# = include_gon
 = javascript_include_tag 'maps'
 = stylesheet_link_tag 'maps'
