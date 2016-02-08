@@ -43,6 +43,7 @@
     / ナビゲーション
     .container
       .row.height-100
+        / サイドバー
         #sidebar.col-xs-3.sidebar.sidebar_admin
           .logo
             = link_to image_tag("logo_nega.png", :size => "500", :class => "img-responsive"), admin_root_path
@@ -61,6 +62,7 @@
             %a.fa.fa-twitter-square{:href => "http://twitter.com/share?url=#{request.url}&text=SpicePlus&hashtags=spiceplus", :target => "_blank"}
             %a{:href => "http://www.facebook.com/share.php?u=#{request.url}", :onclick => "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"}
               %i.fa.fa-facebook-square
+        / メインコンテンツ
         .col-xs-9
           .row
             .col-xs-12.header_admin

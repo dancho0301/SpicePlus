@@ -158,3 +158,15 @@
 
 -# - content_for :header do
 -#   = javascript_include_tag "article"
+
+- content_for :sidebar do
+  %div.other_reports
+    %h3 Other Reports
+    - @other_articles.each do |article|
+      %div.other_report
+        %div.report_image
+          = link_to image_tag(article.photo, height: "120"), article
+        %div.label
+          = article.genre.name
+        %div.title
+          = article.title
