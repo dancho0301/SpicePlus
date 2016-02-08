@@ -7,13 +7,40 @@ class ArticlesController < ApplicationController
 
   # 記事一覧
   def index
-    @articles = @search.result.order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).includes(:group).includes(:genre)
+    @articles = @search.result\
+      .order("publication_date DESC")\
+      .where("publication_date <= ? and publication = ?", Date.today, true)\
+      .includes(:group).includes(:genre)
   end
 
   # 記事
   # サイドバーには表示中の記事以外を表示する
   def show
-    @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).includes(:genre)
+    # @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).includes(:genre)
+    @other_articles = Article.where\
+      .not(id: params[:id])\
+      .order("publication_date DESC")\
+      .where("publication_date <= ? and publication = ?", Date.today, true)\
+      .limit(10)\
+      .includes(:genre)
+
+    # いいね（reputation） 20150930
+    @reputation = Array.new
+    3.times do |reputation_genre_id|
+      @reputation[reputation_genre_id] = ArticleReputation\
+        .where("article_id = ? and reputation_genre_id = ?", params[:id], reputation_genre_id)\
+        .count
+    end
+  end
+
+  # いいね
+  def like
+    @article_reputation = ArticleReputation\
+      .create(article_id: params[:id], reputation_genre_id: params[:genre])
+    render :json => {count: ArticleReputation\
+      .where("article_id = ? and reputation_genre_id = ?", params[:id], params[:genre])\
+      .count\
+    }
   end
 
   private
@@ -24,7 +51,6 @@ class ArticlesController < ApplicationController
     def set_article
       @article = Article.find(params[:id])
     end
-
 
     def set_search
       @search = Article.search(params[:q])

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'static_pages/about'
-  get 'static_pages/recruitment'
+  get 'static_pages/recruit'
   get 'static_pages/contact'
 
   # devise_for :users
@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
   get 'articles', :to => 'articles#index'
   get 'articles(/:id)', :to => 'articles#show', :as => 'article'
+
+  # いいね 20151001
+  get 'articles/like(/:id)(/:genre)', :to => 'articles#like', :as => 'article_like'
+
+  get 'maps', to: 'maps#index'
 
   # お問い合わせ
   get  "inquiry" => "inquiry#index"               # 入力

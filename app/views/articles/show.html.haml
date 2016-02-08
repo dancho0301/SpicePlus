@@ -1,19 +1,24 @@
 .article_show
   .row
     .col-xs-12
-      #carousel-generic.carousel.slide{data: {ride:"carousel"}}
+      #carousel-generic.carousel.slide(data-ride="carousel")
         .carousel-inner
           .item.active
             = link_to image_tag(@article.photo), @article
-              = link_to(@article) do
-                .carousel-caption
-                  %div{class: "#{@article.genre.css_class}"}
-                    %span.label= @article.genre.name
-                  %p.title= @article.title
-                  %p.name= @article.group.name
+            = link_to(@article) do
+              %div.carousel-caption
+                %div{class: "#{@article.genre.css_class}"}
+                  %span.label
+                    = @article.genre.name
+                  %p.title
+                    = @article.title
+                  %p.name
+                    = @article.group.name
       .sns_buttons
-        <a href="http://www.facebook.com/share.php?u=<%= request.url %>" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook-square"></i></a>
-        <a href="http://twitter.com/share?url=<%= request.url %>&text=<%= @article.title + " - SpicePlus" %>&hashtags=spiceplus" target="_blank" class="fa fa-twitter-square"></a>
+        %a{href:    "http://www.facebook.com/share.php?u=#{request.url}",
+          onclick: "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"}
+          %i.fa.fa-facebook-square
+        %a.fa.fa-twitter-square{href: "http://twitter.com/share?url=#{request.url}&text=#{@article.title} - SpicePlus&hashtags=spiceplus", target: "_blank"}
 
       -# 今回のレポーター
       .reporters
@@ -22,118 +27,146 @@
         .reporters_inner
           - @article.reports.each_with_index do |report, idx|
             .reporter
-              %p{class: "icon#{idx%2}"}
+              %p{class: "icon#{idx%3}"}
                 = report.name
-              = image_tag report.photo, :class => "icon icon#{idx%2}"
-
+                = image_tag report.photo, :class => "icon icon#{idx%3}"
       -# おすすめポイント
       .reccomends
         - @article.article_recommends.each_with_index do |recommend, idx|
           .fukidashi{class: "fukidashi#{idx}"}
-            %p= recommend.description
+            %p
+              = recommend.description
       .clear
-
       -# 記事
       .article
         %h3
           「#{@article.group.name}」さんのスパイスを体験しに行ってきました！
         %div{class: "#{@article.genre.css_class}"}
           = raw @article.article
+
+        %div.article_reputation{article_id: "#{@article.id}"}
+          %ul
+            %li
+              .arrow_box #{@reputation[0]}
+              = image_tag "reputation_00.png", class: "img-responsive btn-reputation", id: "reputation_00", genre: 0
+            %li
+              .arrow_box #{@reputation[1]}
+              = image_tag "reputation_01.png", class: "img-responsive btn-reputation", id: "reputation_01", genre: 1
+            %li
+              .arrow_box #{@reputation[2]}
+              = image_tag "reputation_02.png", class: "img-responsive btn-reputation", id: "reputation_02", genre: 2
+
         %div.panel-group#accordion#reports
           .panel.panel-article
             .panel-heading
               %h4.panel-title レポーターの声
-            #reportersVoice
+            %div#reportersVoice
               .panel-body
                 - @article.reports.each_with_index do |report, idx|
                   .row.report
                     .col-xs-3
-                      = image_tag report.photo, :class => "icon  icon#{idx}"
-                      %p{class:"reporter_name reporter_name#{idx}"}
+                      = image_tag report.photo, :class => "icon icon#{idx%3}"
+                      %p.reporter_name{class: "reporter_name#{idx%3}"}
                         = report.name
-                    .col-xs-9.report_bg{class: "report_bg#{idx}"}
-                      .report_inner{class: "report_inner#{idx}"}
+                    .col-xs-9.report_bg{class: "report_bg#{idx%3}"}
+                      .report_inner{class: "report_inner#{idx%3}"}
                         .date
                           = report.report_date.strftime("%y.%m.%d [%a]")
-                        %h3= report.title
-                        %p.truncate
-                          = simple_format report.article
-                        .spice
-                          %span.signature
-                            #{report.signature}的には
-                            %span{class: "spice_icon spice_icon#{report.spice_id}"}
-                          系でした
-      -# 一日の流れ
-      - if @article.article_schedules.exists?
-        .panel-heading
-          %h4.panel-title 一日の流れ
-          #dairySchedule
-            .panel-body
-              .row.schedule
-                .col-xs-2
-                  = image_tag "clock.png"
-                .col-xs-10.schedule_inner
-                  %table.dairySchedule
-                    - @article.article_schedules.each_with_index do |schedule, idx|
-                      %tr
-                        %th= schedule.time
-                        %td
-                          %h3= schedule.title
-                          %p= raw schedule.description
-                .allow
-                  = image_tag "schedule_allow.png"
-      -# 参加可能プラン
-      - if @article.article_plans.exists?
-        .panel-heading
-          %h4.panel-title 参加可能プラン
-          #activityPlans
-            .panel-body
-              - @article.article_plans.each_with_index do |plan, idx|
-                .row.plan
-                  .col-xs-12.activityPlans_inner{class: "activityPlans_inner#{idx}"}
-                    %h3{class: "#{plan.color_theme}"}
-                      = plan.title
-                    %p= simple_format plan.description
-      -# 団体情報
-      - if @article.group
-        .group_info
-          %table.table.group_info
-            - if @article.group.name
-              %tr
-                %th 団体名：
-                %td= @article.group.name
-            - if @article.group.master_name
-              %tr
-                %th 代表者：
-                %td= @article.group.master_name
-            - if @article.group.address
-              %tr
-                %th 所在地：
-                %td= @article.group.address
-            - if @article.group.url
-              %tr
-                %th ホームページ：
-                %td= link_to @article.group.url, @article.group.url
-            - if @article.group.activity
-              %tr
-                %th> 主な活動：
-                %td= simple_format @article.group.activity
-            - if @article.group.detail
-              %tr
-                %th 立ち上げ経緯：
-                %td= simple_format @article.group.detail
-      -# 参加ボタン
-      .entry_btn
-        = link_to image_tag("entry_off.png"), inquiry_path + "/article/" + @article.id.to_s, id: "entry"
-
-- content_for :sidebar do
-  .other_reports
-    %h3 Other Reports
-    - @all_articles.each do |article|
-      .other_report
-        .report_image
-          = link_to image_tag(article.photo, height: "120"), article
-        .label= article.genre.name
-        .title= article.title
+                        %h3
+                          = report.title
+                          %p.truncate
+                            = simple_format report.report_body
+                          .spice
+                            %span.signature
+                              #{report.signature}的には
+                              %span{class: "spice_icon spice_icon#{report.spice_id}"}
+                              系でした
+                -# 一日の流れ
+                - if @article.article_schedules.exists?
+                  .panel-heading
+                    %h4.panel-title 一日の流れ
+                  #dairySchedule
+                    .panel-body
+                      .row.schedule
+                        .col-xs-2
+                          = image_tag "clock.png"
+                        .col-xs-10.schedule_inner
+                          %table.dairySchedule
+                            - @article.article_schedules.each_with_index do |schedule, idx|
+                              %tr
+                                %th
+                                  = schedule.time
+                                %td
+                                  %h3
+                                    = schedule.title
+                                  %p
+                                    = raw schedule.description
+                          .allow
+                            = image_tag "schedule_allow.png"
+                -# 参加可能プラン
+                - if @article.article_plans.exists?
+                  .panel-heading
+                    %h4.panel-title 参加可能プラン
+                  #activityPlans
+                    .panel-body
+                      - @article.article_plans.each_with_index do |plan, idx|
+                        - if plan.present?
+                          .row.plan
+                            .col-xs-12.activityPlans_inner{class: "activityPlans_inner#{idx}"}
+                              - if plan.title.present?
+                                %h3{class: "#{plan.color_theme}"}
+                                  = plan.title
+                              %p
+                                = simple_format plan.description
+        -# 団体情報
+        - if @article.group
+          .group_info
+            %table.table.group_info
+              - if @article.group.name.present?
+                %tr
+                  %th 団体名：
+                  %td
+                    = @article.group.name
+              - if @article.group.master_name.present?
+                %tr
+                  %th 代表者：
+                  %td
+                    = @article.group.master_name
+              - if @article.group.address.present?
+                %tr
+                  %th 所在地：
+                  %td
+                    = @article.group.address
+              - if @article.group.url.present?
+                %tr
+                  %th ホームページ：
+                  %td
+                    = link_to @article.group.url, @article.group.url
+              - if @article.group.activity.present?
+                %tr
+                  %th 主な活動：
+                  %td
+                    = simple_format @article.group.activity
+              - if @article.group.detail.present?
+                %tr
+                  %th 立ち上げ経緯：
+                  %td
+                    = simple_format @article.group.detail
+        -# 参加ボタン
+        .entry_btn
+          = link_to image_tag("entry_off.png"), inquiry_path + "/article/" + @article.id.to_s, id: "entry"
 
 -# - content_for :header do
+-#   = javascript_include_tag "article"
+
+- content_for :sidebar do
+  %div.other_reports
+    %h3 Other Reports
+    - @other_articles.each do |article|
+      %div.other_report
+        %div.report_image
+          = link_to image_tag(article.photo, height: "120"), article
+        %div.label
+          = article.genre.name
+        %div.title
+          = article.title

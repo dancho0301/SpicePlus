@@ -1,0 +1,34 @@
+.row
+  .col-xs-12
+    .square-container
+      .row.menu-square
+        .col-xs-12
+          - @articles.each do |article|
+            .article-list
+              .article_image
+                = link_to article do
+                  = image_tag article.photo, class: "img-responsive"
+                  .spice_icon{class: "spice_icon#{article.spice_id}"}
+              .article_title
+                -# - if article.publication_date >= (Date.today << 2)
+                -#   .new
+                -#     NEW!
+                %p.title
+                  = article.title
+              .author{class: article.genre.css_class}
+                .author-left
+                  .fukidashi
+                  - if article.main_reporter.present?
+                    = image_tag article.main_reporter.photo, :size => "40x40"
+                  - else
+                    = image_tag "user.dummy_f.png", :size => "40x40"
+                .author-right
+                  .label
+                    = article.genre.name
+                  .date
+                    = article.publication_date.strftime("%y.%m.%d")
+                  .author-name
+                  - if article.main_reporter.present?
+                    Reported by #{article.main_reporter.name}
+                  - else
+                    Reported by 名無しさん
