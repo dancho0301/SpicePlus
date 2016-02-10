@@ -43,7 +43,7 @@ module SpicePlus
     config.active_record.default_timezone = :local
 
     config.assets.precompile += ['redactor.js', 'redactor.css']
-    config.assets.precompile += %w( maps.js )
+    # config.assets.precompile += %w( maps.js )
     config.assets.precompile += %w( article.js )
     config.assets.precompile += %w( maps.css )
   end

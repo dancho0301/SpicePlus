@@ -1,7 +1,5 @@
 - content_for :header do
   = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBqrnTDKduRNgFb5W8kUwicxAJqCyacW1E&sensor=true'
-  = javascript_include_tag 'maps'
-  = stylesheet_link_tag 'maps'
 .row
   .col-xs-12
     #title
@@ -50,3 +48,6 @@
     <%   end %>
     <% end %>
   </script>
+  
+= javascript_include_tag 'maps'
+= stylesheet_link_tag 'maps'
