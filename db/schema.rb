@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20150927131621) do
     t.datetime "updated_at"
     t.integer  "favorites",          default: 0
     t.boolean  "publication",        default: false
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.decimal  "latitude",           precision: 9, scale: 6
+    t.decimal  "longitude",          precision: 9, scale: 6
   end
 
   create_table "entry", force: true do |t|
