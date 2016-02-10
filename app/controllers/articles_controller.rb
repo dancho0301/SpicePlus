@@ -13,7 +13,8 @@ class ArticlesController < ApplicationController
   # 記事
   # サイドバーには表示中の記事以外を表示する
   def show
-    @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).includes(:genre)
+    # @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).includes(:genre)
+    @other_articles = Article.where.not(id: params[:id]).order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).limit(10).includes(:genre)
 
     # いいね（reputation） 20150930
     @reputation = Array.new
