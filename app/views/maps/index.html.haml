@@ -33,7 +33,6 @@
 
 :erb
   <script>
-    alert("loaded!");
     var data = new Array();
     <% @articles.each do |article| %>
     <%   if article.latitude.presence && article.longitude.presence %>
@@ -48,6 +47,6 @@
     <%   end %>
     <% end %>
   </script>
-  
+
 = javascript_include_tag 'maps'
 = stylesheet_link_tag 'maps'
