@@ -1,4 +1,9 @@
 window.onload = function(){
+
+  // debug
+  console.log("onload");
+
+
   // キャンパスの要素を取得する
   var canvas = document.getElementById('map-canvas');
 
