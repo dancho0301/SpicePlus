@@ -29,11 +29,11 @@ $(function( ) {
   });
 
   $('.redactor').redactor(
-    // { "imageUpload":"/redactor_assets/create?" + params,
-    //   "imageGetJson":"/redactor_assets/",
-    //   "buttonSource": true,
-    //   "replaceDivs": false,
-    //   "css":"style.css"}
+    { "imageUpload":"/redactor_assets/create?" + params,
+      "imageGetJson":"/redactor_assets/",
+      "buttonSource": true,
+      "replaceDivs": false,
+      "css":"style.css"}
   );
 });
 
