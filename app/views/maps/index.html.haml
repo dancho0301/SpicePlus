@@ -1,44 +1,35 @@
 - content_for :header do
   = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBqrnTDKduRNgFb5W8kUwicxAJqCyacW1E&sensor=true'
-
 .row
   .col-xs-12
     #title
       スパイスマップ
     .map-embed
       #map-canvas
--# %div#article_list
--#   %table.article_list
--#     - @articles.each do |article|
--#       %tr
--#         %td
--#           = article.group.name
--#         %td
--#           = article.title
-        - @articles.each do |article|
-          %article
-            .article_image
-              = link_to article do
-                = image_tag(article.photo(:medium))
-                .spice_icon{:class => "spice_icon#{article.spice_id}"}
-
-            .article_title
-              - if article.publication_date >= (Date.today << 2)
-                .new NEW!
-              .title
-                = link_to article.title, article
-                %p.group_name
-                  = article.group.name
-              .description
-                = article_description(article)
-            .author{:class => "#{article.genre.css_class}"}
-              .label #{article.genre.name}
-              .date  #{article.publication_date.strftime("%y.%m.%d")}
-              .author-name
-                %br/
-                %span.name #{article.main_reporter.name}
-                = image_tag article.main_reporter.photo, :size => "40x40"
-              .fukidashi
+        -# - @articles.each do |article|
+        -#   %article
+        -#     .article_image
+        -#       = link_to article do
+        -#         = image_tag(article.photo(:medium))
+        -#         .spice_icon{:class => "spice_icon#{article.spice_id}"}
+        -#
+        -#     .article_title
+        -#       - if article.publication_date >= (Date.today << 2)
+        -#         .new NEW!
+        -#       .title
+        -#         = link_to article.title, article
+        -#         %p.group_name
+        -#           = article.group.name
+        -#       .description
+        -#         = article_description(article)
+        -#     .author{:class => "#{article.genre.css_class}"}
+        -#       .label #{article.genre.name}
+        -#       .date  #{article.publication_date.strftime("%y.%m.%d")}
+        -#       .author-name
+        -#         %br/
+        -#         %span.name #{article.main_reporter.name}
+        -#         = image_tag article.main_reporter.photo, :size => "40x40"
+        -#       .fukidashi
 
 :erb
   <script>

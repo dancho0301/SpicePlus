@@ -1,0 +1,28 @@
+/* line 6, /Users/dancho/www/SpicePlus/app/assets/stylesheets/maps.css.scss */
+.map-embed {
+  max-width: 100%;
+  margin: 0;
+  padding: 0 0 56.25%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+/* line 17, /Users/dancho/www/SpicePlus/app/assets/stylesheets/maps.css.scss */
+.map-embed div#map-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 530px;
+  margin: 0;
+  padding: 0;
+}
+/* line 27, /Users/dancho/www/SpicePlus/app/assets/stylesheets/maps.css.scss */
+.map-embed img {
+  max-width: none;
+}
+
+/* line 33, /Users/dancho/www/SpicePlus/app/assets/stylesheets/maps.css.scss */
+.gm-style-iw a {
+  color: black;
+}

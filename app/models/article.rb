@@ -37,7 +37,8 @@ class Article < ActiveRecord::Base
   # geocoding
   # geocoded_by :address, :latitude, :longitude
   geocoded_by :address
-  before_validation :geocode
+  # before_validation :geocode
+  after_validation :geocode
 
   def validate
     puts self.article_plans.count
