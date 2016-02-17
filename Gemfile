@@ -31,6 +31,8 @@ gem 'ransack'
 
 # 管理画面
 gem "sorcery"
+# 定数を一元管理する
+gem 'config'
 
 gem 'yaml_db'
 

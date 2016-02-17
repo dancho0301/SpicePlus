@@ -77,7 +77,9 @@ class Article < ActiveRecord::Base
 
   # 緯度経度情報を取得する
   def address
-    self.group.address
+    if self.group.present?
+      self.group.address
+    end
   end
 
   private

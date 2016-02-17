@@ -17,16 +17,12 @@ class ArticlesController < ApplicationController
   # サイドバーには表示中の記事以外を表示する
   def show
     # @all_articles = Article.where.not(id: params[:id]).order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).includes(:genre)
-<<<<<<< HEAD
     @other_articles = Article.where\
       .not(id: params[:id])\
       .order("publication_date DESC")\
       .where("publication_date <= ? and publication = ?", Date.today, true)\
       .limit(10)\
       .includes(:genre)
-=======
-    @other_articles = Article.where.not(id: params[:id]).order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).limit(10).includes(:genre)
->>>>>>> map
 
     # いいね（reputation） 20150930
     @reputation = Array.new
