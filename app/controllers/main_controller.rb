@@ -1,6 +1,6 @@
 class MainController < ApplicationController
   def index
-    @articles = Article.order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).includes(:group).includes(:genre).first(6)
+    @articles = AllArticle.order("publication_date DESC").where("publication_date <= ? and publication = ?", Date.today, true).includes(:group).includes(:genre).first(6)
   end
 
   # before_action do

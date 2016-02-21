@@ -1,0 +1,129 @@
+.article_show
+  .row
+    .col-xs-12.header
+      .thumb
+        = image_tag @article.photo, class: "img-responsive"
+      .captionn
+        %div{class: @article.genre.css_class}
+          %span.label
+            = @article.genre.name
+        %p.title
+          = @article.title
+        %p.name
+          = @article.group.name
+  .row
+    .col-xs-12.reporters
+      .row
+        .reporter_header
+          = image_tag "reporter.png", :class => "img-responsive"
+      .row
+        - @article.reports.each_with_index do |report, idx|
+          .reporter{class: "col-xs-#{12/@article.reports.count}"}
+            %p{class: "icon#{idx%3}"}
+              = report.name
+            = image_tag report.photo, class: "icon icon#{idx%3}"
+  .row
+    .col-xs-12.reccomends
+      - @article.article_recommends.each_with_index do |rec, idx|
+        .fukidashi{class: "fukidashi#{idx}"}
+          = rec.description
+  .row
+    .col-xs-12.article
+      %h3
+        「#{@article.group.name}」さんのスパイスを体験しに行ってきました！
+      %div{class: @article.genre.css_class}
+        = raw @article.article
+
+      %div.article_reputation{article_id: "#{@article.id}"}
+        %ul
+          %li
+            .arrow_box #{@reputation[0]}
+            = image_tag "reputation_00.png", class: "img-responsive btn-reputation", id: "reputation_00", genre: 0
+          %li
+            .arrow_box #{@reputation[1]}
+            = image_tag "reputation_01.png", class: "img-responsive btn-reputation", id: "reputation_01", genre: 1
+          %li
+            .arrow_box #{@reputation[2]}
+            = image_tag "reputation_02.png", class: "img-responsive btn-reputation", id: "reputation_02", genre: 2
+
+      %h3
+        レポーターの声
+      - @article.reports.each_with_index do |report, idx|
+        .report
+          .reporter{class: "reporter#{idx%3}"}
+            .left
+              %p.reporter_name{class:"reporter_name#{idx%3}"}
+                = report.name
+              = image_tag report.photo, class: "icon icon#{idx%3}"
+            .spice
+              %p
+                %span.signature
+                  #{report.signature}
+                的には
+                %br
+                %span.spice_icon{class: "spice_icon#{report.spice_id}"}
+                でした
+            .clear
+          = raw report.report_body
+        - if idx != @article.reports.count - 1
+          %hr
+      - if @article.article_plans.exists?
+        %h3
+          参加可能プラン
+        - @article.article_plans.each_with_index do |plan, idx|
+          .plan
+            %h4.title{class: plan.color_theme}
+              = plan.title
+            = raw plan.description
+      - if @article.article_schedules.exists?
+        %h3
+          一日の流れ
+        .schedule
+          - @article.article_schedules.each_with_index do |schedule, idx|
+            %h4
+              = schedule.time
+            %p
+              = schedule.title
+              %span.comment
+                = schedule.description
+
+      - if @article.group
+        %h3
+          団体情報
+        .group_info
+          - if @article.group.name.present?
+            %h4
+              団体名
+            %p
+              = @article.group.name
+          - if @article.group.master_name.present?
+            %h4
+              理事長
+            %p
+              = @article.group.master_name
+          - if @article.group.address.present?
+            %h4
+              所在地
+            %p
+              = @article.group.address
+          - if @article.group.url.present?
+            %h4
+              ホームページ
+            %p
+              = link_to @article.group.url, @article.group.url
+          - if @article.group.activity.present?
+            %h4
+              主な活動
+            %p
+              = raw @article.group.activity
+          - if @article.group.detail.present?
+            %h4
+              立ち上げ経緯
+            %p
+              = raw @article.group.detail
+  .row
+    .col-xs-12.entry_btn
+      = link_to image_tag("entry_off.png", class:"img-responsive"), inquiry_path + "/article/" + @article.id.to_s, id: "entry"
+
+-# - content_for :header_script do
+-#   = javascript_include_tag "article"

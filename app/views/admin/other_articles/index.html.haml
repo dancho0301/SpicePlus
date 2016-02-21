@@ -1,0 +1,27 @@
+%div.row.article
+  %div.col-md-12
+    %h1 記事一覧
+    %div.function_button
+      = link_to '新規投稿', new_admin_other_article_path, :class => "btn btn-primary"
+%div.row.article
+  %div.col-md-12
+    %table.table
+      %thead
+        %tr
+          %th &nbsp;
+          %th タイトル
+          %th 公開日
+          %th &nbsp;
+      %tbody
+        - @articles.each do |article|
+          %tr
+            %td.photo
+              = image_tag article.photo(:thumb), class: "img-responsive"
+            %td.title
+              = article.title
+            %td.publication_date
+              = article.publication_date
+            %td
+              = link_to 'プレビュー', article, :class => "btn btn-primary"
+              = link_to '編集', edit_admin_other_article_path(article), :class => "btn btn-primary"
+              = link_to '削除', [:admin, article], method: :delete, data: { confirm: '削除すると元に戻せません。よろしいですか？' }, :class => "btn btn-danger"
