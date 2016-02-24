@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217131531) do
+ActiveRecord::Schema.define(version: 20160221050512) do
 
   create_table "all_articles", id: false, force: true do |t|
     t.integer  "genre_id",           limit: 8
@@ -152,6 +152,13 @@ ActiveRecord::Schema.define(version: 20160217131531) do
   create_table "members", force: true do |t|
     t.string   "name"
     t.string   "mail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "other_article_reputations", force: true do |t|
+    t.integer  "other_article_id"
+    t.integer  "reputation_genre_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

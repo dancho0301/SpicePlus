@@ -26,18 +26,18 @@ class OtherArticlesController < ApplicationController
     # いいね（reputation） 20150930
     @reputation = Array.new
     3.times do |reputation_genre_id|
-      @reputation[reputation_genre_id] = ArticleReputation\
-        .where("article_id = ? and reputation_genre_id = ?", params[:id], reputation_genre_id)\
+      @reputation[reputation_genre_id] = OtherArticleReputation\
+        .where("other_article_id = ? and reputation_genre_id = ?", params[:id], reputation_genre_id)\
         .count
     end
   end
 
   # いいね
   def like
-    @article_reputation = ArticleReputation\
+    @article_reputation = OtherArticleReputation\
       .create(article_id: params[:id], reputation_genre_id: params[:genre])
-    render :json => {count: ArticleReputation\
-      .where("article_id = ? and reputation_genre_id = ?", params[:id], params[:genre])\
+    render :json => {count: OtherArticleReputation\
+      .where("other_article_id = ? and reputation_genre_id = ?", params[:id], params[:genre])\
       .count\
     }
   end

@@ -9,7 +9,7 @@
               %div.carousel-caption
                 %div.other
                   %span.label
-                    その他
+                    おしらせ
                   %p.title
                     = @article.title
       .sns_buttons
@@ -27,13 +27,13 @@
           %ul
             %li
               .arrow_box #{@reputation[0]}
-              = image_tag "reputation_00.png", class: "img-responsive btn-reputation", id: "reputation_00", genre: 0
+              = image_tag "reputation_00.png", class: "img-responsive btn-other_reputation", id: "reputation_00", genre: 0
             %li
               .arrow_box #{@reputation[1]}
-              = image_tag "reputation_01.png", class: "img-responsive btn-reputation", id: "reputation_01", genre: 1
+              = image_tag "reputation_01.png", class: "img-responsive btn-other_reputation", id: "reputation_01", genre: 1
             %li
               .arrow_box #{@reputation[2]}
-              = image_tag "reputation_02.png", class: "img-responsive btn-reputation", id: "reputation_02", genre: 2
+              = image_tag "reputation_02.png", class: "img-responsive btn-other_reputation", id: "reputation_02", genre: 2
         -# 参加ボタン
         .entry_btn
           = link_to image_tag("entry_off.png"), inquiry_path + "/article/" + @article.id.to_s, id: "entry"
