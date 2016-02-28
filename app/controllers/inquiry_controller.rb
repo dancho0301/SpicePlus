@@ -5,7 +5,7 @@ class InquiryController < ApplicationController
   end
 
   def article
-    @article = Article.find(params[:article_id])
+    @article = OriginArticle.find(params[:article_id])
     @inquiry = Inquiry.new
     render :action => "index"
   end
@@ -13,7 +13,7 @@ class InquiryController < ApplicationController
   def confirm
     # 入力値のチェック
     @inquiry = Inquiry.new(inquiry_params)
-    @article = Article.find_by_id(inquiry_params[:article_id])
+    @article = OriginArticle.find_by_id(inquiry_params[:article_id])
 
     if @inquiry.valid?
       # OK 確認画面を表示

@@ -14,8 +14,8 @@
           - css_class ||= 'other'
 
           .item{class: "#{'active' if idx == 1}"}
-            = link_to image_tag(get_article_photo_path(article)), get_article_path(article)
-            = link_to(get_article_path(article)) do
+            = link_to image_tag(article.photo), article
+            = link_to(article) do
               .carousel-caption
                 %div{class: "#{css_class}"}
                   %span.label
@@ -59,8 +59,8 @@
         .col-sm-4.col_left
           .article-list
             .article_image
-              = link_to get_article_path(article) do
-                = image_tag get_article_photo_path(article), :height => "120"
+              = link_to article do
+                = image_tag article.photo, :height => "120"
                 - if article.spice_id
                   .spice_icon{class: "spice_icon#{article.spice_id}"}
             .article_title

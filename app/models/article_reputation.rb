@@ -1,3 +1,3 @@
 class ArticleReputation < ActiveRecord::Base
-  belongs_to :article
+  belongs_to :origin_article
 end

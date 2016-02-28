@@ -58,6 +58,6 @@ class ArticlesController < ApplicationController
 
     # 記事に利用されている地域だけ抽出する（検索で利用するため）
     def set_used_area
-      @used_areas = Area.find_by_sql("select * from areas a where exists (select 1 from articles b where a.id = b.area_id)")
+      @used_areas = Area.find_by_sql("select * from areas a where exists (select 1 from origin_articles b where a.id = b.area_id)")
     end
 end

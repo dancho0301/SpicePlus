@@ -1,5 +1,4 @@
 class OtherArticlesController < ApplicationController
-
   before_action :set_article, only: [:show]
   # before_action :set_articles, only: [:show, :index]
   # before_action :set_search, only: [:show, :index]
@@ -26,26 +25,26 @@ class OtherArticlesController < ApplicationController
     # いいね（reputation） 20150930
     @reputation = Array.new
     3.times do |reputation_genre_id|
-      @reputation[reputation_genre_id] = OtherArticleReputation\
-        .where("other_article_id = ? and reputation_genre_id = ?", params[:id], reputation_genre_id)\
+      @reputation[reputation_genre_id] = ArticleReputation\
+        .where("article_id = ? and reputation_genre_id = ?", params[:id], reputation_genre_id)\
         .count
     end
   end
 
   # いいね
   def like
-    @article_reputation = OtherArticleReputation\
+    @article_reputation = ArticleReputation\
       .create(article_id: params[:id], reputation_genre_id: params[:genre])
-    render :json => {count: OtherArticleReputation\
-      .where("other_article_id = ? and reputation_genre_id = ?", params[:id], params[:genre])\
+    render :json => {count: ArticleReputation\
+      .where("article_id = ? and reputation_genre_id = ?", params[:id], params[:genre])\
       .count\
     }
   end
 
   private
-    # def set_articles
-    #   @all_articles = OtherArticle.all
-    # end
+    def set_articles
+      @all_articles = Article.all
+    end
 
     def set_article
       @article = OtherArticle.find(params[:id])

@@ -11,22 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221050512) do
-
-  create_table "all_articles", id: false, force: true do |t|
-    t.integer  "genre_id",           limit: 8
-    t.integer  "id",                           default: 0, null: false
-    t.string   "title"
-    t.date     "publication_date"
-    t.string   "description"
-    t.text     "article"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.integer  "publication",        limit: 1
-    t.integer  "spice_id"
-  end
+ActiveRecord::Schema.define(version: 20160216114323) do
 
   create_table "areas", force: true do |t|
     t.string "name"
@@ -78,27 +63,6 @@ ActiveRecord::Schema.define(version: 20160221050512) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "articles", force: true do |t|
-    t.string   "title"
-    t.date     "publication_date"
-    t.string   "description"
-    t.text     "article"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.integer  "genre_id"
-    t.integer  "area_id"
-    t.integer  "group_id"
-    t.integer  "spice_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "favorites",                                  default: 0
-    t.boolean  "publication",                                default: false
-    t.decimal  "latitude",           precision: 9, scale: 6
-    t.decimal  "longitude",          precision: 9, scale: 6
   end
 
   create_table "entry", force: true do |t|
@@ -156,11 +120,26 @@ ActiveRecord::Schema.define(version: 20160221050512) do
     t.datetime "updated_at"
   end
 
-  create_table "other_article_reputations", force: true do |t|
-    t.integer  "other_article_id"
-    t.integer  "reputation_genre_id"
+  create_table "origin_articles", force: true do |t|
+    t.string   "title"
+    t.date     "publication_date"
+    t.string   "description"
+    t.text     "article"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "genre_id"
+    t.integer  "area_id"
+    t.integer  "group_id"
+    t.integer  "spice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "favorites",                                  default: 0
+    t.boolean  "publication",                                default: false
+    t.decimal  "latitude",           precision: 9, scale: 6
+    t.decimal  "longitude",          precision: 9, scale: 6
+    t.string   "type"
   end
 
   create_table "other_articles", force: true do |t|
