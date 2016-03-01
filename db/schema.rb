@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 20160216114323) do
     t.boolean  "publication",                                default: false
     t.decimal  "latitude",           precision: 9, scale: 6
     t.decimal  "longitude",          precision: 9, scale: 6
-    t.string   "type"
+    t.string   "type",                                       default: "Article"
   end
 
   create_table "other_articles", force: true do |t|
