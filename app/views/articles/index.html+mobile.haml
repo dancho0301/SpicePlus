@@ -10,9 +10,6 @@
                   = image_tag article.photo, class: "img-responsive"
                   .spice_icon{class: "spice_icon#{article.spice_id}"}
               .article_title
-                -# - if article.publication_date >= (Date.today << 2)
-                -#   .new
-                -#     NEW!
                 %p.title
                   = article.title
               .author{class: article.genre.css_class}

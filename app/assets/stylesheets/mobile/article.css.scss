@@ -29,6 +29,7 @@
       .tour{.label{background-color: #D56565}}
       .event{.label{background-color: #E09200}}
       .report{.label{background-color: #30A0B4}}
+      .other{.label{background-color: $genre_other_color}}
       .title{
         margin-bottom: 0px;
         font-weight: bold;
@@ -536,6 +537,12 @@ border-width: 2px;
         background-color: #797979;
         .label{
           color: #797979;
+        }
+      }
+      .other{
+        background-color: $genre_other_color;
+        .label{
+          color: $genre_other_color;
         }
       }
     }

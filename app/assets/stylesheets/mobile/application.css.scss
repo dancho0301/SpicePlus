@@ -25,6 +25,12 @@
 // 共通カラー定義
 $theme-green: #30A0B5;
 
+$genre_tour_color:   #D56565;
+$genre_report_color: #30A0B4;
+$genre_event_color:  #E09200;
+$genre_other_color:  #666666;
+
+
 html{
   height: 100%;
 }
@@ -221,6 +227,12 @@ body{
         color: #797979;
       }
     }
+    .other{
+      background-color: $genre_other_color;
+      .label{
+        color: $genre_other_color;
+      }
+    }
   }
   .article-list-dummy{
     background-color: #DDD ;
@@ -279,6 +291,10 @@ div.thumb-list{
 }
 .label-event{
   background-color: #11b769;
+  font-size: 9pt;
+}
+.label-other{
+  background-color: $genre_other_color;
   font-size: 9pt;
 }
 
