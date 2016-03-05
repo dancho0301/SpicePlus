@@ -260,6 +260,7 @@
         p{
           font-size: 12px;
           line-height: 1.8;
+          text-align: left;
           /* text-decoration: underline; */
         }
         div.date{
@@ -400,6 +401,7 @@
     }
 
     .article_reputation{
+      margin-top: 20px;
       ul{
         display: flex;
         display: -webkit-flex; /* Safari */
@@ -579,21 +581,27 @@
         }
       }
       .tour{
-        background-color: #D56565;
+        background-color: $genre_tour_color;
         .label{
-          color: #D56565;
+          color: $genre_tour_color;
         }
       }
       .report{
-        background-color: #30A0B4;
+        background-color: $genre_report_color;
         .label{
-          color: #30A0B4;
+          color: $genre_report_color;
         }
       }
       .event{
-        background-color: #E09200;
+        background-color: $genre_event_color;
         .label{
-          color: #E09200;
+          color: $genre_event_color;
+        }
+      }
+      .other{
+        background-color: $genre_other_color;
+        .label{
+          color: $genre_other_color;
         }
       }
       .notice{

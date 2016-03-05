@@ -11,3 +11,7 @@ genres:
     id: 3
     name: 'イベント'
     css_class: 'event'
+  -
+    id: 4
+    name: 'その他'
+    css_class: 'other'

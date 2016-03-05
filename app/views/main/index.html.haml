@@ -1,0 +1,92 @@
+-# トップカルーセル
+.row
+  .col-md-12
+    #carousel-generic.carousel.slide{data: {ride: 'carousel'}}
+      -# 標識の設定
+      %ol.carousel-indicators
+        - @articles.count.times do |idx|
+          %li(data-target= "#carousel-generic" data-slide-to="#{idx+1}"){class: "#{'active' if idx == 0}"}
+      -# スライドさせる画像の設定
+      .carousel-inner
+        - @articles.each_with_index do |article, idx|
+          -# スタイルクラスを取り出しておく（汎用があるので）
+          - css_class = article.genre.css_class if article.genre.present?
+          - css_class ||= 'other'
+
+          .item{class: "#{'active' if idx == 1}"}
+            = link_to image_tag(article.photo), article
+            = link_to(article) do
+              .carousel-caption
+                %div{class: "#{css_class}"}
+                  %span.label
+                    - if article.genre.present?
+                      = article.genre.name
+                    - else
+                      その他
+                %p.title
+                  = article.title
+                %p.name
+                  = article.group.name if article.group.present?
+
+      -# Controls
+      %a.left.carousel-control(href="#carousel-generic" data-slide="prev")
+        %span.glyphicon.glyphicon-chevron-left
+      %a.right.carousel-control(href="#carousel-generic" data-slide="next")
+        %span.glyphicon.glyphicon-chevron-right
+
+.square-container
+  .row
+    .col-sm-12
+      = link_to "▶記事一覧へ", articles_path, class: "to_article_list"
+
+  .row.menu-square.square_top
+    -# 本体
+    - 6.times do |idx|
+      - article = @articles[idx]
+      -# スタイルクラスを取り出しておく（汎用があるので）
+      - css_class = article.genre.css_class if article.genre.present?
+      - css_class ||= 'other'
+
+      -# 4つめの記事は行を変える
+      - if idx == 3
+        .row.menu-square.square_middle
+      -# 記事が存在しない時はダミー画像
+      - if article == nil
+        .col-sm-4.col_left
+          .article-list.article-list-dummy
+      - else
+        -# 記事本体
+        .col-sm-4.col_left
+          .article-list
+            .article_image
+              = link_to article do
+                = image_tag article.photo, :height => "120"
+                - if article.spice_id
+                  .spice_icon{class: "spice_icon#{article.spice_id}"}
+            .article_title
+              - if article.publication_date >= (Date.today << 1)
+                .new NEW!
+              %p.title= article.title
+            .author{class: css_class}
+              .author-left
+                .fukidashi
+                - if article.genre_id == 0
+                  = image_tag "unei.png", :size => "40x40"
+                - elsif article.main_reporter.present?
+                  = image_tag article.main_reporter.photo, :size => "40x40"
+                - else
+                  = image_tag "user.dummy_f.png", :size => "40x40"
+              .author-right
+                .label{class: article.genre.name}
+                .date
+                  = article.publication_date.strftime("%y.%m.%d")
+                .author-name
+                  - if article.genre_id == 0
+                    運営からのお知らせ
+                  - elsif article.main_reporter.present?
+                    Reported by #{article.main_reporter.name}
+                  - else
+                    Reported by 名無しさん
+  .row
+    .col-sm-12(style="text-align: right;")
+      = link_to "▶記事一覧へ", articles_path, class: "to_article_list"

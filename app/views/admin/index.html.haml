@@ -15,7 +15,9 @@
       %li
         = link_to "団体を登録する", admin_groups_path, class: "btn btn-default"
       %li
-        = link_to "記事を登録する", admin_articles_path, class: "btn btn-default"
+        = link_to "レポート記事を登録する", admin_articles_path, class: "btn btn-default"
+      %li
+        = link_to "その他記事を登録する", admin_other_articles_path, class: "btn btn-default"
 
     -# 管理者用
     - if current_user.administrator

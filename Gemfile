@@ -6,7 +6,7 @@ gem 'sass-rails', '~> 4.0.0'   # CSSを効率的に書ける
 gem 'haml-rails'               # HTMLを簡潔に書ける
 gem 'bootstrap-sass'           # Twitter Bootstrapが使える
 gem 'font-awesome-sass'
-# gem 'uglifier', '>= 1.3.0'     # JavaScriptの圧縮
+gem 'uglifier', '>= 1.3.0'     # JavaScriptの圧縮
 gem 'coffee-rails', '~> 4.0.0' # JavaScriptを簡潔に書ける
 gem 'therubyracer'
 gem 'jquery-rails'             # jQueryが使える
@@ -31,6 +31,8 @@ gem 'ransack'
 
 # 管理画面
 gem "sorcery"
+# 定数を一元管理する
+gem 'config'
 
 gem 'yaml_db'
 

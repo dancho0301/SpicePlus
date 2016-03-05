@@ -74,7 +74,7 @@ class Admin::ArticlesController < ApplicationController
     end
 
     def set_collections
-      @genres = Genre.all
+      @genres = Genre.where.not(id: 0)
       @areas = Area.all
       @groups = Group.all.order("id DESC")
       @spices = Spice.all

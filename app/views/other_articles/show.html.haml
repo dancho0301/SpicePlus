@@ -1,0 +1,51 @@
+.article_show
+  .row
+    .col-xs-12
+      #carousel-generic.carousel.slide(data-ride="carousel")
+        .carousel-inner
+          .item.active
+            = link_to image_tag(@article.photo), @article
+            = link_to(@article) do
+              %div.carousel-caption
+                %div.other
+                  %span.label
+                    おしらせ
+                  %p.title
+                    = @article.title
+      .sns_buttons
+        %a{href:    "http://www.facebook.com/share.php?u=#{request.url}",
+          onclick: "window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"}
+          %i.fa.fa-facebook-square
+        %a.fa.fa-twitter-square{href: "http://twitter.com/share?url=#{request.url}&text=#{@article.title} - SpicePlus&hashtags=spiceplus", target: "_blank"}
+
+      .clear
+      -# 記事
+      .article
+        %div.other
+          = raw @article.article
+        %div.article_reputation{article_id: "#{@article.id}"}
+          %ul
+            %li
+              .arrow_box #{@reputation[0]}
+              = image_tag "reputation_00.png", class: "img-responsive btn-other_reputation", id: "reputation_00", genre: 0
+            %li
+              .arrow_box #{@reputation[1]}
+              = image_tag "reputation_01.png", class: "img-responsive btn-other_reputation", id: "reputation_01", genre: 1
+            %li
+              .arrow_box #{@reputation[2]}
+              = image_tag "reputation_02.png", class: "img-responsive btn-other_reputation", id: "reputation_02", genre: 2
+        -# 参加ボタン
+        .entry_btn
+          = link_to image_tag("entry_off.png"), inquiry_path + "/article/" + @article.id.to_s, id: "entry"
+
+- content_for :sidebar do
+  %div.other_reports
+    %h3 Other Reports
+    - @other_articles.each do |article|
+      %div.other_report
+        %div.report_image
+          = link_to image_tag(article.photo, height: "120"), article
+        %div.label
+          = article.genre.name
+        %div.title
+          = article.title

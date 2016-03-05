@@ -22,6 +22,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+$genre_tour_color:   #D56565;
+$genre_report_color: #30A0B4;
+$genre_event_color:  #E09200;
+$genre_other_color:  #666666;
+
+
 html{
   height: 100%;
 }
@@ -231,17 +237,22 @@ body{
       }
       .tour{
         .label{
-          background-color: #D56565;
+          background-color: $genre_tour_color;
         }
       }
       .report{
         .label{
-          background-color: #30A0B4;
+          background-color: $genre_report_color;
         }
       }
       .event{
         .label{
-          background-color: #E09200;
+          background-color: $genre_event_color;
+        }
+      }
+      .other{
+        .label{
+          background-color: $genre_other_color;
         }
       }
       .name{
@@ -374,21 +385,27 @@ body{
       }
     }
     .tour{
-      background-color: #D56565;
+      background-color: $genre_tour_color;
       .label{
-        color: #D56565;
+        color: $genre_tour_color;
       }
     }
     .report{
-      background-color: #30A0B4;
+      background-color: $genre_report_color;
       .label{
-        color: #30A0B4;
+        color: $genre_report_color;
       }
     }
     .event{
-      background-color: #E09200;
+      background-color: $genre_event_color;
       .label{
-        color: #E09200;
+        color: $genre_event_color;
+      }
+    }
+    .other{
+      background-color: $genre_other_color;
+      .label{
+        color: $genre_other_color;
       }
     }
     .notice{

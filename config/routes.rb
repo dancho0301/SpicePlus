@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   get 'articles', :to => 'articles#index'
   get 'articles(/:id)', :to => 'articles#show', :as => 'article'
+  resources :other_articles, only: [:show]
 
-  # いいね 20151001
   get 'articles/like(/:id)(/:genre)', :to => 'articles#like', :as => 'article_like'
+  get 'other_articles/like(/:id)(/:genre)', :to => 'other_articles#like', :as => 'other_article_like'
 
   get 'maps', to: 'maps#index'
 
@@ -96,6 +97,7 @@ Rails.application.routes.draw do
     resources :spices
     resources :users
     resources :inquiry, only: [:index, :show]
+    resources :other_articles
   end
 
   # 認証系
