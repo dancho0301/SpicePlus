@@ -82,7 +82,7 @@
                   = article.publication_date.strftime("%y.%m.%d")
                 .author-name
                   - if article.genre_id == 0
-                    運営からのお知らせ
+                    体験レポート
                   - elsif article.main_reporter.present?
                     Reported by #{article.main_reporter.name}
                   - else
