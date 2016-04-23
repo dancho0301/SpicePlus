@@ -15,7 +15,9 @@
               .author{class: article.genre.css_class}
                 .author-left
                   .fukidashi
-                  - if article.main_reporter.present?
+                  - if article.genre_id == 0
+                    = image_tag 'tmp_keiko.jpg', size: '40x40'
+                  - elsif article.main_reporter.present?
                     = image_tag article.main_reporter.photo, :size => "40x40"
                   - else
                     = image_tag "user.dummy_f.png", :size => "40x40"
@@ -26,7 +28,9 @@
                     = article.publication_date.strftime("%y.%m.%d")
                   .author-name
                     - if article.genre_id == 0
-                      体験レポート
+                      -# TODO: 暫定対応
+                      -# 体験レポート
+                      Reported by けいこ
                     - elsif article.main_reporter.present?
                       Reported by #{article.main_reporter.name}
                     - else
