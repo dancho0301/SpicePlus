@@ -5,15 +5,14 @@
       -# 標識の設定
       %ol.carousel-indicators
         - @articles.count.times do |idx|
-          %li(data-target= "#carousel-generic" data-slide-to="#{idx+1}"){class: "#{'active' if idx == 0}"}
+          %li(data-target= "#carousel-generic" data-slide-to="#{idx}"){class: "#{'active' if idx == 0}"}
       -# スライドさせる画像の設定
       .carousel-inner
         - @articles.each_with_index do |article, idx|
           -# スタイルクラスを取り出しておく（汎用があるので）
           - css_class = article.genre.css_class if article.genre.present?
           - css_class ||= 'other'
-
-          .item{class: "#{'active' if idx == 1}"}
+          .item{class: "#{'active' if idx == 0}"}
             = link_to image_tag(article.photo), article
             = link_to(article) do
               .carousel-caption
