@@ -70,9 +70,9 @@
               .author-left
                 .fukidashi
                 - if article.genre_id == 0
-                  -# = image_tag "unei.png", :size => "40x40"
+                  = image_tag "unei.png", :size => "40x40"
                   -# TODO: 暫定対応
-                  = image_tag "tmp_keiko.jpg", :size => "40x40"
+                  -# = image_tag "tmp_keiko.jpg", :size => "40x40"
                 - elsif article.main_reporter.present?
                   = image_tag article.main_reporter.photo, :size => "40x40"
                 - else
@@ -84,8 +84,8 @@
                 .author-name
                   - if article.genre_id == 0
                     -# TODO: 暫定対応
-                    Reported by まゆこ
-                    -# 体験レポート
+                    -# Reported by まゆこ
+                    体験レポート
                   - elsif article.main_reporter.present?
                     Reported by #{article.main_reporter.name}
                   - else
