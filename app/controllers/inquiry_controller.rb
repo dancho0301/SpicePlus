@@ -29,12 +29,16 @@ class InquiryController < ApplicationController
     # メール送信
     @inquiry = Inquiry.new(inquiry_params)
 
-    if @inquiry.save
-      InquiryMailer.received_email(@inquiry).deliver
-      # 完了画面を表示
-      render :action => 'thanks'
-    else
-      render nothing: true, status: 500
+    # スパムチェック
+    # メッセージが半角オンリーだったらさようなら
+    if @inquiry.size != @inquiry.bytesize
+      if @inquiry.save
+        InquiryMailer.received_email(@inquiry).deliver
+        # 完了画面を表示
+        render :action => 'thanks'
+      else
+        render nothing: true, status: 500
+      end
     end
   end
 
