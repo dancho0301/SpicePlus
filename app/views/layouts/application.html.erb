@@ -23,12 +23,12 @@
     <% if @article.present? %>
       <meta property="og:title" content="<%= @article.title %>" />
       <meta property="og:image" content="<%= URI.join(request.url, @article.photo.url) %>"/>
+      <meta property="og:description" content="<%= @article.description %>" />
     <% else %>
       <meta property="og:title" content="SpicePlus〜体験レポート型NPO総合情報サイト〜" />
       <meta property="og:image" content="<%= URI.join(request.url, 'images/spice+logo_square.png') %>"/>
     <% end %>
     <meta property="og:type" content="article" />
-    <meta property="og:description" content="SpicePlus〜体験レポート型NPO総合情報サイト〜" />
     <meta property="og:url" content="<%= request.url %>" />
     <meta property="og:site_name" content="SpicePlus〜体験レポート型NPO総合情報サイト〜" />
     <meta property="og:locale" content="ja_JP" />
