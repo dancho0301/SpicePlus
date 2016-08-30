@@ -67,6 +67,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'mysql2'
   gem "sqlite3"
   gem "rspec", '~> 3.1.0'      # テストツール
   gem 'rspec-rails'            # RailsでRspecが使える

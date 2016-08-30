@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<!--  created with free sitemap generation system www.sitemapxml.jp  --> 
+<!--  created with free sitemap generation system www.sitemapxml.jp  -->
 <url>
   <loc>http://spice-plus.yokohama/</loc>
   <priority>1.0</priority>
@@ -15,28 +15,135 @@
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>http://spice-plus.yokohama/inquiry</loc>
+  <loc>http://spice-plus.yokohama/static_pages/recruit</loc>
   <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/33</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/32</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/other_articles/31</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/30</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/other_articles/28</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/other_articles/29</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/27</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/26</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/25</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/24</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/22</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/23</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/21</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/20</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/19</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/18</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/17</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/16</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/15</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/14</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/13</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/12</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/11</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/9</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/10</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/8</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://spice-plus.yokohama/articles/7</loc>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>http://spice-plus.yokohama/articles/5</loc>
-  <priority>0.8</priority>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>http://spice-plus.yokohama/articles/4</loc>
-  <priority>0.8</priority>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>http://spice-plus.yokohama/articles/2</loc>
-  <priority>0.8</priority>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>http://spice-plus.yokohama/articles/3</loc>
-  <priority>0.8</priority>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>http://spice-plus.yokohama/articles/1</loc>
-  <priority>0.8</priority>
+  <priority>0.7</priority>
 </url>
-
 </urlset>
