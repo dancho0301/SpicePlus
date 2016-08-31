@@ -18,6 +18,9 @@
         = link_to "レポート記事を登録する", admin_articles_path, class: "btn btn-default"
       %li
         = link_to "その他記事を登録する", admin_other_articles_path, class: "btn btn-default"
+    %h2
+      テスト公開
+    = link_to "スパイスマップ", maps_path, class: "btn btn-default"
 
     -# 管理者用
     - if current_user.administrator
@@ -37,5 +40,3 @@
           = link_to "ジャンルを登録する", admin_genres_path, class: "btn btn-default"
         %li
           = link_to "スパイスを登録する", admin_genres_path, class: "btn btn-default"
-        %li
-          = link_to "リンクを管理する（工事中）", admin_genres_path, class: "btn btn-default"
