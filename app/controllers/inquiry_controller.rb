@@ -30,8 +30,8 @@ class InquiryController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
 
     # スパムチェック
-    # メッセージが半角オンリーだったらさようなら
-    if @inquiry.size != @inquiry.bytesize
+    # 名前が半角オンリーだったらさようなら
+    if @inquiry.first_name.size != @inquiry.first_name.bytesize
       if @inquiry.save
         InquiryMailer.received_email(@inquiry).deliver
         # 完了画面を表示
