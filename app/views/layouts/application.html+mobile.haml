@@ -51,7 +51,12 @@
     %meta{:content => "/mstile-144x144.png", :name => "msapplication-TileImage"}/
     %meta{:content => "#ffffff", :name => "theme-color"}/
 
-    %title= content_for?(:title) ? yield(:title) : "SpicePlus"
+    - if @article.present?
+      %title
+        = @article.title + " | SpicePlus"
+    - else
+      %title
+        SpicePlus〜体験レポート型NPO総合情報サイト〜
     = csrf_meta_tags
     = stylesheet_link_tag "mobile/application", :media => "all"
     = javascript_include_tag "mobile/application"
