@@ -70,7 +70,10 @@
               .author-left
                 .fukidashi
                 - if article.genre_id == 0
-                  = image_tag "unei.png", :size => "40x40"
+                  - if article.reporter_photo.present?
+                    = image_tag article.reporter_photo, :size => "40x40"
+                  - else
+                    = image_tag "unei.png", :size => "40x40"
                   -# TODO: 暫定対応
                   -# = image_tag "tmp_keiko.jpg", :size => "40x40"
                 - elsif article.main_reporter.present?

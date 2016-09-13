@@ -20,6 +20,12 @@
         %br
         = f.text_field :title, :class => "form-control"
       .form-group
+        = f.label :reporter_photo, "レポーター画像"
+        -# = f.text_field :reporter_name, :class => "form-control"
+        = f.file_field :reporter_photo
+        - if @article.reporter_photo.present?
+          = image_tag @article.reporter_photo, class: "img-responsive"
+      .form-group
         = f.label :description, "概要（シェアしたりすると出る。画面には出ない）"
         %br
         = f.text_area :description, :class => "form-control", rows: 5

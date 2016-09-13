@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216114323) do
+ActiveRecord::Schema.define(version: 20160913135641) do
 
   create_table "areas", force: true do |t|
     t.string "name"
@@ -135,11 +135,16 @@ ActiveRecord::Schema.define(version: 20160216114323) do
     t.integer  "spice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "favorites",                                  default: 0
-    t.boolean  "publication",                                default: false
-    t.decimal  "latitude",           precision: 9, scale: 6
-    t.decimal  "longitude",          precision: 9, scale: 6
-    t.string   "type",                                       default: "Article"
+    t.integer  "favorites",                                           default: 0
+    t.boolean  "publication",                                         default: false
+    t.decimal  "latitude",                    precision: 9, scale: 6
+    t.decimal  "longitude",                   precision: 9, scale: 6
+    t.string   "type",                                                default: "Article"
+    t.string   "reporter_photo_file_name"
+    t.string   "reporter_photo_content_type"
+    t.integer  "reporter_photo_file_size"
+    t.datetime "reporter_photo_updated_at"
+    t.string   "reporter_name"
   end
 
   create_table "other_articles", force: true do |t|
