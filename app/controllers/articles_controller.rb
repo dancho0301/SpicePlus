@@ -53,7 +53,9 @@ class ArticlesController < ApplicationController
     end
 
     def set_search
-      @search = Article.search(params[:q])
+      # @search = Article.search(params[:q])
+      @search = OriginArticle.search(params[:q])
+
     end
 
     # 記事に利用されている地域だけ抽出する（検索で利用するため）

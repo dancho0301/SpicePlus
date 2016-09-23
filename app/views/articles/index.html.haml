@@ -18,7 +18,7 @@
                 .title
                   = link_to article.title, article
                   %p.group_name
-                    = article.group.name
+                    = article.group.name if article.group.present?
                 .description
                   = article_description(article)
               .author{:class => "#{article.genre.css_class}"}
@@ -26,7 +26,17 @@
                 .date  #{article.publication_date.strftime("%y.%m.%d")}
                 .author-name
                   %br/
-                  %span.name #{article.main_reporter.name}
-                  = image_tag article.main_reporter.photo, :size => "40x40"
+                  - if article.genre_id == 0                         # お知らせ記事
+                    %span.name 体験レポート
+                    - if article.reporter_photo.present?
+                      = image_tag article.reporter_photo, :size => "40x40"
+                    - else
+                      = image_tag "unei.png", :size => "40x40"
+                  - elsif article.main_reporter.present?             # 通常記事
+                    %span.name #{article.main_reporter.name}
+                    = image_tag article.main_reporter.photo, :size => "40x40"
+                  - else
+                    %span.name 名無しさん
+                    = image_tag "user.dummy_f.png", :size => "40x40"
                 .fukidashi
         .col-xs-1
