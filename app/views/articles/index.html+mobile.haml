@@ -15,7 +15,12 @@
               .author{class: article.genre.css_class}
                 .author-left
                   .fukidashi
-                  - if article.main_reporter.present?
+                  - if article.genre_id == 0
+                    - if article.reporter_photo.present?
+                      = image_tag article.reporter_photo, :size => "40x40"
+                    - else
+                      = image_tag "unei.png", :size => "40x40"
+                  - elsif article.main_reporter.present?
                     = image_tag article.main_reporter.photo, :size => "40x40"
                   - else
                     = image_tag "user.dummy_f.png", :size => "40x40"
@@ -25,7 +30,11 @@
                   .date
                     = article.publication_date.strftime("%y.%m.%d")
                   .author-name
-                  - if article.main_reporter.present?
-                    Reported by #{article.main_reporter.name}
-                  - else
-                    Reported by 名無しさん
+                    - if article.genre_id == 0
+                      -# TODO: 暫定対応
+                      体験レポート
+                      -# Reported by まゆこ
+                    - elsif article.main_reporter.present?
+                      Reported by #{article.main_reporter.name}
+                    - else
+                      Reported by 名無しさん
