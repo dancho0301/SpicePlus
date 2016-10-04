@@ -25,3 +25,22 @@
               = link_to 'プレビュー', article, :class => "btn btn-primary"
               = link_to '編集', edit_admin_other_article_path(article), :class => "btn btn-primary"
               = link_to '削除', [:admin, article], method: :delete, data: { confirm: '削除すると元に戻せません。よろしいですか？' }, :class => "btn btn-danger"
+          %tr
+            %td{colspan: 3}
+              - if article.address.present?
+                活動場所：
+                = article.address
+              - else
+                %div.alert.alert-danger{role: alert}
+                  活動場所が指定されていません
+                  %br
+                  活動場所を登録して下さい
+            %td
+              - if article.latitude.presence && article.longitude.presence
+                = link_to "緯度経度取得済み", "http://maps.google.com/maps?q=#{article.latitude},#{article.longitude}",
+                  target: 'brank'
+              - else
+                %div.alert.alert-danger{role: alert}
+                  緯度経度取得失敗
+                  %br
+                  活動場所を修正して下さい

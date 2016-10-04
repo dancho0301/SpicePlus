@@ -20,6 +20,10 @@
         %br
         = f.text_field :title, :class => "form-control"
       .form-group
+        = f.label :address, "活動場所"
+        %br
+        = f.text_field :address, class: "form-control"
+      .form-group
         = f.label :reporter_photo, "レポーター画像"
         -# = f.text_field :reporter_name, :class => "form-control"
         = f.file_field :reporter_photo
