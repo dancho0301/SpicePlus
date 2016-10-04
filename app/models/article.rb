@@ -36,9 +36,9 @@ class Article < OriginArticle
 
   # geocoding
   # geocoded_by :address, :latitude, :longitude
-  geocoded_by :address
-  # before_validation :geocode
-  after_validation :geocode
+  # geocoded_by :address
+  # # before_validation :geocode
+  # after_validation :geocode
 
   def validate
     puts self.article_plans.count
@@ -78,11 +78,11 @@ class Article < OriginArticle
   end
 
   # 緯度経度情報を取得する
-  def address
-    if self.group.present?
-      self.group.address
-    end
-  end
+  # def address
+  #   if self.group.present?
+  #     self.group.address
+  #   end
+  # end
 
   private
     # プランの存在を確認。空白行は削除する

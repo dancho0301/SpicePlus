@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
   def index
-    @articles = Article.all.includes(:group)
+    @articles = Article.all
   end
 end

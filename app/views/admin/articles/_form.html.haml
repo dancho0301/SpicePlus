@@ -36,6 +36,10 @@
         %br
         = f.collection_select(:area_id, @areas, :id, :name, {}, {:class => 'form-control'})
       .form-group
+        = f.label :address, "活動場所"
+        %br
+        = f.text_field :address, class: "form-control"
+      .form-group
         = f.label :spice_id, "スパイス"
         %br
         = f.collection_select(:spice_id, @spices, :id, :name, {}, {:class => 'form-control'})

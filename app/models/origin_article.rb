@@ -29,8 +29,8 @@ class OriginArticle < ActiveRecord::Base
   validates :description, length: {maximum: 200, too_long: "説明は200文字以内にしてください"}
   validates :photo, presence: true
 
-
-
+  geocoded_by :address
+  after_validation :geocode
 
   def article=(html)
     # img タグが存在する場合

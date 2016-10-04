@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913135641) do
+ActiveRecord::Schema.define(version: 20161004121024) do
 
   create_table "areas", force: true do |t|
     t.string "name"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20160913135641) do
     t.integer  "reporter_photo_file_size"
     t.datetime "reporter_photo_updated_at"
     t.string   "reporter_name"
+    t.string   "address"
   end
 
   create_table "other_articles", force: true do |t|
