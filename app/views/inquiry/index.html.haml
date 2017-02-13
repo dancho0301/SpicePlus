@@ -33,17 +33,17 @@
           = f.text_field :family_name, :placeholder => "姓", :maxlength => 10, :value => @inquiry.family_name
           = f.text_field :first_name, :placeholder => "名", :maxlength => 10, :value => @inquiry.first_name
           %span.text-danger （必須）
-      %tr
-        %th
-          %span.eng Reading
-          %br/
-          %span.jpn フリガナ
-
-
-        %td
-          = f.text_field :family_name_kana, :placeholder => "セイ", :maxlength => 10, :value => @inquiry.family_name_kana
-          = f.text_field :first_name_kana, :placeholder => "メイ", :maxlength => 10, :value => @inquiry.first_name_kana
-          %span.text-danger （必須）
+      -# %tr
+      -#   %th
+      -#     %span.eng Reading
+      -#     %br/
+      -#     %span.jpn フリガナ
+      -#
+      -#
+      -#   %td
+      -#     = f.text_field :family_name_kana, :placeholder => "セイ", :maxlength => 10, :value => @inquiry.family_name_kana
+      -#     = f.text_field :first_name_kana, :placeholder => "メイ", :maxlength => 10, :value => @inquiry.first_name_kana
+          -# %span.text-danger （必須）
       %tr
         %th
           %span.eng Mail Address
