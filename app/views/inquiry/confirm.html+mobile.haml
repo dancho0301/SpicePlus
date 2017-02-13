@@ -27,15 +27,15 @@
           %p.report_name #{@inquiry.family_name} #{@inquiry.first_name}
           = f.hidden_field :family_name, :placeholder => "姓", :maxlength => 10, :value => @inquiry.family_name
           = f.hidden_field :first_name, :placeholder => "名", :maxlength => 10, :value => @inquiry.first_name
-      %tr
-        %th
-          %span.eng Reading
-          %br/
-          %span.jpn フリガナ
-        %td
-          %p.report_name #{@inquiry.family_name_kana} #{@inquiry.first_name_kana}
-          = f.hidden_field :family_name_kana, :placeholder => "セイ", :maxlength => 10, :value => @inquiry.family_name_kana
-          = f.hidden_field :first_name_kana, :placeholder => "メイ", :maxlength => 10, :value => @inquiry.first_name_kana
+      -# %tr
+      -#   %th
+      -#     %span.eng Reading
+      -#     %br/
+      -#     %span.jpn フリガナ
+      -#   %td
+      -#     %p.report_name #{@inquiry.family_name_kana} #{@inquiry.first_name_kana}
+      -#     = f.hidden_field :family_name_kana, :placeholder => "セイ", :maxlength => 10, :value => @inquiry.family_name_kana
+      -#     = f.hidden_field :first_name_kana, :placeholder => "メイ", :maxlength => 10, :value => @inquiry.first_name_kana
       %tr
         %th
           %span.eng Mail Address
