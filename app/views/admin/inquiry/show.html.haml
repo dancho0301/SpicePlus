@@ -6,10 +6,10 @@
   = @inquiry.created_at
 %p
   %strong 氏名:
-  = @inquiry.family_name + " " + @inquiry.first_name
+  = @inquiry.family_name.to_s + " " + @inquiry.first_name.to_s
 %p
   %strong 氏名カナ:
-  = @inquiry.family_name_kana + " " + @inquiry.first_name_kana
+  = @inquiry.family_name_kana.to_s + " " + @inquiry.first_name_kana.to_s
 %p
   %strong メールアドレス:
   = @inquiry.email
